@@ -120,7 +120,6 @@ const obj = [["100","FF"],
                     a = ej[0] , 
                     b = i,
                     obj.forEach( (el , i) => {  
-                      console.log(el[1],'el[1]')
                       if(el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase()){
                           c = el[0] ,
                           d = i,
