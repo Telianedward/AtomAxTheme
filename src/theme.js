@@ -343,7 +343,7 @@ const { _gC } = require("./colors");
       "editorOverviewRuler.warningForeground" : `${hex(color.severe.muted)}${_x_[5]}`,
       "editorOverviewRuler.wordHighlightForeground" : `${hex(color.success.muted)}${_x_[5]}`,
       "editorOverviewRuler.wordHighlightStrongForeground" : `${hex(color.success.muted)}${_x_[5]}`,
-      "editorPane.background" : _s_,
+      "editorPane.background" : _boc_,
       "editorRuler.foreground" :  `${hex(color.success.muted)}${_x_[5]}`,
       "editorStickyScroll.background" :  _c_,
       "editorStickyScrollHover.background" : _b_,
