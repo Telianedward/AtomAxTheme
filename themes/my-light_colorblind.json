@@ -1,7 +1,6 @@
 {
   "name": "Default Colorblind Light",
   "colors": {
-    "errorForeground": "#f7993966",
     "activityBar.activeBorder": "#54aeff66",
     "activityBar.foreground": "#54aeff66",
     "activityBar.inactiveForeground": "#f6f8fa",
@@ -32,7 +31,6 @@
     "diffEditorGutter.removedLineBackground": "#f7993966",
     "diffEditorOverview.insertedForeground": "#54aeff66",
     "diffEditorOverview.removedForeground": "#f7993966",
-    "disabledForeground": "#fff8c5",
     "editor.findMatchBackground": "#54aeff66",
     "editor.findMatchBorder": "#54aeff66",
     "editor.findMatchHighlightBackground": "#54aeff66",
@@ -124,6 +122,7 @@
     "editorWarning.foreground": "#f7993966",
     "editorWhitespace.foreground": "#ff80c866",
     "editorWidget.resizeBorder": "#54aeff66",
+    "errorForeground": "#f7993966",
     "extensionBadge.remoteBackground": "#54aeff66",
     "extensionButton.prominentBackground": "#54aeff66",
     "extensionButton.prominentHoverBackground": "#54aeff66",

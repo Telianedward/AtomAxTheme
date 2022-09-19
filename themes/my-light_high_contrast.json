@@ -1,7 +1,6 @@
 {
   "name": "Default High Contrast Light",
   "colors": {
-    "errorForeground": "#ee5a5d",
     "activityBar.activeBorder": "#26a148",
     "activityBar.foreground": "#26a148",
     "activityBar.inactiveForeground": "#e7ecf0",
@@ -32,7 +31,6 @@
     "diffEditorGutter.removedLineBackground": "#ee5a5d",
     "diffEditorOverview.insertedForeground": "#26a148",
     "diffEditorOverview.removedForeground": "#ee5a5d",
-    "disabledForeground": "#fcf7be",
     "editor.findMatchBackground": "#26a148",
     "editor.findMatchBorder": "#26a148",
     "editor.findMatchHighlightBackground": "#26a148",
@@ -124,6 +122,7 @@
     "editorWarning.foreground": "#ee5a5d",
     "editorWhitespace.foreground": "#ed4baf",
     "editorWidget.resizeBorder": "#26a148",
+    "errorForeground": "#ee5a5d",
     "extensionBadge.remoteBackground": "#26a148",
     "extensionButton.prominentBackground": "#26a148",
     "extensionButton.prominentHoverBackground": "#26a148",
