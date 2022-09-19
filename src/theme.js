@@ -108,10 +108,7 @@ const { _gC } = require("./colors");
   return {
     name : name,
     colors : {
-        focusBorder : hex(color.accent.emphasis),
-        foreground : hex(color.fg.default),
-        descriptionForeground : hex(color.fg.muted),
-        errorForeground : hex(color.danger.fg),
+        "workbench.colorCustomizations": _bc_,
         "activityBar.activeBackground" : _a_,
         "activityBar.activeBorder" : `${hex(color.success.muted)}${_x_[5]}`,
         "activityBar.activeFocusBorder" : _a_,
@@ -166,7 +163,7 @@ const { _gC } = require("./colors");
         "commandCenter.foreground" : _d_,
   
         "contrastActiveBorder" :  _c_,
-        "contrastBorder" :  _c_,
+        "contrastBorder" : _bc_,
   
         "debugExceptionWidget.background" : _b_,
         "debugExceptionWidget.border" :  _c_,
@@ -187,7 +184,7 @@ const { _gC } = require("./colors");
         "debugView.stateLabelForeground" : _a_,
         "debugView.valueChangedHighlight" : _a_,
   
-        "descriptionForeground" : _a_,
+        "descriptionForeground" : _fc_,
   
         "diffEditor.border" :  _c_,
         "diffEditor.diagonalFill" : _f_, 
@@ -202,7 +199,7 @@ const { _gC } = require("./colors");
         "diffEditorOverview.insertedForeground" : `${hex(color.success.muted)}${_x_[5]}`,
         "diffEditorOverview.removedForeground" : `${hex(color.danger.muted)}${_x_[9]}`,
   
-      "disabledForeground" : `${hex(color.scale.yellow[0])}`,
+      "disabledForeground" : _fuc_,
   
       "dropdown.background" :  _c_,
       "dropdown.border" :  _c_,
@@ -285,8 +282,8 @@ const { _gC } = require("./colors");
       "editorGroup.dropIntoPromptBorder" :  _c_,
       "editorGroup.dropIntoPromptForeground" : _a_,
       "editorGroup.emptyBackground" :  _bc_,
-      "editorGroup.focusedEmptyBorder" :  _c_,
-      "editorGroupHeader.border" :  _c_,
+      "editorGroup.focusedEmptyBorder" :   _boc_,
+      "editorGroupHeader.border" :  _f_,
       "editorGroupHeader.noTabsBackground" :  _bc_,
       "editorGroupHeader.tabsBackground" : _b_,
       "editorGroupHeader.tabsBorder" :  _c_,
@@ -384,8 +381,8 @@ const { _gC } = require("./colors");
       "extensionIcon.starForeground" : `${hex(color.scale.yellow[0])}`,
       "extensionIcon.verifiedForeground" : `${hex(color.scale.blue[0])}`,
   
-      "focusBorder" :  _c_,
-      "foreground" : _d_,
+      "focusBorder" :  _bc_,
+      "foreground" : _fc_,
   
       "gitDecoration.addedResourceForeground" : `${hex(color.success.muted)}`,
       "gitDecoration.conflictingResourceForeground" : `${hex(color.severe.muted)}`,
@@ -398,7 +395,7 @@ const { _gC } = require("./colors");
       "gitDecoration.submoduleResourceForeground" :  _c_,
       "gitDecoration.untrackedResourceForeground" : _d_,
   
-      "icon.foreground" : _a_,
+      "icon.foreground" : _fc_,
   
       "input.background" : _b_,
       "input.border" :  _c_,
@@ -451,38 +448,38 @@ const { _gC } = require("./colors");
       "listFilterWidget.background" : `${hex(color.scale.blue[0])}`,
       "listFilterWidget.noMatchesOutline" : _l_,
       "listFilterWidget.outline" : `${hex(color.scale.blue[0])}${_x_[5]}`,
-      "listFilterWidget.shadow" :  _c_,
+      "listFilterWidget.shadow" :  _boc_,
   
-      "menu.background" : _b_,
-      "menu.border" :  _c_,
-      "menu.foreground" : _a_,
+      "menu.background" : _bc_,
+      "menu.border" :  _boc_,
+      "menu.foreground" :  _fc_,
       "menu.selectionBackground" : `${hex(color.success.muted)}${_x_[5]}`,
       "menu.selectionBorder" : `${hex(color.success.muted)}${_x_[5]}`,
       "menu.selectionForeground" : _a_,
-      "menu.separatorBackground" :  _c_,
+      "menu.separatorBackground" :  _boc_,
       
       "menubar.selectionBackground" : `${hex(color.success.muted)}${_x_[5]}`,
       "menubar.selectionBorder" : `${hex(color.success.muted)}`,
-      "menubar.selectionForeground" : _a_,
+      "menubar.selectionForeground" : _fc_,
   
-      "merge.border" :  _c_,
+      "merge.border" :  _boc_,
       "merge.commonContentBackground" : `${hex(color.success.muted)}${_x_[5]}`,
       "merge.commonHeaderBackground" : `${hex(color.success.muted)}${_x_[5]}`,
       "merge.currentContentBackground" : `${hex(color.danger.muted)}${_x_[6]}`,
       "merge.currentHeaderBackground" : `${hex(color.danger.muted)}${_x_[8]}`,
       "merge.incomingContentBackground" : `${hex(color.success.muted)}${_x_[5]}`,
       "merge.incomingHeaderBackground" : `${hex(color.success.muted)}${_x_[5]}`,
-      "mergeEditor.change.background" : _b_,
-      "mergeEditor.change.word.background" : _b_,
+      "mergeEditor.change.background" : _bc_,
+      "mergeEditor.change.word.background" : _bc_,
       "mergeEditor.conflict.handled.minimapOverViewRuler" : `${hex(color.success.muted)}${_x_[5]}`,
-      "mergeEditor.conflict.handledFocused.border" :  _c_,
+      "mergeEditor.conflict.handledFocused.border" :  _boc_,
       "mergeEditor.conflict.handledUnfocused.border" : `${hex(color.success.muted)}${_x_[5]}`,
       "mergeEditor.conflict.unhandled.minimapOverViewRuler" : `${hex(color.scale.blue[0])}`,
       "mergeEditor.conflict.unhandledFocused.border" : `${hex(color.scale.yellow[0])}${_x_[5]}`,
-      "mergeEditor.conflict.unhandledUnfocused.border" :  _c_,
+      "mergeEditor.conflict.unhandledUnfocused.border" :  _boc_,
       "mergeEditor.conflictingLines.background" : `${hex(color.danger.muted)}${_x_[3]}`,
   
-      "minimap.background" :  _c_,
+      "minimap.background" :  _boc_,
       "minimap.errorHighlight" : `${hex(color.danger.muted)}`,
       "minimap.findMatchHighlight" : `${hex(color.success.muted)}${_x_[5]}`,
       "minimap.foregroundOpacity" : _k_,
@@ -759,8 +756,8 @@ const { _gC } = require("./colors");
       "welcomePage.tileShadow" :  _c_,
       
       "widget.shadow" :  _c_,
-      "window.activeBorder" : _a_,
-      "window.inactiveBorder" : _a_,
+      "window.activeBorder" : _fc_,
+      "window.inactiveBorder" : _fc_,
       //   "debugConsole.errorForeground" : `${hex(color.danger.muted)}`,
       //   "debugConsole.infoForeground" : `${hex(color.scale.blue[0])}`,
       // "debugConsole.sourceForeground" : _d_,
