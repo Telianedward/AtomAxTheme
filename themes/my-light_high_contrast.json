@@ -12,6 +12,7 @@
     "button.hoverBackground": "#26a1484d",
     "button.secondaryBackground": "#26a14880",
     "button.secondaryHoverBackground": "#26a1484d",
+    "button.separator": "#26a1484d",
     "charts.blue": "#368cf9",
     "charts.green": "#26a148",
     "charts.orange": "#dc6d1a",
