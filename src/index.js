@@ -1,14 +1,14 @@
 const fs = require("fs").promises,
       _gT = require("./theme"),
-      l = _gT({ theme: "l", name: "AtomAx mode Light"}),
-      lHC = _gT({ theme: "lhc",name: "AtomAx mode Light High Contrast"}),
-      lC = _gT({theme: "lc", name: "AtomAx mode Light Colorblind"}),
-      lT = _gT({theme: "lt", name: "AtomAx mode Light Tritanopia"}),
-      d = _gT({ theme: "d", name: "AtomAx mode Dark"}),
-      dD = _gT({ theme: "dd", name: "AtomAx mode Dark Dimmed"}),
-      dHC = _gT({theme: "dhc", name: "AtomAx mode Dark High Contrast"}),
-      dC = _gT({theme: "dc", name: "AtomAx mode Dark Colorblind"}),
-      dT = _gT({theme: "dt", name: "AtomAx mode Dark Tritanopia"})
+      l = _gT({ theme: "l", name: "Default Light+"}),
+      lHC = _gT({ theme: "lhc",name: "Default High Contrast Light"}),
+      lC = _gT({theme: "lc", name: "Default Colorblind Light"}),
+      lT = _gT({theme: "lt", name: "Default Light+ Tritanopia"}),
+      d = _gT({ theme: "d", name: "Default Dark+"}),
+      dD = _gT({ theme: "dd", name: "Default Dark+ Dimmed"}),
+      dHC = _gT({theme: "dhc", name: "Default High Contrast"}),
+      dC = _gT({theme: "dc", name: "Default Dark+ Colorblind"}),
+      dT = _gT({theme: "dt", name: "Default Dark+ Tritanopia"})
   fs.mkdir("./themes", { recursive: true })
     .then(() => Promise.all([
       fs.writeFile("./themes/my-light.json", JSON.stringify(l, null, 2)),
