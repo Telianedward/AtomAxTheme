@@ -27,7 +27,23 @@ const { _gC } = require("./colors");
         scale = color.scale, // Usage : scale.blue[6]
         _x_ = ["", "", "", "", "", "", "", "", "", "", ""],
         _u_ = themes({ l : `${hex(color.canvas.subtle)}`, lHC : `${hex(color.canvas.subtle)}`, lC : `${hex(color.canvas.subtle)}`, lT : `${hex(color.canvas.subtle)}`, d : `${hex(color.fg.default)}`, dd : `${hex(color.fg.default)}`, dhc : `${hex(color.fg.default)}`, dc : `${hex(color.fg.default)}`, dt : `${hex(color.fg.default)}` }),
-        _s_ = themes({ l : `${hex(color.canvas.subtle)}`, lHC : `${hex(color.canvas.subtle)}`, lC : `${hex(color.canvas.subtle)}`, lT : `${hex(color.canvas.subtle)}`, d : `${hex(color.fg.default)}`, dd : `${hex(color.fg.default)}`, dhc : `${hex(color.fg.default)}`, dc : `${hex(color.fg.default)}`, dt : `${hex(color.fg.default)}`}),
+
+
+
+        _s_ = themes({ l : `${hex(color.canvas.subtle)}`,
+                                lHC : `${hex(color.canvas.subtle)}`,
+                                lC : `${hex(color.canvas.subtle)}`,
+                                lT : `${hex(color.canvas.subtle)}`,
+                                d : `${hex(color.canvas.inset)}`,
+                                dd : `${hex(color.canvas.inset)}`,
+                                dhc : `${hex(color.canvas.inset)}`,
+                                dc : `${hex(color.canvas.inset)}`,
+                                dt : `${hex(color.canvas.inset)}`}
+                              ),
+
+
+
+
         // _z_ = darkThemeMq.matches?'f1f1f3':'232323',
         _bc_ =  themes({ l : `${hex(color.canvas.subtle)}`, lHC : `${hex(color.canvas.subtle)}`, lC : `${hex(color.canvas.subtle)}`, lT : `${hex(color.canvas.subtle)}`, d : `${hex(color.fg.default)}`, dd : `${hex(color.fg.default)}`, dhc : `${hex(color.fg.default)}`, dc : `${hex(color.fg.default)}`, dt : `${hex(color.fg.default)}`}),
 
