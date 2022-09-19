@@ -352,7 +352,6 @@
     "issues.closed": "#a0111f80",
     "issues.open": "#26a148",
     "notebook.cellInsertionIndicator": "#26a148",
-    "notebook.cellStatusBarItemHoverBackground": "undefined",
     "notebook.focusedCellBorder": "#26a14880",
     "notebook.inactiveFocusedCellBorder": "#26a14880",
     "notebook.selectedCellBackground": "#26a1484d",

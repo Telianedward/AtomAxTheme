@@ -605,7 +605,6 @@
     "notebook.cellBorderColor": "#7a828e",
     "notebook.cellEditorBackground": "#010409",
     "notebook.cellInsertionIndicator": "#09b43a",
-    "notebook.cellStatusBarItemHoverBackground": "#f0f3f6",
     "notebook.cellToolbarSeparator": "#7a828e",
     "notebook.editorBackground": "#010409",
     "notebook.focusedCellBorder": "#09b43a80",

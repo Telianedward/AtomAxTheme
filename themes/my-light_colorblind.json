@@ -214,7 +214,6 @@
     "issues.closed": "#b3590080",
     "issues.open": "#54aeff66",
     "notebook.cellInsertionIndicator": "#54aeff66",
-    "notebook.cellStatusBarItemHoverBackground": "undefined",
     "notebookStatusErrorIcon.foreground": "#f7993966",
     "notebookStatusRunningIcon.foreground": "#0969da",
     "notebookStatusSuccessIcon.foreground": "#54aeff66",
