@@ -217,7 +217,7 @@
     "editorOverviewRuler.warningForeground": "#fb8f4466",
     "editorOverviewRuler.wordHighlightForeground": "#4ac26b66",
     "editorOverviewRuler.wordHighlightStrongForeground": "#4ac26b66",
-    "editorPane.background": "#4ac26b66",
+    "editorPane.background": "#f6f8fa",
     "editorRuler.foreground": "#4ac26b66",
     "editorStickyScroll.background": "#f6f8fa",
     "editorStickyScrollHover.background": "#f6f8fa",
