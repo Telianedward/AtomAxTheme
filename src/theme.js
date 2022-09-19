@@ -45,11 +45,50 @@ const { _gC } = require("./colors");
 
 
         // _z_ = darkThemeMq.matches?'f1f1f3':'232323',
-        _bc_ =  themes({ l : `${hex(color.canvas.subtle)}`, lHC : `${hex(color.canvas.subtle)}`, lC : `${hex(color.canvas.subtle)}`, lT : `${hex(color.canvas.subtle)}`, d : `${hex(color.fg.default)}`, dd : `${hex(color.fg.default)}`, dhc : `${hex(color.fg.default)}`, dc : `${hex(color.fg.default)}`, dt : `${hex(color.fg.default)}`}),
+        _bc_  = themes({ l : `${hex(color.canvas.subtle)}`,
+                                    lHC : `${hex(color.canvas.subtle)}`,
+                                    lC : `${hex(color.canvas.subtle)}`,
+                                    lT : `${hex(color.canvas.subtle)}`,
+                                    d : `${hex(color.canvas.inset)}`,
+                                    dd : `${hex(color.canvas.inset)}`,
+                                    dhc : `${hex(color.canvas.inset)}`,
+                                    dc : `${hex(color.canvas.inset)}`,
+                                    dt : `${hex(color.canvas.inset)}`}
+                                  ),
 
-        _boc_ = themes({ l : `${hex(color.fg.muted)}`, lHC : `${hex(color.fg.muted)}`, lC : `${hex(color.fg.muted)}`, lT : `${hex(color.fg.muted)}`, d : `${hex(color.fg.default)}`, dd : `${hex(color.fg.default)}`, dhc : `${hex(color.fg.default)}`, dc : `${hex(color.fg.default)}`, dt : `${hex(color.fg.default)}` }),
-        _fc_ = themes({ l : `${hex(color.canvas.inset)}`, lHC : `${hex(color.canvas.inset)}`, lC : `${hex(color.canvas.inset)}`, lT : `${hex(color.canvas.inset)}`, d : `${hex(color.fg.default)}`, dd : `${hex(color.fg.default)}`, dhc : `${hex(color.fg.default)}`, dc : `${hex(color.fg.default)}`, dt : `${hex(color.fg.default)}`}),
-        _fuc_  = themes({ l : `${hex(color.canvas.subtle)}`, lHC : `${hex(color.canvas.subtle)}`, lC : `${hex(color.canvas.subtle)}`, lT : `${hex(color.canvas.subtle)}`, d : `${hex(color.fg.muted)}`, dd : `${hex(color.fg.muted)}`, dhc : `${hex(color.fg.muted)}`, dc : `${hex(color.fg.muted)}`, dt : `${hex(color.fg.muted)}`}),
+        _boc_ = themes({ l : `${hex(color.neutral.muted)}`,
+                                  lHC : `${hex(color.neutral.muted)}`,
+                                  lC : `${hex(color.neutral.muted)}`,
+                                  lT : `${hex(color.neutral.muted)}`,
+                                  d : `${hex(color.border.muted)}`,
+                                  dd : `${hex(color.border.muted)}`,
+                                  dhc : `${hex(color.border.muted)}`,
+                                  dc : `${hex(color.border.muted)}`,
+                                  dt : `${hex(color.border.muted)}`}
+                                ),
+        
+
+        _fc_ = themes({ l : `${hex(color.fg.default)}`,
+                                  lHC : `${hex(color.fg.default)}`,
+                                  lC : `${hex(color.fg.default)}`,
+                                  lT : `${hex(color.fg.default)}`,
+                                  d : `${hex(color.fg.default)}`,
+                                  dd : `${hex(color.fg.default)}`,
+                                  dhc : `${hex(color.fg.default)}`,
+                                  dc : `${hex(color.fg.default)}`,
+                                  dt : `${hex(color.fg.default)}`}
+                                ),
+
+        _fuc_  = themes({ l : `${hex(color.fg.muted)}`,
+                                    lHC : `${hex(color.fg.muted)}`,
+                                    lC : `${hex(color.fg.muted)}`,
+                                    lT : `${hex(color.fg.muted)}`,
+                                    d : `${hex(color.fg.muted)}`,
+                                    dd : `${hex(color.fg.muted)}`,
+                                    dhc : `${hex(color.fg.muted)}`,
+                                    dc : `${hex(color.fg.muted)}`,
+                                    dt : `${hex(color.fg.muted)}`}
+                                  ),
         _a_ =  themes({ l : `${_bc_}`, lHC : `${_bc_}`, lC : `${_bc_}`, lT : `${_bc_}`, d : `${_fc_}`, dd : `${_fc_}`, dhc : `${_fc_}`, dc : `${_fc_}`, dt : `${_fc_}`}),
         _b_ =  themes({ l : `${_fc_}`, lHC : `${_fc_}`, lC : `${_fc_}`, lT : `${_fc_}`, d : `${_bc_}`, dd : `${_bc_}`, dhc : `${_bc_}`, dc : `${_bc_}`, dt : `${_bc_}`}),
         _c_ =  themes({ l : `${_fuc_}`, lHC : `${_fuc_}`, lC : `${_fuc_}`, lT : `${_fuc_}`, d : `${_boc_}`, dd : `${_boc_}`, dhc : `${_boc_}`, dc : `${_boc_}`, dt : `${_boc_}`}),
@@ -170,7 +209,7 @@ const { _gC } = require("./colors");
       "dropdown.foreground" : _a_,
       "dropdown.listBackground" :  _c_,
       
-      "editor.background" : _b_,
+      "editor.background" : _bc_,
       "editor.findMatchBackground" : `${hex(color.success.muted)}${_x_[6]}`,
       "editor.findMatchBorder" : `${hex(color.success.muted)}`,
       "editor.findMatchHighlightBackground" : `${hex(color.success.muted)}${_x_[7]}`,

@@ -1,7 +1,7 @@
 {
   "name": "atomaax-theme",
-  "displayName": "AtomAx Themes",
-  "description": "AtomAx Themes for VS Code",
+  "displayName": "AtomAx Theme",
+  "description": "AtomAx Theme for VS Code",
   "version": "0.0.2",
   "engines": {
     "vscode": "^1.71.0"
