@@ -1,7 +1,6 @@
 {
   "name": "Default Colorblind Light",
   "colors": {
-    "activityBar.inactiveForeground": "undefined80",
     "activityBarBadge.background": "#54aeff66",
     "charts.blue": "#54aeff66",
     "charts.green": "#54aeff66",
@@ -86,7 +85,6 @@
     "inputValidation.warningBorder": "#b3590080",
     "inputValidation.warningForeground": "#b3590080",
     "keybindingLabel.border": "#54aeff66",
-    "keybindingLabel.foreground": "undefined80",
     "list.activeSelectionIconForeground": "#54aeff66",
     "list.deemphasizedForeground": "#fff8c5",
     "list.errorForeground": "#f7993966",
@@ -175,7 +173,6 @@
     "terminal.findMatchHighlightBorder": "#fff8c54d",
     "terminal.inactiveSelectionBackground": "#fff8c54d",
     "terminal.tab.activeBorder": "#54aeff66",
-    "terminalCommandDecoration.defaultBackground": "undefined80",
     "terminalCursor.background": "#54aeff66",
     "terminalOverviewRuler.cursorForeground": "#54aeff66",
     "terminalOverviewRuler.findMatchForeground": "#54aeff66",
@@ -217,15 +214,12 @@
     "issues.closed": "#b3590080",
     "issues.open": "#54aeff66",
     "notebook.cellInsertionIndicator": "#54aeff66",
-    "notebook.cellStatusBarItemHoverBackground": "_fc_",
-    "notebookScrollbarSlider.activeBackground": "undefined80",
+    "notebook.cellStatusBarItemHoverBackground": "undefined",
     "notebookStatusErrorIcon.foreground": "#f7993966",
     "notebookStatusRunningIcon.foreground": "#0969da",
     "notebookStatusSuccessIcon.foreground": "#54aeff66",
     "pullRequests.notification": "#0969da",
-    "settings.modifiedItemIndicator": "#f7993966",
-    "statusBarItem.prominentHoverBackground": "undefined4d",
-    "notebook.cellHoverBackground": "undefined80"
+    "settings.modifiedItemIndicator": "#f7993966"
   },
   "semanticHighlighting": true,
   "tokenColors": [
