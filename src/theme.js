@@ -211,100 +211,108 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,ll, v
-      j = /\(([^)]+)\)/gm;
-      h = [];
-      console.log(x ,' <------------------------ x |')
-      if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
-          if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-         
-                  while ((m=j.exec(x)) !== null) {
-                    h.push(m[1]);
-                  }
-                  k =  h[0].split(',')
-                  l = color_.r(k[0],k[1],k[2])
-                  console.log(l,'----=====l 1 =====----')
-              return l
-          } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-                  while ((m=j.exec(x)) !== null) {
-                    h.push(m[1]);
-                  }
-                  k =  h[0].split(',')
-                  v = color_.r(k[0],k[1],k[2])
-                  if( k[3].length==0 ){
-                    return v 
-                  }
-                  i = k[3]
-                    p = i*100
-                  o = Math.round10(p,0)
-
-                  l = `${v}${obj[0][1]}` 
-                  console.log(l,'----=====l 2 =====----')
-              return l
-              
-            }
-      } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
-          if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-                  while ((m=j.exec(x)) !== null) {
-                    h.push(m[1]);
-                  }
-                  k =  h[0].split(',')
-                  l = hsl_(k[0],k[1],k[2])
-                  console.log(l,'----=====l 3 =====----')
-              return l
-          }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-                while ((m=j.exec(x)) !== null) {
-                  h.push(m[1]);
+      let a,
+          b,
+          c,
+          d,
+          f,
+          g,
+          j,
+          k,
+          l,
+          m,
+          h,
+          i,
+          o,
+          p,
+          v
+          j = /\(([^)]+)\)/gm;
+          h = [];
+          console.log(x ,' <------------------------ x |')
+          if( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x) ){
+              if( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                      while ( (m=j.exec(x)) !== null ) {
+                        h.push(m[1]);
+                      }
+                      k =  h[0].split(',')
+                      l = color_.r(k[0],k[1],k[2])
+                      console.log(l,'----=====l 1 =====----')
+                  return l
+              } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                      while ((m=j.exec(x)) !== null) {
+                        h.push(m[1]);
+                      }
+                        k =  h[0].split(',')
+                        v = color_.r(k[0],k[1],k[2])
+                      if( k[3].length==0 ){
+                        return v 
+                      }
+                        i = k[3]
+                        p = i*100
+                        o = Math.round10(p,0)
+                        l = `${v}${obj[0][1]}` 
+                      console.log(l,'----=====l 2 =====----')
+                  return l
                 }
-                k =  h[0].split(',')
-                v = color_.r(k[0],k[1],k[2])
-                if( k[3].length==0 ){
-                  return v
-                }
-                i = k[3]
-                p = i*100
-                o = Math.round10(p,0)
-            
-              l = `${v}${obj[0][1]}`
-              console.log(l,'----=====l 4 =====----')
-          return l
-
-          }
-      } else {
-        if (x.length <= 9){
-          return x
-        }
-        if(x.length == 11){
-            obj.forEach( (ej, i) => {  
-              ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
-                  a = ej[0] , 
-                  b = i,
-                  obj.forEach( (el , i) => {  
-                    if(el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase()){
-                        c = el[0] ,
-                        d = i,
-                        f =(100 - a) + (100 - c),
-                        g = (100  - f);
-                          if( g <= 0 ) {
-                             x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
-                             
-                             console.log (x,"x 5 ") 
-                             return x
-                          }else{
-                            obj.forEach( (et , i) => {  
-                              if(et[0] == g){
-                                  x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
-                                  console.log (x,"x  6  ")
-                                  return x
-                              }
-                            })
-                          }
+          } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
+              if( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                      while ( (m=j.exec(x)) !== null ) {
+                        h.push(m[1]);
+                      }
+                      k =  h[0].split(',')
+                      l = hsl_(k[0],k[1],k[2])
+                      console.log(l,'----=====l 3 =====----')
+                  return l
+              }else if( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                    while ( (m=j.exec(x)) !== null ) {
+                      h.push(m[1]);
                     }
-                  })
-                ):false
-            });
-        }
-      }
+                    k =  h[0].split(',')
+                    v = color_.r(k[0],k[1],k[2])
+                    if( k[3].length==0 ){
+                      return v
+                    }
+                    i = k[3]
+                    p = i*100
+                    o = Math.round10(p,0)
+                    l = `${v}${obj[0][1]}`
+                        console.log(l,'----=====l 4 =====----')
+                  return l
+              }
+          } else {
+            if (x.length <= 9){
+              return x
+            }
+            if( x.length == 11 ){
+                obj.forEach( (ej, i) => {  
+                  ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
+                      a = ej[0] , 
+                      b = i,
+                      obj.forEach( (el , i) => {  
+                        if( el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase() ){
+                            c = el[0] ,
+                            d = i,
+                              f =(100 - a) + (100 - c),
+                            g = (100  - f);
+                              if( g <= 0 ) {
+                                x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
+                                console.log (x,"x 5 ") 
+                                return x
+                              } else {
+                                obj.forEach( (et , i) => {  
+                                  if( et[0] == g ){
+                                      x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
+                                      console.log (x,"x  6  ")
+                                      return x
+                                  }
+                                })
+                              }
+                        }
+                      })
+                    ):false
+                });
+            }
+          } 
     }
 // Choosing colors from primer/primitives
 // There are multiple ways to define what color is used:
