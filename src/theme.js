@@ -6,6 +6,7 @@ const { _gC } = require("./colors");
 
 hex = (color)=>{
   console.log(color,'color')
+  console.log(_ch(color).hex(),'hex')
     return _ch(color).hex();
 }
  max = (val, n) =>  {
