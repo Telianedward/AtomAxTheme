@@ -236,6 +236,7 @@ const obj = [["100","FF"],
           v
           j = /\(([^)]+)\)/gm;
           h = [];
+          if(typeof x === "undefined"){ retern false}
           console.log(x ,' <------------------------ x |')
           if( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x) ){
               if( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
