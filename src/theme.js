@@ -222,7 +222,7 @@ const obj = [["100","FF"],
               return color_.r(k[0],k[1],k[2])
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
-            h = x.match(j)
+            h = x.match(j)[1]
             console.log(h,'h')
             k =  h[0].split(',')
             console.log(k,'-----k=====')
@@ -242,14 +242,14 @@ const obj = [["100","FF"],
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
-            h = x.match(j)
+            h = x.match(j)[1]
             console.log(h,'h')
             k =  h[0].split(',')
             console.log(k,'-----k=====')
              return hsl_(k[0],k[1],k[2])
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
-            h = x.match(j)
+            h = x.match(j)[1]
             console.log(h,'h')
             k =  h[0].split(',')
             console.log(k,'-----k=====')
