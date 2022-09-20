@@ -274,7 +274,7 @@ const obj = [["100","FF"],
                       h.push(m[1]);
                     }
                     k =  h[0].split(',')
-                    v = color_.r(k[0],k[1],k[2])
+                    v = hsl_(k[0],k[1],k[2])
                     if( k[3].length==0 ){
                       return v
                     }
