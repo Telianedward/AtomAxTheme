@@ -1,23 +1,18 @@
 
 const { _gC } = require("./colors");
 
-// Convert to hex
-// VS Code doesn't support other formats like hsl, rgba etc.
-console.log(_gC,'_gC ')
-  hex = (color)=>{
-  return color;
-}
-  max = (val, n) =>  {
+
+const max = (val, n) =>  {
   debug(`ensuring ${val} is no more than ${n}`);
   return val > n ? n : val;
 }
 
-  min = (val, n) => {
+const  min = (val, n) => {
   debug(`ensuring ${val} is no less than ${n}`);
   return val < n ? n : val;
 }
 
-  cycle = (val) => {
+const cycle = (val) => {
   debug(`resolving ${val} within the 0-259 range`);
   val = max(val, 1e7);
   val = min(val, -1e7);
@@ -30,7 +25,7 @@ console.log(_gC,'_gC ')
   return val;
 }
 
-hsl_ = (hue, saturation, luminosity)=> {
+const hsl_ = (hue, saturation, luminosity)=> {
   hue = cycle(hue);
   saturation = min(max(saturation, 100), 0);
   luminosity = min(max(luminosity, 100), 0);
@@ -42,7 +37,7 @@ hsl_ = (hue, saturation, luminosity)=> {
 
   return `#${rgb.map(n => (256 + n).toString(16).substr(-2)).join("")}`;
 }
-color_ = {
+const color_ = {
   c: ( c ) => {
       let h = c.toString( 16 );
       return h.length == 1 ? "0" + h : h;
@@ -80,7 +75,7 @@ color_ = {
 
 
 }
-  decimalAdjust = ( t, v, exp ) => {
+const decimalAdjust = ( t, v, exp ) => {
         /**
          * examples:
          *  Math.round10(5.25, 0);  // 5
@@ -111,7 +106,7 @@ color_ = {
 
       v = v.toString().split( 'e' );
       return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
-    },
+    }
       Math.round10 = ( v, exp ) => { return decimalAdjust( 'round', v, exp ) },
       Math.floor10 = ( v, exp ) => { return decimalAdjust( 'floor', v, exp ) },
       Math.ceil10 = ( v, exp ) => { return decimalAdjust( 'ceil', v, exp ) }
