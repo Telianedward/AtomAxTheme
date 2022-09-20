@@ -213,14 +213,14 @@ const obj = [["100","FF"],
     _cO= ( x , obj ) => {
       let a,b,c,d,f,g,j,k,l,m,h
 
-      if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test){
-          if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+      if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
+          if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
              j = /\((.*)\)/gm;
              h = x.match(j)
              console.log(h,'h')
              k =  h[0].split(',')
               return color_.r(k[0],k[1],k[2])
-          } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+          } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
             h = x.match(j)
             console.log(h,'h')
@@ -232,12 +232,12 @@ const obj = [["100","FF"],
                 
                 return `${l}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
             }
-      } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test){
-          if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+      } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
+          if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
             k = j.split(',')
              return hsl_(k[0],k[1],k[2])
-          }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+          }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
             k = j.split(',')
               if( k[3].length==0 ){
