@@ -368,7 +368,7 @@ const obj = [["100","FF"],
                                 dt : color.fg.default
                               }),
 
-    _fuc_  = themes({ l : color.fg.muted
+    _fuc_  = themes({ l : color.fg.muted,
                                 lHC : color.fg.muted,
                                 lC : color.fg.muted,
                                 lT : color.fg.muted,
@@ -1620,7 +1620,7 @@ console.log(color.fg.muted, 'color.fg.muted')
           "storage.modifier"
         ],
         "settings" : {
-          "foreground" : _cO(`${color.csponsors.fg}${_x_[10]}`,obj),
+          "foreground" : _cO(`${color.sponsors.fg}${_x_[10]}`,obj),
         }
       },
       {
