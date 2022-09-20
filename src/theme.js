@@ -218,6 +218,12 @@ const obj = [["100","FF"],
                                 dc : hex(color.fg.muted),
                                 dt : hex(color.fg.muted)
                               })
+
+console.log(color.canvas.subtle, 'color.canvas.subtle')
+console.log(color.neutral.muted, 'color.neutral.muted')
+console.log(color.border.muted, 'color.border.muted')
+console.log(color.fg.default, 'color.fg.default')
+console.log(color.fg.muted, 'color.fg.muted')
   return {
     name : name,
     colors : {
