@@ -68,7 +68,17 @@ color_ = {
           return [ ( c >> 16 ) & 255, ( c >> 8 ) & 255, c & 255 ].join( ',' );
       }
       throw new Error( 'Bad Hex' );
+  },
+  h : (c) =>  {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+  },
+  g : (r, g, b) =>  {
+    return "#" + color_.h(r) + color_.h(g) + color_.h(b);
   }
+
+
+
 }
   decimalAdjust = ( t, v, exp ) => {
         /**
@@ -235,7 +245,7 @@ const obj = [["100","FF"],
                         h.push(m[1]);
                       }
                       k =  h[0].split(',')
-                      l = color_.r(k[0],k[1],k[2])
+                      l = color_.g(k[0],k[1],k[2])
                       console.log(l,'----=====l 1 =====----')
                   return l
               } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
@@ -243,7 +253,7 @@ const obj = [["100","FF"],
                         h.push(m[1]);
                       }
                         k =  h[0].split(',')
-                        v = color_.r(k[0],k[1],k[2])
+                        v = color_.g(k[0],k[1],k[2])
                       if( k[3].length==0 ){
                         return v 
                       }
