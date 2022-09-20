@@ -327,12 +327,12 @@ const obj = [["100","FF"],
 
     _gT = ({ theme, name }) => {
   const themes = (options) => options[theme]; // Usage : themes({ l : "lightblue", d : "darkblue", dd : "royalblue", hc : "blue" })
-         const  color = _gC(theme); // Usage : color.fg.default
+         var  color = _gC(theme); // Usage : color.fg.default
         const  _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""];
 
 
 
-        const _bc_  = themes({      l : color.canvas.subtle,
+        var _bc_  = themes({l : color.canvas.subtle,
                                   lHC : color.canvas.subtle,
                                   lC : color.canvas.subtle,
                                   lT : color.canvas.subtle,
@@ -343,7 +343,7 @@ const obj = [["100","FF"],
                                   dt : color.canvas.overlay
                                 });
 
-      const  _boc_ = themes({ l : color.neutral.muted,
+          var  _boc_ = themes({ l : color.neutral.muted,
                                 lHC : color.neutral.muted,
                                 lC : color.neutral.muted,
                                 lT : color.neutral.muted,
@@ -355,7 +355,7 @@ const obj = [["100","FF"],
                               });
         
 
-      const  _fc_ = themes({ l : color.fg.default,
+       var  _fc_ = themes({ l : color.fg.default,
                                 lHC : color.fg.default,
                                 lC : color.fg.default,
                                 lT : color.fg.default,
@@ -366,7 +366,7 @@ const obj = [["100","FF"],
                                 dt : color.fg.default
                               });
 
-     const _fuc_  = themes({   l : color.fg.muted,
+     var _fuc_  = themes({   l : color.fg.muted,
                                 lHC : color.fg.muted,
                                 lC : color.fg.muted,
                                 lT : color.fg.muted,
