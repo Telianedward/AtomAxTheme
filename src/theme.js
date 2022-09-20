@@ -231,7 +231,9 @@ const obj = [["100","FF"],
                   }
                 i = k[3]
                   console.log(i,' -- i --')
-                o = Math.round10((i*100),0)
+                  p = i*100
+                  console.log(p,' -- p --')
+                o = Math.round10(p,0)
 
                 console.log( o ," nUmber ")
                 return `${l}${obj[0][2]}` 
@@ -249,7 +251,9 @@ const obj = [["100","FF"],
               }
               i = k[3]
               console.log(i,' -- i --')
-            o = Math.round10((i*100),0)
+              p = i*100
+              console.log(p,' -- p --')
+            o = Math.round10(p,0)
             console.log( o ," nUmber ")
             return `${l}${obj[0][2]}` 
           }
