@@ -169,18 +169,18 @@ const obj = [["100","FF"],
 
 
 
-      _bc_  = themes({ l : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
+    _bc_  = themes({      l : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
                                   lHC : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
                                   lC : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
                                   lT : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
-                                  d : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
-                                  dd : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
-                                  dhc : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
-                                  dc : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
-                                  dt : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),}
+                                  d : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
+                                  dd : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
+                                  dhc : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
+                                  dc : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
+                                  dt : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),}
                                 ),
 
-      _boc_ = themes({ l : _cO(`${hex(color.border.default)}${_x_[10]}`,obj),
+      _boc_ = themes({ l : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
                                 lHC : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
                                 lC : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
                                 lT : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
