@@ -169,111 +169,111 @@ const obj = [["100","FF"],
 
 
 
-      _bc_  = themes({ l : _cO(`${hex(color.canvas.inset)}`,obj),
-                                  lHC : _cO(`${hex(color.canvas.subtle)}`,obj),
-                                  lC : _cO(`${hex(color.canvas.subtle)}`,obj),
-                                  lT : _cO(`${hex(color.canvas.subtle)}`,obj),
-                                  d : _cO(`${hex(color.canvas.inset)}`,obj),
-                                  dd : _cO(`${hex(color.canvas.inset)}`,obj),
-                                  dhc : _cO(`${hex(color.canvas.inset)}`,obj),
-                                  dc : _cO(`${hex(color.canvas.inset)}`,obj),
-                                  dt : _cO(`${hex(color.canvas.inset)}`,obj)}
+      _bc_  = themes({ l : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
+                                  lHC : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
+                                  lC : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
+                                  lT : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
+                                  d : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
+                                  dd : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
+                                  dhc : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
+                                  dc : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),
+                                  dt : _cO(`${hex(color.canvas.inset)}${_x_[10]}`,obj),}
                                 ),
 
-      _boc_ = themes({ l : _cO(`${hex(color.border.default)}`,obj),
-                                lHC : _cO(`${hex(color.neutral.muted)}`,obj),
-                                lC : _cO(`${hex(color.neutral.muted)}`,obj),
-                                lT : _cO(`${hex(color.neutral.muted)}`,obj),
-                                d : _cO(`${hex(color.border.muted)}`,obj),
-                                dd : _cO(`${hex(color.border.muted)}`,obj),
-                                dhc : _cO(`${hex(color.border.muted)}`,obj),
-                                dc : _cO(`${hex(color.border.muted)}`,obj),
-                                dt : _cO(`${hex(color.border.muted)}`,obj)}
+      _boc_ = themes({ l : _cO(`${hex(color.border.default)}${_x_[10]}`,obj),
+                                lHC : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
+                                lC : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
+                                lT : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
+                                d : _cO(`${hex(color.border.muted)}${_x_[10]}`,obj),
+                                dd : _cO(`${hex(color.border.muted)}${_x_[10]}`,obj),
+                                dhc : _cO(`${hex(color.border.muted)}${_x_[10]}`,obj),
+                                dc : _cO(`${hex(color.border.muted)}${_x_[10]}`,obj),
+                                dt : _cO(`${hex(color.border.muted)}${_x_[10]}`,obj),}
                               ),
         
 
-      _fc_ = themes({ l : _cO(`${hex(color.fg.default)}`,obj),
-                                lHC : _cO(`${hex(color.fg.default)}`,obj),
-                                lC : _cO(`${hex(color.fg.default)}`,obj),
-                                lT : _cO(`${hex(color.fg.default)}`,obj),
-                                d : _cO(`${hex(color.fg.default)}`,obj),
-                                dd : _cO(`${hex(color.fg.default)}`,obj),
-                                dhc : _cO(`${hex(color.fg.default)}`,obj),
-                                dc : _cO(`${hex(color.fg.default)}`,obj),
-                                dt : _cO(`${hex(color.fg.default)}`,obj)}
+      _fc_ = themes({ l : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                lHC : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                lC : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                lT : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                d : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                dd : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                dhc : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                dc : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
+                                dt : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),}
                               ),
 
-    _fuc_  = themes({ l : _cO(`${hex(color.fg.muted)}`,obj),
-                                lHC : _cO(`${hex(color.fg.muted)}`,obj),
-                                lC : _cO(`${hex(color.fg.muted)}`,obj),
-                                lT : _cO(`${hex(color.fg.muted)}`,obj),
-                                d : _cO(`${hex(color.fg.muted)}`,obj),
-                                dd : _cO(`${hex(color.fg.muted)}`,obj),
-                                dhc : _cO(`${hex(color.fg.muted)}`,obj),
-                                dc : _cO(`${hex(color.fg.muted)}`,obj),
-                                dt : _cO(`${hex(color.fg.muted)}`,obj)}
+    _fuc_  = themes({ l : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                lHC : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                lC : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                lT : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                d : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                dd : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                dhc : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                dc : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
+                                dt : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),}
                               )
   return {
     name : name,
     colors : {
-        "activityBar.activeBackground" : _bc_,
+        "activityBar.activeBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
         "activityBar.activeBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
         "activityBar.activeFocusBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-        "activityBar.background" : _bc_,
-        "activityBar.border" : _boc_,
-        "activityBar.dropBorder" : _boc_,
+        "activityBar.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+        "activityBar.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "activityBar.dropBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
         "activityBar.foreground" : _cO(`${hex(color.success.emphasis)}${_x_[8]}`,obj),
         "activityBar.inactiveForeground" : _cO(`${_fc_}${_x_[5]}`,obj),
         "activityBarBadge.background" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-        "activityBarBadge.foreground" : _fc_,
+        "activityBarBadge.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
         
         "badge.background" : _cO(`${hex(color.accent.muted)}${_x_[7]}`,obj),
-        "badge.foreground" : _fc_,
+        "badge.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
         "banner.background" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-        "banner.foreground" : _fc_,
+        "banner.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
         "banner.iconForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
   
-        "breadcrumb.activeSelectionforeground" : _fc_,
-        "breadcrumb.background" : _bc_,
-        "breadcrumb.focusforeground" : _fc_,
-        "breadcrumb.foreground" : _fc_,
-        "breadcrumbPicker.background" :  _bc_,
+        "breadcrumb.activeSelectionforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "breadcrumb.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+        "breadcrumb.focusforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "breadcrumb.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "breadcrumbPicker.background" : _cO(`${_bc_}${_x_[10]}`,obj),
   
         "button.background" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
         "button.border" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
-        "button.foreground" : _fc_,
+        "button.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
         "button.hoverBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
         "button.secondaryBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-        "button.secondaryforeground" : _fc_,
+        "button.secondaryforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
         "button.secondaryHoverBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
         "button.separator" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
   
-        "charts.blue" : _cO(`${hex(color.accent.muted)}`,obj),
-        "charts.foreground" : _fc_,
+        "charts.blue" : _cO(`${hex(color.accent.muted)}${_x_[10]}`,obj),
+        "charts.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
         "charts.green" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-        "charts.lines" : _fuc_,
-        "charts.orange" : _cO(`${hex(color.severe.muted)}`,obj),
+        "charts.lines" : _cO(`${_fuc_}${_x_[10]}`,obj),
+        "charts.orange" : _cO(`${hex(color.severe.muted)}${_x_[10]}`,obj),
         "charts.purple" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
         "charts.red" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-        "charts.yellow" : _cO(`${hex(color.scale.yellow[0])}`,obj),
+        "charts.yellow" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
 
   
-        "checkbox.background" :  _bc_,
-        "checkbox.border" :  _cO(`${_boc_}${_x_[5]}`,obj),
-        "checkbox.foreground" : _fc_,
+        "checkbox.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+        "checkbox.border" : _cO(`${_boc_}${_x_[5]}`,obj),
+        "checkbox.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
         "commandCenter.activeBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-        "commandCenter.activeforeground" : _fc_,
-        "commandCenter.background" : _bc_,
-        "commandCenter.border" :  _boc_,
-        "commandCenter.foreground" : _fc_,
+        "commandCenter.activeforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "commandCenter.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+        "commandCenter.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "commandCenter.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-        "contrastActiveborder" :  _boc_,
-        "contrastBorder" : _bc_,
+        "contrastActiveborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "contrastBorder" : _cO(`${_bc_}${_x_[10]}`,obj),
   
-        "debugExceptionWidget.background" : _bc_,
-        "debugExceptionWidget.border" :  _boc_,
+        "debugExceptionWidget.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+        "debugExceptionWidget.border" : _cO(`${_boc_}${_x_[10]}`,obj),
   
         "debugTokenExpression.boolean" : _cO(`${hex(color.attention.fg)}${_x_[5]}`,obj),
         "debugTokenExpression.error" : _cO(`${hex(color.danger.fg)}${_x_[5]}`,obj),
@@ -285,15 +285,15 @@ const obj = [["100","FF"],
         "debugToolBar.background" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
         "debugToolBar.border" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
   
-        "debugView.exceptionLabelBackground" : _boc_,
-        "debugView.exceptionLabelforeground" : _fc_,
-        "debugView.stateLabelBackground" : _boc_,
-        "debugView.stateLabelforeground" : _fc_,
+        "debugView.exceptionLabelBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "debugView.exceptionLabelforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "debugView.stateLabelBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "debugView.stateLabelforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
         "debugView.valueChangedHighlight" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
   
-        "descriptionForeground" : _fc_,
+        "descriptionForeground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-        "diffEditor.border" : _boc_,
+        "diffEditor.border" : _cO(`${_boc_}${_x_[10]}`,obj),
         "diffEditor.diagonalFill" : _cO(`${_fc_}${_x_[5]}`,obj),
         "diffEditor.insertedLineBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
         "diffEditor.insertedTextBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
@@ -306,14 +306,14 @@ const obj = [["100","FF"],
         "diffEditorOverview.insertedForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
         "diffEditorOverview.removedForeground" : _cO(`${hex(color.danger.muted)}${_x_[9]}`,obj),
   
-      "disabledForeground" : _fuc_,
+      "disabledForeground" : _cO(`${_fuc_}${_x_[10]}`,obj),
   
-      "dropdown.background" :  _bc_,
-      "dropdown.border" :  _boc_,
-      "dropdown.foreground" : _fc_,
-      "dropdown.listBackground" : _boc_,
+      "dropdown.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "dropdown.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "dropdown.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "dropdown.listBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       
-      "editor.background" : _bc_,
+      "editor.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "editor.findMatchBackground" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "editor.findMatchBorder" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "editor.findMatchHighlightBackground" : _cO(`${hex(color.attention.emphasis)}${_x_[2]}`,obj),
@@ -322,24 +322,24 @@ const obj = [["100","FF"],
       "editor.findRangeHighlightBorder" : _cO(`${hex(color.success.emphasis)}${_x_[7]}`,obj),
       "editor.focusedStackFrameHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editor.foldBackground" : _cO(`${_boc_}${_x_[6]}`,obj),
-      "editor.foreground" : _fc_,
+      "editor.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editor.hoverHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "editor.inactiveSelectionBackground" : _cO(`${_boc_}${_x_[6]}`,obj),
       "editor.inlineValuesBackground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "editor.inlineValuesforeground" : _fc_,
+      "editor.inlineValuesforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editor.lineHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[2]}`,obj),
-      "editor.lineHighlightBorder" :  _cO(`${hex(color.success.emphasis)}${_x_[2]}`,obj),
-      "editor.linkedEditingBackground" : _cO(`${hex(color.scale.yellow[0])}${_x_[8]}`,obj),
+      "editor.lineHighlightBorder" : _cO(`${hex(color.success.emphasis)}${_x_[2]}`,obj),
+      "editor.linkedEditingBackground" : _cO(`${hex(color.attention.fg)}${_x_[8]}`,obj),
       "editor.rangeHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[7]}`,obj),
       "editor.rangeHighlightBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "editor.selectionBackground" : _boc_,
+      "editor.selectionBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editor.selectionForeground" : _cO(`${hex(color.accent.muted)}}${_x_[5]}`,obj),
       "editor.selectionHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[7]}`,obj),
-      "editor.selectionHighlightborder" :  _boc_,
-      "editor.snippetFinalTabstopHighlightBackground" : _bc_,
-      "editor.snippetFinalTabstopHighlightborder" :  _boc_,
-      "editor.snippetTabstopHighlightBackground" : _boc_,
-      "editor.snippetTabstopHighlightborder" :  _boc_,
+      "editor.selectionHighlightborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editor.snippetFinalTabstopHighlightBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editor.snippetFinalTabstopHighlightborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editor.snippetTabstopHighlightBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editor.snippetTabstopHighlightborder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editor.stackFrameHighlightbackground" : _cO(`${_fc_}${_x_[5]}`,obj),
       "editor.symbolHighlightBackground" : _cO(`${hex(color.done.emphasis)}${_x_[5]}`,obj),
       "editor.symbolHighlightBorder" : _cO(`${hex(color.done.emphasis)}${_x_[4]}`,obj),
@@ -347,35 +347,35 @@ const obj = [["100","FF"],
       "editor.wordHighlightBorder" : _cO(`${_boc_}${_x_[6]}`,obj),
       "editor.wordHighlightStrongBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editor.wordHighlightStrongBorder" : _cO(`${_boc_}${_x_[6]}`,obj),
-      "editorBracketHighlight.foreground1" : _cO(`${hex(color.sponsors.fg)}`,obj),
-      "editorBracketHighlight.foreground2" : _cO(`${hex(color.success.emphasis)}`,obj),
-      "editorBracketHighlight.foreground3" : _cO(`${hex(color.done.fg)}`,obj),
-      "editorBracketHighlight.foreground4" : _cO(`${hex(color.closed.fg)}`,obj),
-      "editorBracketHighlight.foreground5" : _cO(`${hex(color.scale.yellow[0])}`,obj),
-      "editorBracketHighlight.foreground6" : _cO(`${hex(color.severe.fg)}`,obj),
-      "editorBracketHighlight.unexpectedBracket.foreground" : _cO(`${hex(color.sponsors.muted)}`,obj),
-      "editorBracketMatch.background" :  _bc_,
-      "editorBracketMatch.border" :  _boc_,
+      "editorBracketHighlight.foreground1" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
+      "editorBracketHighlight.foreground2" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
+      "editorBracketHighlight.foreground3" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
+      "editorBracketHighlight.foreground4" : _cO(`${hex(color.closed.fg)}${_x_[10]}`,obj),
+      "editorBracketHighlight.foreground5" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
+      "editorBracketHighlight.foreground6" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
+      "editorBracketHighlight.unexpectedBracket.foreground" : _cO(`${hex(color.sponsors.muted)}${_x_[10]}`,obj),
+      "editorBracketMatch.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorBracketMatch.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorBracketPairGuide.activeBackground1" : _cO(`${hex(color.sponsors.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.activeBackground2" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorBracketPairGuide.activeBackground3" : _cO(`${hex(color.done.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.activeBackground4" : _cO(`${hex(color.closed.fg)}${_x_[7]}`,obj),
-      "editorBracketPairGuide.activeBackground5" : _cO(`${hex(color.scale.yellow[0])}${_x_[7]}`,obj),
+      "editorBracketPairGuide.activeBackground5" : _cO(`${hex(color.attention.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.activeBackground6" : _cO(`${hex(color.severe.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.background1" : _cO(`${hex(color.sponsors.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.background2" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorBracketPairGuide.background3" : _cO(`${hex(color.done.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.background4" : _cO(`${hex(color.closed.fg)}${_x_[7]}`,obj),
-      "editorBracketPairGuide.background5" : _cO(`${hex(color.scale.yellow[0])}${_x_[7]}`,obj),
+      "editorBracketPairGuide.background5" : _cO(`${hex(color.attention.fg)}${_x_[7]}`,obj),
       "editorBracketPairGuide.background6" : _cO(`${hex(color.severe.fg)}${_x_[7]}`,obj),
-      "editorCodeLens.foreground" : _fc_,
-      "editorCommentsWidget.rangeActiveBackground" : _boc_,
-      "editorCommentsWidget.rangeActiveborder" :  _boc_,
+      "editorCodeLens.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorCommentsWidget.rangeActiveBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorCommentsWidget.rangeActiveborder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorCommentsWidget.rangeBackground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "editorCommentsWidget.rangeborder" :  _boc_,
-      "editorCommentsWidget.resolvedBorder" : _boc_,
-      "editorCommentsWidget.unresolvedBorder" : _boc_,
-      "editorCursor.background" :  _bc_,
+      "editorCommentsWidget.rangeborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorCommentsWidget.resolvedBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorCommentsWidget.unresolvedBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorCursor.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "editorCursor.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorError.background" : _cO(`${hex(color.danger.muted)}${_x_[7]}`,obj),
       "editorError.border" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
@@ -383,63 +383,63 @@ const obj = [["100","FF"],
       "editorGhostText.background" : _cO(`${hex(color.success.emphasis)}${_x_[7]}`,obj),
       "editorGhostText.border" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorGhostText.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorGroup.border" :  _boc_,
-      "editorGroup.dropBackground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "editorGroup.dropIntoPromptBackground" : _bc_,
-      "editorGroup.dropIntoPromptborder" :  _boc_,
-      "editorGroup.dropIntoPromptforeground" : _fc_,
-      "editorGroup.emptyBackground" : _bc_,
-      "editorGroup.focusedEmptyBorder" : _boc_,
-      "editorGroupHeader.border" : _boc_,
-      "editorGroupHeader.noTabsBackground" : _bc_,
-      "editorGroupHeader.tabsBackground" : _bc_,
-      "editorGroupHeader.tabsborder" :  _boc_,
+      "editorGroup.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorGroup.dropBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
+      "editorGroup.dropIntoPromptBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorGroup.dropIntoPromptborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorGroup.dropIntoPromptforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorGroup.emptyBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorGroup.focusedEmptyBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorGroupHeader.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorGroupHeader.noTabsBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorGroupHeader.tabsBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorGroupHeader.tabsborder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorGutter.addedBackground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorGutter.background" : _bc_,
-      "editorGutter.commentRangeforeground" : _fc_,
+      "editorGutter.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorGutter.commentRangeforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorGutter.deletedBackground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-      "editorGutter.foldingControlforeground" : _fc_,
+      "editorGutter.foldingControlforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorGutter.modifiedBackground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "editorHint.border" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "editorHint.foreground" : _fc_,
-      "editorHoverWidget.background" :  _bc_,
-      "editorHoverWidget.border" :  _boc_,
-      "editorHoverWidget.foreground" : _fc_,
+      "editorHint.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorHoverWidget.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorHoverWidget.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorHoverWidget.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorHoverWidget.highlightForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "editorHoverWidget.statusBarBackground" : _cO(`${hex(color.danger.muted)}${_x_[9]}`,obj),
       "editorIndentGuide.activeBackground" : _cO(`${hex(color.danger.muted)}${_x_[9]}`,obj),
       "editorIndentGuide.background" : _cO(`${_fc_}${_x_[0]}`,obj),
-      "editorInfo.background" : _boc_,
+      "editorInfo.background" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorInfo.border" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "editorInfo.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorInlayHint.background" :  _bc_,
-      "editorInlayHint.foreground" : _fc_,
-      "editorInlayHint.parameterBackground" : _boc_,
+      "editorInlayHint.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorInlayHint.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorInlayHint.parameterBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorInlayHint.parameterForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorInlayHint.typeBackground" : _boc_,
+      "editorInlayHint.typeBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorInlayHint.typeForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorLightBulb.foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj),
+      "editorLightBulb.foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
       "editorLightBulbAutoFix.foreground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorLineNumber.activeForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "editorLineNumber.foreground" : _cO(`${_fc_}${_x_[5]}`,obj),
       "editorLink.activeForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorMarkerNavigation.background" : _bc_,
+      "editorMarkerNavigation.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "editorMarkerNavigationError.background" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
       "editorMarkerNavigationError.headerBackground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "editorMarkerNavigationInfo.background" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorMarkerNavigationInfo.headerBackground" :  _bc_,
+      "editorMarkerNavigationInfo.headerBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
       "editorMarkerNavigationWarning.background" : _cO(`${hex(color.severe.muted)}${_x_[5]}`,obj),
       "editorMarkerNavigationWarning.headerBackground" : _cO(`${hex(color.severe.muted)}${_x_[5]}`,obj),
       "editorOverviewRuler.addedForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "editorOverviewRuler.background" :  _bc_,
+      "editorOverviewRuler.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "editorOverviewRuler.border" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "editorOverviewRuler.bracketMatchForeground" : _cO(`${hex(color.done.muted )}${_x_[5]}`,obj),
-      "editorOverviewRuler.commonContentforeground" : _fc_,
+      "editorOverviewRuler.commonContentforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorOverviewRuler.currentContentForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "editorOverviewRuler.deletedForeground" : _cO(`${hex(color.scale.yellow[0])}${_x_[5]}`,obj),
+      "editorOverviewRuler.deletedForeground" : _cO(`${hex(color.attention.fg)}${_x_[5]}`,obj),
       "editorOverviewRuler.errorForeground" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
       "editorOverviewRuler.findMatchForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "editorOverviewRuler.incomingContentforeground" : _fc_,
+      "editorOverviewRuler.incomingContentforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorOverviewRuler.infoForeground" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "editorOverviewRuler.modifiedForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorOverviewRuler.rangeHighlightForeground" : _cO(`${hex(color.success.emphasis)}${_x_[8]}`,obj),
@@ -447,66 +447,66 @@ const obj = [["100","FF"],
       "editorOverviewRuler.warningForeground" : _cO(`${hex(color.severe.muted)}${_x_[5]}`,obj),
       "editorOverviewRuler.wordHighlightForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorOverviewRuler.wordHighlightStrongForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "editorPane.background" : _boc_,
+      "editorPane.background" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorRuler.foreground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "editorStickyScroll.background" :  _bc_,
-      "editorStickyScrollHover.background" : _bc_,
-      "editorSuggestWidget.background" :  _bc_,
-      "editorSuggestWidget.border" :  _boc_,
-      "editorSuggestWidget.focusHighlightforeground" : _fc_,
-      "editorSuggestWidget.foreground" : _fc_,
-      "editorSuggestWidget.highlightforeground" : _fc_,
-      "editorSuggestWidget.selectedBackground" : _boc_,
-      "editorSuggestWidget.selectedforeground" : _fc_,
-      "editorSuggestWidget.selectedIconforeground" : _fc_,
+      "editorStickyScroll.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorStickyScrollHover.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.focusHighlightforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.highlightforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.selectedBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.selectedforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "editorSuggestWidget.selectedIconforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorSuggestWidgetStatus.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
       "editorUnicodeHighlight.background" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "editorUnicodeHighlight.border" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "editorUnnecessaryCode.border" :  _boc_,
+      "editorUnnecessaryCode.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "editorUnnecessaryCode._x_" : _cO(`${hex(color.danger.muted)}${_x_[3]}`,obj),
       "editorWarning.background" : _cO(`${hex(color.severe.muted)}${_x_[0]}`,obj),
                                  
       "editorWarning.border" : _cO(`${hex(color.severe.muted)}${_x_[8]}`,obj),
       "editorWarning.foreground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-      "editorWhitespace.foreground" : _cO(`${hex(color.sponsors.muted)}`,obj),
-      "editorWidget.background" : _bc_,
-      "editorWidget.border" :  _boc_,
-      "editorWidget.foreground" : _fc_,
+      "editorWhitespace.foreground" : _cO(`${hex(color.sponsors.muted)}${_x_[10]}`,obj),
+      "editorWidget.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "editorWidget.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "editorWidget.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "editorWidget.resizeBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
   
   
       "errorForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
   
       "extensionBadge.remoteBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "extensionBadge.remoteforeground" : _fc_,
+      "extensionBadge.remoteforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
       "extensionButton.prominentBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "extensionButton.prominentforeground" : _fc_,
+      "extensionButton.prominentforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "extensionButton.prominentHoverBackground" : _cO(`${hex(color.success.emphasis)}${_x_[6]}`,obj),
   
-      "extensionIcon.preReleaseForeground" : _cO(`${hex(color.severe.muted)}`,obj),
+      "extensionIcon.preReleaseForeground" : _cO(`${hex(color.severe.muted)}${_x_[10]}`,obj),
       "extensionIcon.sponsorForeground" : _cO(`${hex(color.done.muted )}${_x_[10]}`,obj),
-      "extensionIcon.starForeground" : _cO(`${hex(color.scale.yellow[0])}`,obj),
+      "extensionIcon.starForeground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
       "extensionIcon.verifiedForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
   
-      "focusBorder" : _bc_,
-      "foreground" : _fc_,
+      "focusBorder" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
       "gitDecoration.addedResourceForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "gitDecoration.conflictingResourceForeground" : _cO(`${hex(color.severe.muted)}`,obj),
+      "gitDecoration.conflictingResourceForeground" : _cO(`${hex(color.severe.muted)}${_x_[10]}`,obj),
       "gitDecoration.deletedResourceForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "gitDecoration.ignoredResourceForeground" : _cO(`${hex(color.severe.muted)}${_x_[5]}`,obj),
       "gitDecoration.modifiedResourceForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "gitDecoration.renamedResourceforeground" : _fc_,
+      "gitDecoration.renamedResourceforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "gitDecoration.stageDeletedResourceForeground" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "gitDecoration.stageModifiedResourceForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "gitDecoration.submoduleResourceForeground" : _fuc_,
-      "gitDecoration.untrackedResourceforeground" : _fc_,
+      "gitDecoration.submoduleResourceForeground" : _cO(`${_fuc_}${_x_[10]}`,obj),
+      "gitDecoration.untrackedResourceforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-      "icon.foreground" : _fc_,
+      "icon.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-      "input.background" : _bc_,
-      "input.border" :  _boc_,
+      "input.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "input.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "input.foreground": _cO(`${_fc_}${_x_[7]}`,obj),
       "input.placeholderForeground": _cO(`${_fc_}${_x_[7]}`,obj),
       "inputOption.activeBackground" : _cO(`${_boc_}${_x_[6]}`,obj),
@@ -524,71 +524,71 @@ const obj = [["100","FF"],
       "inputValidation.warningForeground" : _cO(`${hex(color.danger.fg)}${_x_[5]}`,obj),
   
       "keybindingLabel.border" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "keybindingLabel.bottomBorder" : _boc_,
-      "keybindingLabel.background" : _bc_,
+      "keybindingLabel.bottomBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "keybindingLabel.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "keybindingLabel.foreground": _cO(`${_fc_}${_x_[5]}`,obj),
      
-      "keybindingTable.headerBackground" : _fc_,
-      "keybindingTable.rowsBackground" : _boc_,
+      "keybindingTable.headerBackground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "keybindingTable.rowsBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "list.activeSelectionBackground" : _boc_,
-      "list.activeSelectionforeground" : _fc_,
+      "list.activeSelectionBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "list.activeSelectionforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "list.activeSelectionIconForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "list.deemphasizedForeground" : _cO(`${hex(color.scale.yellow[0])}${_x_[10]}`,obj),
+      "list.deemphasizedForeground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
       "list.dropBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "list.errorForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "list.filterMatchBackground" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "list.filterMatchBorder" : _cO(`${hex(color.success.emphasis)}${_x_[6]}`,obj),
       "list.focusAndSelectionOutline" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "list.focusBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "list.focusforeground" : _fc_,
+      "list.focusforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "list.focusHighlightForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "list.focusOutline" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "list.highlightforeground" : _fc_,
+      "list.highlightforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "list.hoverBackground" : _cO(`${hex(color.success.emphasis)}${_x_[8]}`,obj),
-      "list.hoverforeground" : _fc_,
+      "list.hoverforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "list.inactiveFocusBackground" : _cO(`${hex(color.success.emphasis)}${_x_[9]}`,obj),
       "list.inactiveFocusOutline" : _cO(`${hex(color.success.emphasis)}${_x_[9]}`,obj),
       "list.inactiveSelectionBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
-      "list.inactiveSelectionforeground" : _fc_,
+      "list.inactiveSelectionforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "list.inactiveSelectionIconForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "list.invalidItemForeground" : _cO(`${hex(color.danger.muted)}${_x_[4]}`,obj),
-      "list.warningForeground" : _cO(`${hex(color.severe.muted)}`,obj),
+      "list.warningForeground" : _cO(`${hex(color.severe.muted)}${_x_[10]}`,obj),
       "listFilterWidget.background" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "listFilterWidget.noMatchesOutline" : _cO(`${hex(color.neutral.emphasis)}${_x_[5]}`,obj),     
       "listFilterWidget.outline" : _cO(`${hex(color.accent.fg)}${_x_[4]}`,obj),
-      "listFilterWidget.shadow" : _boc_,
+      "listFilterWidget.shadow" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "menu.background" : _bc_,
-      "menu.border" : _boc_,
-      "menu.foreground" : _fc_,
+      "menu.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "menu.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "menu.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "menu.selectionBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "menu.selectionBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "menu.selectionforeground" : _fc_,
-      "menu.separatorBackground" : _boc_,
+      "menu.selectionforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "menu.separatorBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       
       "menubar.selectionBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "menubar.selectionBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "menubar.selectionForeground" : _fc_,
+      "menubar.selectionForeground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-      "merge.border" : _boc_,
+      "merge.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "merge.commonContentBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "merge.commonHeaderBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "merge.currentContentBackground" : _cO(`${hex(color.danger.muted)}${_x_[6]}`,obj),
       "merge.currentHeaderBackground" : _cO(`${hex(color.danger.muted)}${_x_[8]}`,obj),
       "merge.incomingContentBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "merge.incomingHeaderBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "mergeEditor.change.background" : _bc_,
-      "mergeEditor.change.word.background" : _bc_,
+      "mergeEditor.change.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "mergeEditor.change.word.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "mergeEditor.conflict.handled.minimapOverViewRuler" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "mergeEditor.conflict.handledFocused.border" : _boc_,
+      "mergeEditor.conflict.handledFocused.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "mergeEditor.conflict.handledUnfocused.border" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "mergeEditor.conflict.unhandled.minimapOverViewRuler" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "mergeEditor.conflict.unhandledFocused.border" : _cO(`${hex(color.scale.yellow[0])}${_x_[5]}`,obj),
-      "mergeEditor.conflict.unhandledUnfocused.border" : _boc_,
+      "mergeEditor.conflict.unhandledFocused.border" : _cO(`${hex(color.attention.fg)}${_x_[5]}`,obj),
+      "mergeEditor.conflict.unhandledUnfocused.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "mergeEditor.conflictingLines.background" : _cO(`${hex(color.danger.muted)}${_x_[3]}`,obj),
       
-      "minimap.background" : _boc_,
+      "minimap.background" : _cO(`${_boc_}${_x_[10]}`,obj),
       "minimap.errorHighlight" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "minimap.findMatchHighlight" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "minimap.foregroundOpacity" : _cO(`${_fc_}${_x_[5]}`,obj),
@@ -602,42 +602,42 @@ const obj = [["100","FF"],
       "minimapSlider.background" : _cO(`${hex(color.success.emphasis)}${_x_[7]}`,obj),
       "minimapSlider.hoverBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
   
-      "notificationCenter.border" :  _boc_,
-      "notificationCenterHeader.background" : _bc_,
-      "notificationCenterHeader.foreground" : _fc_,
+      "notificationCenter.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "notificationCenterHeader.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "notificationCenterHeader.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
       "notificationLink.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
   
-      "notificationToast.border" :  _boc_,
+      "notificationToast.border" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "notifications.background" : _bc_,
-      "notifications.border" :  _boc_,
-      "notifications.foreground" : _fc_,
+      "notifications.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "notifications.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "notifications.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "notificationsErrorIcon.foreground" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
       "notificationsInfoIcon.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
       "notificationsWarningIcon.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
   
-      "panel.background" : _bc_,
-      "panel.border" :  _boc_,
-      "panel.dropBorder" : _boc_,
+      "panel.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "panel.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "panel.dropBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "panelInput.border" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
       "panelSection.border" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-      "panelSection.dropBackground" :  _bc_,
-      "panelSectionHeader.background" : _bc_,
-      "panelSectionHeader.border" :  _boc_,
-      "panelSectionHeader.foreground" : _fc_,
+      "panelSection.dropBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "panelSectionHeader.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "panelSectionHeader.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "panelSectionHeader.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "panelTitle.activeBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "panelTitle.activeforeground" : _fc_,
-      "panelTitle.inactiveforeground" : _fc_,
+      "panelTitle.activeforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "panelTitle.inactiveforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-      "peekView.border" : _cO(`${hex(color.scale.yellow[0])}${_x_[7]}`,obj),
-      "peekViewEditor.background" : _bc_,
+      "peekView.border" : _cO(`${hex(color.attention.fg)}${_x_[7]}`,obj),
+      "peekViewEditor.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "peekViewEditor.matchHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "peekViewEditor.matchHighlightBorder" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
-      "peekViewEditorGutter.background" : _bc_,
-      "peekViewResult.background" : _bc_,
-      "peekViewResult.fileforeground" : _fc_,
-      "peekViewResult.lineforeground" : _fc_,
+      "peekViewEditorGutter.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "peekViewResult.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "peekViewResult.fileforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "peekViewResult.lineforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "peekViewResult.matchHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "peekViewResult.selectionBackground" : _cO(`${hex(color.success.emphasis)}${_x_[4]}`,obj),
       "peekViewResult.selectionForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
@@ -646,7 +646,7 @@ const obj = [["100","FF"],
       "peekViewTitleLabel.foreground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
   
       "pickerGroup.border" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "pickerGroup.foreground" : _fc_,
+      "pickerGroup.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
       "ports.iconRunningProcessForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
   
@@ -658,174 +658,174 @@ const obj = [["100","FF"],
   
       "progressBar.background" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
   
-      "quickInput.background" : _bc_,
-      "quickInput.foreground" : _fc_,
+      "quickInput.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "quickInput.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "quickInputList.focusBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "quickInputList.focusforeground" : _fc_,
+      "quickInputList.focusforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "quickInputList.focusIconForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "quickInputTitle.background" : _cO(`${_fc_}${_x_[5]}`,obj),
   
       "sash.hoverBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
   
-      "scm.providerborder" :  _boc_,
+      "scm.providerborder" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "scrollbar.shadow" : _boc_,
+      "scrollbar.shadow" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "scrollbarSlider.activeBackground" : _boc_,
+      "scrollbarSlider.activeBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "scrollbarSlider.background" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "scrollbarSlider.hoverbackground" : _cO(`${_fc_}${_x_[5]}`,obj),
   
-      "searchEditor.findMatchBackground" : _boc_,
+      "searchEditor.findMatchBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "searchEditor.findMatchBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "searchEditor.textInputborder" :  _boc_,
+      "searchEditor.textInputborder" : _cO(`${_boc_}${_x_[10]}`,obj),
   
       "selection.background" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
   
-      "sideBar.background" : _bc_,
-      "sideBar.border" :  _boc_,
+      "sideBar.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "sideBar.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "sideBar.dropBackground" : _cO(`${_boc_}${_x_[5]}`,obj),
       "sideBar.foreground" : _cO(`${_fc_}${_x_[5]}`,obj),
-      "sideBarSectionHeader.background" :  _bc_,
-      "sideBarSectionHeader.border" :  _boc_,
-      "sideBarSectionHeader.foreground" : _fc_,
-      "sideBarTitle.foreground" : _fc_,
+      "sideBarSectionHeader.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "sideBarSectionHeader.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "sideBarSectionHeader.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "sideBarTitle.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
       "sideBySideEditor.horizontalBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "sideBySideEditor.verticalBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
   
-      "statusBar.background" :  _bc_,
-      "statusBar.border" :  _boc_,
+      "statusBar.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "statusBar.border" : _cO(`${_boc_}${_x_[10]}`,obj),
       "statusBar.debuggingBackground" : _cO(`${hex(color.danger.muted)}${_x_[6]}`,obj),
       "statusBar.debuggingBorder" : _cO(`${hex(color.done.muted )}${_x_[10]}`,obj),
-      "statusBar.debuggingforeground" : _fc_,
-      "statusBar.focusborder" :  _boc_,
+      "statusBar.debuggingforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "statusBar.focusborder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "statusBar.foreground" : _cO(`${_fc_}${_x_[5]}`,obj),
       "statusBar.noFolderBackground" : _cO(`${hex(color.severe.muted)}${_x_[5]}`,obj),
       "statusBar.noFolderBorder" : _cO(`${hex(color.severe.muted)}${_x_[5]}`,obj),
-      "statusBar.noFolderforeground" : _fc_,
-      "statusBarItem.activeBackground" : _bc_,
-      "statusBarItem.compactHoverBackground" :  _bc_,
+      "statusBar.noFolderforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "statusBarItem.activeBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "statusBarItem.compactHoverBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
       "statusBarItem.errorBackground" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
       "statusBarItem.errorForeground" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
-      "statusBarItem.focusborder" :  _boc_,
+      "statusBarItem.focusborder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "statusBarItem.hoverBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "statusBarItem.prominentBackground" : _bc_,
+      "statusBarItem.prominentBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
       "statusBarItem.prominentForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "statusBarItem.remoteBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "statusBarItem.remoteforeground" : _fc_,
-      "statusBarItem.settingsProfilesBackground" : _bc_,
-      "statusBarItem.settingsProfilesforeground" : _fc_,
+      "statusBarItem.remoteforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "statusBarItem.settingsProfilesBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "statusBarItem.settingsProfilesforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
       "statusBarItem.warningBackground" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "statusBarItem.warningForeground" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
   
       "symbolIcon.arrayForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "symbolIcon.booleanForeground":_cO(`${hex(color.done.muted)}`,obj),
+      "symbolIcon.booleanForeground":_cO(`${hex(color.done.muted)}${_x_[10]}`,obj),
       "symbolIcon.classForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "symbolIcon.colorForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "symbolIcon.constantForeground" : "#ffc803",
-      "symbolIcon.constructorForeground" : "#02fffb",
-      "symbolIcon.enumeratorForeground" : "#48bc6f",
+      "symbolIcon.constantForeground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
+      "symbolIcon.constructorForeground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
+      "symbolIcon.enumeratorForeground" : _cO(`${hex(color.open.fg)}${_x_[10]}`,obj),
       "symbolIcon.enumeratorMemberForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "symbolIcon.eventForeground" : "#ff00d9",
+      "symbolIcon.eventForeground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
       "symbolIcon.fieldForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-      "symbolIcon.fileForeground" : "#0d00ff",
+      "symbolIcon.fileForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
       "symbolIcon.folderForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "symbolIcon.functionForeground" : "#a403e4",
-      "symbolIcon.interfaceForeground" : "#fc0050",
-      "symbolIcon.keyForeground" : "#00fc48",
-      "symbolIcon.keywordForeground" : "#ffd501",
-      "symbolIcon.methodForeground" : "#ff00ae",
-      "symbolIcon.moduleForeground" : "#03922e",
-      "symbolIcon.namespaceForeground" : "#f6f202",
-      "symbolIcon.nullForeground" : "#323232",
-      "symbolIcon.numberForeground" : "#f89604",
-      "symbolIcon.objectForeground" : "#99ff00",
-      "symbolIcon.operatorForeground" : "#5555e8",
-      "symbolIcon.packageForeground" : "#dc00a9",
-      "symbolIcon.propertyforeground" : _fc_,
-      "symbolIcon.referenceForeground" : "#03f7ff",
-      "symbolIcon.snippetForeground" : "#a4a4a7",
-      "symbolIcon.stringForeground" : "#b0b0d7",
-      "symbolIcon.structForeground" : "#1f1f49",
-      "symbolIcon.textForeground" : "#8ead02",
-      "symbolIcon.typeParameterForeground" : "#6cc30f",
-      "symbolIcon.unitForeground" : "#1cea7f",
-      "symbolIcon.variableForeground" : "#fcbb06",
+      "symbolIcon.functionForeground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
+      "symbolIcon.interfaceForeground" : _cO(`${hex(color.danger.fg)}${_x_[10]}`,obj),
+      "symbolIcon.keyForeground" : _cO(`${hex(color.open.fg)}${_x_[10]}`,obj),
+      "symbolIcon.keywordForeground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
+      "symbolIcon.methodForeground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
+      "symbolIcon.moduleForeground" : _cO(`${hex(color.open.fg)}${_x_[10]}`,obj),
+      "symbolIcon.namespaceForeground" :_cO(`${hex(color.attention.emphasis)}${_x_[10]}`,obj),
+      "symbolIcon.nullForeground" : _cO(`${hex(color.neutral.emphasisPlus)}${_x_[10]}`,obj),
+      "symbolIcon.numberForeground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
+      "symbolIcon.objectForeground" : _cO(`${hex(color.open.emphasis)}${_x_[10]}`,obj),
+      "symbolIcon.operatorForeground" : _cO(`${hex(color.done.emphasis)}${_x_[10]}`,obj),
+      "symbolIcon.packageForeground" : _cO(`${hex(color.attention.emphasis)}${_x_[10]}`,obj),
+      "symbolIcon.propertyforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "symbolIcon.referenceForeground" : _cO(`${_fuc_}${_x_[10]}`,obj),
+      "symbolIcon.snippetForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
+      "symbolIcon.stringForeground" : _cO(`${hex(color.neutral.muted)}${_x_[10]}`,obj),
+      "symbolIcon.structForeground" : _cO(`${hex(color.accent.muted)}${_x_[10]}`,obj),
+      "symbolIcon.textForeground" : _cO(`${hex(color.success.muted)}${_x_[10]}`,obj),
+      "symbolIcon.typeParameterForeground" :_cO(`${hex(color.danger.emphasis)}${_x_[10]}`,obj),
+      "symbolIcon.unitForeground" : _cO(`${hex(color.done.muted)}${_x_[10]}`,obj),
+      "symbolIcon.variableForeground" : _cO(`${hex(color.sponsors.muted)}${_x_[10]}`,obj),
   
-      "tab.activeBackground" : _boc_,
+      "tab.activeBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "tab.activeBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "tab.activeBorderTop" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "tab.activeForeground" :_cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "tab.activeModifiedBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "tab.border" :  _boc_,
-      "tab.hoverBackground" : _boc_,
+      "tab.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "tab.hoverBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "tab.hoverBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "tab.hoverforeground" : _fc_,
-      "tab.inactiveBackground" : _bc_,
-      "tab.inactiveForeground" : _fuc_,
+      "tab.hoverforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "tab.inactiveBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "tab.inactiveForeground" : _cO(`${_fuc_}${_x_[10]}`,obj),
       "tab.inactiveModifiedBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "tab.lastPinnedborder" :  _boc_,
-      "tab.unfocusedActiveBackground" : _boc_,
+      "tab.lastPinnedborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "tab.unfocusedActiveBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "tab.unfocusedActiveBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "tab.unfocusedActiveBorderTop" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "tab.unfocusedActiveForeground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
       "tab.unfocusedActiveModifiedBorder" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-      "tab.unfocusedHoverBackground" : _boc_,
+      "tab.unfocusedHoverBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
       "tab.unfocusedHoverBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "tab.unfocusedHoverforeground" : _fc_,
-      "tab.unfocusedInactiveBackground" : _bc_,
-      "tab.unfocusedInactiveForeground" : _fuc_,
+      "tab.unfocusedHoverforeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "tab.unfocusedInactiveBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "tab.unfocusedInactiveForeground" : _cO(`${_fuc_}${_x_[10]}`,obj),
       "tab.unfocusedInactiveModifiedBorder" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
   
-      "terminal.foreground" : hex(color.fg.muted),
-      'terminal.ansiBlack' : hex(color.ansi.black),
-      'terminal.ansiRed' : hex(color.ansi.red),
-      'terminal.ansiGreen' : hex(color.ansi.green),
-      'terminal.ansiYellow' : hex(color.ansi.yellow),
-      'terminal.ansiBlue' : hex(color.ansi.blue),
-      'terminal.ansiMagenta' : hex(color.ansi.magenta),
-      'terminal.ansiCyan' : hex(color.ansi.cyan),
-      'terminal.ansiWhite' : hex(color.ansi.white),
-      'terminal.ansiBrightBlack' : hex(color.ansi.blackBright),
-      'terminal.ansiBrightRed' : hex(color.ansi.redBright),
-      'terminal.ansiBrightGreen' : hex(color.ansi.greenBright),
-      'terminal.ansiBrightYellow' : hex(color.ansi.yellowBright),
-      'terminal.ansiBrightBlue' : hex(color.ansi.blueBright),
-      'terminal.ansiBrightMagenta' : hex(color.ansi.magentaBright),
-      'terminal.ansiBrightCyan' : hex(color.ansi.cyanBright),
-      'terminal.ansiBrightWhite' : hex(color.ansi.whiteBright),
+      "terminal.foreground" :_cO(`${hex(color.fg.muted)}${_x_[7]}`,obj),
+      'terminal.ansiBlack' : _cO(`${hex(color.ansi.black)}${_x_[10]}`,obj),
+      'terminal.ansiRed' : _cO(`${hex(color.ansi.red)}${_x_[10]}`,obj),
+      'terminal.ansiGreen' : _cO(`${hex(color.ansi.green)}${_x_[10]}`,obj),
+      'terminal.ansiYellow' : _cO(`${hex(color.ansi.yellow)}${_x_[10]}`,obj),
+      'terminal.ansiBlue' : _cO(`${hex(color.ansi.blue)}${_x_[10]}`,obj), 
+      'terminal.ansiMagenta' : _cO(`${hex(color.ansi.magenta)}${_x_[10]}`,obj),
+      'terminal.ansiCyan' : _cO(`${hex(color.ansi.cyan)}${_x_[10]}`,obj),
+      'terminal.ansiWhite' : _cO(`${hex(color.ansi.white)}${_x_[10]}`,obj),
+      'terminal.ansiBrightBlack' : _cO(`${hex(color.ansi.blackBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightRed' : _cO(`${hex(color.ansi.redBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightGreen' : _cO(`${hex(color.ansi.greenBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightYellow' : _cO(`${hex(color.ansi.yellowBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightBlue' : _cO(`${hex(color.ansi.blueBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightMagenta' : _cO(`${hex(color.ansi.magentaBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightCyan' : _cO(`${hex(color.ansi.cyanBright)}${_x_[10]}`,obj),
+      'terminal.ansiBrightWhite' : _cO(`${hex(color.ansi.whiteBright)}${_x_[10]}`,obj),
 
 
-      "terminal.background" : _bc_,
-      "terminal.border" : _boc_,
-      "terminal.dropBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "terminal.findMatchBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "terminal.findMatchBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "terminal.findMatchHighlightBackground" : _cO(`${hex(color.scale.yellow[0])}${_x_[3]}`,obj),
-      "terminal.findMatchHighlightBorder" : _cO(`${hex(color.scale.yellow[0])}${_x_[3]}`,obj),
-      "terminal.inactiveSelectionBackground" : _cO(`${hex(color.scale.yellow[0])}${_x_[3]}`,obj),
+      "terminal.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "terminal.border" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "terminal.dropBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
+      "terminal.findMatchBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
+      "terminal.findMatchBorder" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
+      "terminal.findMatchHighlightBackground" : _cO(`${hex(color.accent.fg)}${_x_[2]}`,obj),
+      "terminal.findMatchHighlightBorder" : _cO(`${hex(color.attention.fg)}${_x_[2]}`,obj),
+      "terminal.inactiveSelectionBackground" : _cO(`${hex(color.attention.fg)}${_x_[3]}`,obj),
       "terminal.selectionBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "terminal.selectionForeground" : _cO(`${_fc_}${_x_[5]}`,obj),
+      "terminal.selectionForeground" : _cO(`${_fc_}${_x_[7]}`,obj),
       "terminal.tab.activeBorder" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "terminalCommandDecoration.defaultBackground" : _cO(`${_boc_}${_x_[5]}`,obj),
       "terminalCommandDecoration.errorBackground" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
       "terminalCommandDecoration.successBackground" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "terminalCursor.background" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "terminalCursor.foreground" : _fc_,
+      "terminalCursor.background" : _cO(`${hex(color.success.fg)}${_x_[2]}`,obj),
+      "terminalCursor.foreground" : _cO(`${hex(color.success.fg)}${_x_[10]}`,obj),
       "terminalOverviewRuler.cursorForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "terminalOverviewRuler.findMatchForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
   
       "testing.iconErrored" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "testing.iconFailed" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "testing.iconPassed" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "testing.iconQueued" : _cO(`${hex(color.scale.yellow[0])}`,obj),
-      "testing.iconSkipped":_cO(`${hex(color.severe.muted)}`,obj),
-      "testing.iconUnset" : _cO(`${hex(color.severe.muted)}`,obj),
+      "testing.iconQueued" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
+      "testing.iconSkipped":_cO(`${hex(color.severe.muted)}${_x_[10]}`,obj),
+      "testing.iconUnset" : _cO(`${hex(color.severe.muted)}${_x_[10]}`,obj),
       "testing.message.error.decorationForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "testing.message.error.lineBackground" : _cO(`${hex(color.danger.muted)}${_x_[5]}`,obj),
       "testing.message.info.decorationForeground" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "testing.message.info.lineBackground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "testing.peekBorder" : _boc_,
+      "testing.peekBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
       "testing.peekHeaderBackground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "testing.runAction" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
   
@@ -837,36 +837,36 @@ const obj = [["100","FF"],
       "textLink.activeForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
       "textLink.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
   
-      "textPreformat.foreground" : _fc_,
+      "textPreformat.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-      "textSeparator.foreground" : _fc_,
+      "textSeparator.foreground" : _cO(`${_fc_}${_x_[10]}`,obj),
   
-      "titleBar.activeBackground" : _bc_,
+      "titleBar.activeBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
       "titleBar.activeForeground": _cO(`${_fc_}${_x_[5]}`,obj),
       "titleBar.border" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
-      "titleBar.inactiveBackground" : _bc_,
+      "titleBar.inactiveBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
       "titleBar.inactiveForeground" : _cO(`${_fc_}${_x_[5]}`,obj),
   
-      "toolbar.activeBackground" :  _cO(`${_bc_}}${_x_[5]}`,obj),
-      "toolbar.hoverBackground" : _bc_,
-      "toolbar.hoverOutline" : _fuc_,
+      "toolbar.activeBackground" : _cO(`${_bc_}}${_x_[5]}`,obj),
+      "toolbar.hoverBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "toolbar.hoverOutline" : _cO(`${_fuc_}${_x_[10]}`,obj),
   
       "tree.indentGuidesStroke" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "tree.tableColumnsborder" :  _boc_,
-      "tree.tableOddRowsBackground" : _boc_,
+      "tree.tableColumnsborder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "tree.tableOddRowsBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "walkThrough.embeddedEditorBackground" : _boc_,
+      "walkThrough.embeddedEditorBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
   
-      "welcomePage.background" : _bc_,
-      "welcomePage.progress.background" :  _bc_,
+      "welcomePage.background" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "welcomePage.progress.background" : _cO(`${_bc_}${_x_[10]}`,obj),
       "welcomePage.progress.foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "welcomePage.tileBackground" : _boc_,
-      "welcomePage.tileHoverBackground" : _bc_,
-      "welcomePage.tileShadow" : _fuc_,
+      "welcomePage.tileBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "welcomePage.tileHoverBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+      "welcomePage.tileShadow" : _cO(`${_fuc_}${_x_[10]}`,obj),
       
-      "widget.shadow" : _boc_, 
-      "window.activeBorder" : _fc_,
-      "window.inactiveBorder" : _fc_,
+      "widget.shadow" : _cO(`${_boc_}${_x_[10]}`,obj), 
+      "window.activeBorder" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "window.inactiveBorder" : _cO(`${_fc_}${_x_[10]}`,obj),
       "debugConsole.errorForeground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
       "debugConsole.infoForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
       "debugConsole.sourceForeground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
@@ -875,8 +875,8 @@ const obj = [["100","FF"],
       "debugIcon.breakpointCurrentStackframeForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "debugIcon.breakpointDisabledForeground" : _cO(`${hex(color.fg.subtle)}${_x_[10]}`,obj),
       "debugIcon.breakpointForeground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
-      "debugIcon.breakpointStackframeForeground" : _fc_,
-      "debugIcon.breakpointUnverifiedForeground" : _cO(`${hex(color.scale.yellow[1])}${_x_[10]}`,obj),
+      "debugIcon.breakpointStackframeForeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+      "debugIcon.breakpointUnverifiedForeground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
       "debugIcon.continueForeground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "debugIcon.disconnectForeground" : _cO(`${hex(color.danger.fg)}${_x_[10]}`,obj),
       "debugIcon.pauseForeground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
@@ -889,60 +889,60 @@ const obj = [["100","FF"],
 
 
 
-        "interactive.activeCodeBorder" : _cO(`${hex(color.scale.yellow[0])}${_x_[7]}`,obj),
+        "interactive.activeCodeBorder" : _cO(`${hex(color.attention.fg)}${_x_[7]}`,obj),
         "interactive.inactiveCodeBorder" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
       "issues.closed" : _cO(`${hex(color.danger.fg)}${_x_[5]}`,obj),
-        "issues.newIssueDecoration" : _fc_,
+        "issues.newIssueDecoration" : _cO(`${_fc_}${_x_[10]}`,obj),
         "issues.open" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
 
     
 
       
-        "notebook.cellBorderColor" : _boc_,
-      "notebook.cellEditorBackground" : _bc_,
+        "notebook.cellBorderColor" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "notebook.cellEditorBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
       "notebook.cellInsertionIndicator" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-        "notebook.cellToolbarSeparator" : _boc_,
-        "notebook.editorBackground" : _bc_,
+        "notebook.cellToolbarSeparator" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "notebook.editorBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
         "notebook.focusedCellBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-        "notebook.focusedEditorborder" :  _boc_,
+        "notebook.focusedEditorborder" : _cO(`${_boc_}${_x_[10]}`,obj),
         "notebook.inactiveFocusedCellBorder" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
         "notebook.selectedCellBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
         "notebook.selectedCellBorder" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
         "notebook.symbolHighlightBackground" : _cO(`${hex(color.success.emphasis)}${_x_[3]}`,obj),
         "notebookScrollbarSlider.activeBackground" : _cO(`${_fc_}${_x_[5]}`,obj),
       "notebookScrollbarSlider.background" : _cO(`${hex(color.success.emphasis)}${_x_[5]}`,obj),
-      "notebookScrollbarSlider.hoverBackground" : _boc_,
+      "notebookScrollbarSlider.hoverBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
         "notebookStatusErrorIcon.foreground" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
         "notebookStatusRunningIcon.foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         "notebookStatusSuccessIcon.foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
       "pullRequests.notification" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
-      "settings.checkboxBackground" : _boc_,
-        "settings.checkboxBorder" : _boc_,
-      "settings.checkboxForeground" : _fc_,
-        "settings.dropdownBackground" : _boc_,
-        "settings.dropdownBorder" : _boc_,
-        "settings.dropdownForeground" : _fc_,
-        "settings.dropdownListBorder" : _boc_,
+      "settings.checkboxBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "settings.checkboxBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "settings.checkboxForeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "settings.dropdownBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "settings.dropdownBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "settings.dropdownForeground" : _cO(`${_fc_}${_x_[10]}`,obj),
+        "settings.dropdownListBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
         "settings.focusedRowBackground" : _cO(`${hex(color.success.emphasis)}${_x_[9]}`,obj),
         "settings.focusedRowBorder" : _cO(`${hex(color.success.emphasis)}${_x_[6]}`,obj),
-        "settings.headerBorder" : _boc_,
-        "settings.headerForeground" : _fc_,
+        "settings.headerBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "settings.headerForeground" : _cO(`${_fc_}${_x_[10]}`,obj),
         "settings.modifiedItemIndicator" : _cO(`${hex(color.danger.muted)}${_x_[10]}`,obj),
-        "settings.numberInputBackground" : _bc_,
-     "settings.numberInputBorder" : _boc_,
-      "settings.numberInputForeground": _fc_,
-      "settings.rowHoverBackground" : _boc_,
-        "settings.sashBorder" : _boc_,
-      "settings.textInputBackground" : _bc_,
-        "settings.textInputBorder" : _boc_,
-      "settings.textInputForeground": _fc_,
+        "settings.numberInputBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+     "settings.numberInputBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "settings.numberInputForeground": _cO(`${_fc_}${_x_[10]}`,obj),
+      "settings.rowHoverBackground" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "settings.sashBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "settings.textInputBackground" : _cO(`${_bc_}${_x_[10]}`,obj),
+        "settings.textInputBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+      "settings.textInputForeground": _cO(`${_fc_}${_x_[10]}`,obj),
         "statusBarItem.prominentHoverBackground" : _cO(`${ _boc_}${_x_[3]}`,obj),
         "notebook.cellHoverBackground" : _cO(`${_fuc_}${_x_[5]}`,obj),
       "notebook.focusedCellBackground" : _cO(`${hex(color.danger.muted)}${_x_[3]}`,obj),
-      "notebook.inactiveSelectedCellBorder" : _boc_,
-        "notebook.outputContainerBackgroundColor" :_bc_,
-      "notebook.outputContainerBorderColor" : _boc_,
-        "quickInput.list.focusBackground" :_bc_
+      "notebook.inactiveSelectedCellBorder" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "notebook.outputContainerBackgroundColor" :_cO(`${_bc_}${_x_[10]}`,obj),
+      "notebook.outputContainerBorderColor" : _cO(`${_boc_}${_x_[10]}`,obj),
+        "quickInput.list.focusBackground" : _cO(`${_bc_}${_x_[10]}`,obj)
 
 
     },
@@ -955,7 +955,7 @@ const obj = [["100","FF"],
           "string.comment"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.muted)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
         }
       },
       {
@@ -968,7 +968,7 @@ const obj = [["100","FF"],
           "entity"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -978,7 +978,7 @@ const obj = [["100","FF"],
           "meta.definition.variable"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -992,13 +992,13 @@ const obj = [["100","FF"],
           "meta.embedded.expression"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.default)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "entity.name.function",
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1007,13 +1007,13 @@ const obj = [["100","FF"],
           "support.class.component"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.open.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.open.fg)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "keyword",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1022,7 +1022,7 @@ const obj = [["100","FF"],
           "storage.type"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1032,7 +1032,7 @@ const obj = [["100","FF"],
           "storage.type.java"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1041,79 +1041,79 @@ const obj = [["100","FF"],
           "string punctuation.section.embedded source"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "support",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "meta.property-name",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "variable",
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "variable.other",
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "invalid.broken",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "italic"
         }
       },
       {
         "scope" : "invalid.deprecated",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "italic"
         }
       },
       {
         "scope" : "invalid.illegal",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "italic"
         }
       },
       {
         "scope" : "invalid.unimplemented",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "italic"
         }
       },
       {
         "scope" : "carriage-return",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.fg)}`,obj),
-          "background" : _cO(`${hex(color.closed.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.closed.fg)}${_x_[10]}`,obj),
+          "background" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "italic underline"
         }
       },
       {
         "scope" : "message.error",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "string variable",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1122,7 +1122,7 @@ const obj = [["100","FF"],
           "string.regexp"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1133,44 +1133,44 @@ const obj = [["100","FF"],
           "string.regexp string.regexp.arbitrary-repitition"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "string.regexp constant.character.escape",
         "settings" : {
-          "foreground" : _cO(`${hex(color.open.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.open.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "bold"
         }
       },
       {
         "scope" : "support.constant",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "support.variable",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "support.type.property-name.json",
         "settings" : {
-          "foreground" : _cO(`${hex(color.open.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.open.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "meta.module-reference",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "punctuation.definition.list.begin.markdown",
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1179,27 +1179,27 @@ const obj = [["100","FF"],
           "markup.heading entity.name"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "bold"
         }
       },
       {
         "scope" : "markup.quote",
         "settings" : {
-          "foreground" : _cO(`${hex(color.open.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.open.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "markup.italic",
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "italic"
         }
       },
       {
         "scope" : "markup.bold",
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "bold"
         }
       },
@@ -1222,7 +1222,7 @@ const obj = [["100","FF"],
       {
         "scope" : "markup.inline.raw",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1232,8 +1232,8 @@ const obj = [["100","FF"],
           "punctuation.definition.deleted"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj),
-          "background" : _cO(`${hex(color.closed.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
+          "background" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1241,7 +1241,7 @@ const obj = [["100","FF"],
           "punctuation.section.embedded"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1251,8 +1251,8 @@ const obj = [["100","FF"],
           "punctuation.definition.inserted"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.open.emphasis)}`,obj),
-          "background" : _cO(`${hex(color.open.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.open.emphasis)}${_x_[10]}`,obj),
+          "background" : _cO(`${hex(color.open.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1261,8 +1261,8 @@ const obj = [["100","FF"],
           "punctuation.definition.changed"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.emphasis)}`,obj),
-          "background" : _cO(`${hex(color.severe.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.emphasis)}${_x_[10]}`,obj),
+          "background" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1271,34 +1271,34 @@ const obj = [["100","FF"],
           "markup.untracked"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.neutral.emphasis)}`,obj),
-          "background" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.neutral.emphasis)}${_x_[10]}`,obj),
+          "background" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "meta.diff.range",
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
           "fontStyle" : "bold"
         }
       },
       {
         "scope" : "meta.diff.header",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "meta.separator",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : "bold"
         }
       },
       {
         "scope" : "meta.output",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1311,13 +1311,13 @@ const obj = [["100","FF"],
           "brackethighlighter.quote"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.neutral.emphasisPlus)}`,obj)
+          "foreground" : _cO(`${hex(color.neutral.emphasisPlus)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "brackethighlighter.unmatched",
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1326,7 +1326,7 @@ const obj = [["100","FF"],
           "string.other.link"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
           "fontStyle" : "underline"
         }
       },
@@ -1336,7 +1336,7 @@ const obj = [["100","FF"],
           "constant.numeric"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.closed.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.closed.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1345,7 +1345,7 @@ const obj = [["100","FF"],
           "support.type.property-name"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1354,7 +1354,7 @@ const obj = [["100","FF"],
           "string"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1364,7 +1364,7 @@ const obj = [["100","FF"],
           "constant.character.escape"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.default)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1372,7 +1372,7 @@ const obj = [["100","FF"],
           "string"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.default)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1380,7 +1380,7 @@ const obj = [["100","FF"],
           "keyword"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1388,7 +1388,7 @@ const obj = [["100","FF"],
           "support.type.property-name"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1397,7 +1397,7 @@ const obj = [["100","FF"],
           "entity.name.function"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1408,7 +1408,7 @@ const obj = [["100","FF"],
           "punctuation.definition.parameters.end"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1417,7 +1417,7 @@ const obj = [["100","FF"],
           "entity.name.type"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj),
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1426,7 +1426,7 @@ const obj = [["100","FF"],
           "meta.embedded"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1434,7 +1434,7 @@ const obj = [["100","FF"],
           "support.function"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1442,7 +1442,7 @@ const obj = [["100","FF"],
           "storage.type"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1450,7 +1450,7 @@ const obj = [["100","FF"],
           "storage.modifier"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.pink[6])}`,obj)
+          "foreground" : _cO(`${hex(color.scale.pink[6])}${_x_[10]}`,obj),
         }
       },
       {
@@ -1458,7 +1458,7 @@ const obj = [["100","FF"],
           "variable"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1466,7 +1466,7 @@ const obj = [["100","FF"],
           "variable.other.readwrite.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1475,7 +1475,7 @@ const obj = [["100","FF"],
           "keyword.control"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1483,7 +1483,7 @@ const obj = [["100","FF"],
           "variable.language"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.muted)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1491,7 +1491,7 @@ const obj = [["100","FF"],
           "variable"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1499,7 +1499,7 @@ const obj = [["100","FF"],
           "keyword.operator"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.blue[3])}`,obj),
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1508,7 +1508,7 @@ const obj = [["100","FF"],
           "keyword.operator"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.default)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1516,7 +1516,7 @@ const obj = [["100","FF"],
           "support.class"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj),
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1525,7 +1525,7 @@ const obj = [["100","FF"],
           "keyword"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1534,7 +1534,7 @@ const obj = [["100","FF"],
           "comment"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.neutral.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.neutral.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1543,7 +1543,7 @@ const obj = [["100","FF"],
           "punctuation.separator.key-value.html"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1552,7 +1552,7 @@ const obj = [["100","FF"],
           "punctuation.definition.tag"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1564,7 +1564,7 @@ const obj = [["100","FF"],
           "punctuation.definition.string.begin.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1574,7 +1574,7 @@ const obj = [["100","FF"],
           "punctuation.support.type.property-name.end.json.comments"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1584,7 +1584,7 @@ const obj = [["100","FF"],
           "punctuation.definition.string.end.html"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1593,7 +1593,7 @@ const obj = [["100","FF"],
           "source.sql.embedded.php"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1604,7 +1604,7 @@ const obj = [["100","FF"],
           "punctuation.separator.dictionary.key-value.json.comments"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1616,7 +1616,7 @@ const obj = [["100","FF"],
           "string.quoted.single.php"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1625,7 +1625,7 @@ const obj = [["100","FF"],
           "string.quoted.other.backtick.sql"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1635,7 +1635,7 @@ const obj = [["100","FF"],
           "entity.name.function.member"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1645,7 +1645,7 @@ const obj = [["100","FF"],
           "punctuation.definition.string.template.end.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1657,7 +1657,7 @@ const obj = [["100","FF"],
           "string.template.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.muted)}`,obj),
+          "foreground" : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1666,7 +1666,7 @@ const obj = [["100","FF"],
           "text.html.php"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.muted)}`,obj),
+          "foreground" : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1677,7 +1677,7 @@ const obj = [["100","FF"],
           "punctuation.definition.template-expression.begin.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj),
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1687,7 +1687,7 @@ const obj = [["100","FF"],
           "punctuation.separator.dictionary.pair.json.comments"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj),
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1697,7 +1697,7 @@ const obj = [["100","FF"],
           "punctuation.definition.string.end.php"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj),
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
           "fontStyle" : ""
         }
       },
@@ -1706,7 +1706,7 @@ const obj = [["100","FF"],
           "punctuation.accessor.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.default)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1714,7 +1714,7 @@ const obj = [["100","FF"],
           "punctuation.accessor.js"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.default)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.default)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1722,7 +1722,7 @@ const obj = [["100","FF"],
           "support.type.property-name.json"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1730,7 +1730,7 @@ const obj = [["100","FF"],
           "variable.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1738,7 +1738,7 @@ const obj = [["100","FF"],
           "variable.argument.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj)
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1747,7 +1747,7 @@ const obj = [["100","FF"],
           "support.constant.property-value"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1760,7 +1760,7 @@ const obj = [["100","FF"],
           "punctuation.definition.entity.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1769,7 +1769,7 @@ const obj = [["100","FF"],
           "punctuation.definition.string.end.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1777,7 +1777,7 @@ const obj = [["100","FF"],
           "string.quoted.single.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.fg.muted)}`,obj)
+          "foreground" : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1794,7 +1794,7 @@ const obj = [["100","FF"],
           "keyword.other.unit.s.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj)
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1802,7 +1802,7 @@ const obj = [["100","FF"],
           "constant.numeric.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.severe.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.severe.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1811,7 +1811,7 @@ const obj = [["100","FF"],
           "entity.other.attribute-name.class.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1819,7 +1819,7 @@ const obj = [["100","FF"],
           "entity.name.tag.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.scale.yellow[0])}`,obj)
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1828,7 +1828,7 @@ const obj = [["100","FF"],
           "entity.other.keyframe-offset.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1838,7 +1838,7 @@ const obj = [["100","FF"],
           "entity.other.attribute-name.class.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1846,7 +1846,7 @@ const obj = [["100","FF"],
           "entity.other.attribute-name.pseudo-element.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1855,7 +1855,7 @@ const obj = [["100","FF"],
           "support.constant.media.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1865,7 +1865,7 @@ const obj = [["100","FF"],
           "string.quoted.double.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.success.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1873,7 +1873,7 @@ const obj = [["100","FF"],
           "entity.other.attribute-name.id.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1881,7 +1881,7 @@ const obj = [["100","FF"],
           "support.function.transform.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
@@ -1889,31 +1889,31 @@ const obj = [["100","FF"],
           "entity.other.keyframe-offset.percentage.css"
         ],
         "settings" : {
-          "foreground" : _cO(`${hex(color.sponsors.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.sponsors.fg)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "token.info-token",
         "settings" : {
-          "foreground" : _cO(`${hex(color.accent.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.accent.fg)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "token.warn-token",
         "settings" : {
-          "foreground" : _cO(`${hex(color.attention.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.attention.fg)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "token.error-token",
         "settings" : {
-          "foreground" : _cO(`${hex(color.danger.emphasis)}`,obj)
+          "foreground" : _cO(`${hex(color.danger.emphasis)}${_x_[10]}`,obj),
         }
       },
       {
         "scope" : "token.debug-token",
         "settings" : {
-          "foreground" : _cO(`${hex(color.done.fg)}`,obj)
+          "foreground" : _cO(`${hex(color.done.fg)}${_x_[10]}`,obj),
         }
       }
     ]
