@@ -111,7 +111,9 @@ const obj = [["100","FF"],
               ["0","00"],];
     _cO= ( x , obj ) => {
       let a,b,c,d,f,g
+    
           if (x.length <= 9){
+              console.log (x,"x")
             return x
           }
           if(x.length == 11){
@@ -126,11 +128,15 @@ const obj = [["100","FF"],
                           f =(100 - a) + (100 - c),
                           g = (100  - f);
                             if( g <= 0 ) {
-                              return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
+                               x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
+                               console.log (x,"x 3 ") 
+                               return x
                             }else{
                               obj.forEach( (et , i) => {  
                                 if(et[0] == g){
-                                    return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
+                                    x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
+                                    console.log (x,"x 2 ")
+                                    return x
                                 }
                               })
                             }
