@@ -385,6 +385,11 @@ console.log(color.neutral.muted, 'color.neutral.muted')
 console.log(color.border.muted, 'color.border.muted')
 console.log(color.fg.default, 'color.fg.default')
 console.log(color.fg.muted, 'color.fg.muted')
+console.log(_bc_, '_bc_')
+console.log(_boc_, '_boc_')
+console.log(_fc_, '_fc_')
+console.log(_fuc_, '_fuc_')
+
   return {
     name : name,
     colors : {
