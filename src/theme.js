@@ -237,7 +237,7 @@ const obj = [["100","FF"],
 
             // h = x.match(j) 
             console.log(h,'h')
-            k =  h[0](replace()).split(',')
+            k =  h.split(',')
             console.log(k,'-----k=====')
               l = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
