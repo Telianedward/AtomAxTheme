@@ -240,6 +240,10 @@ const obj = [["100","FF"],
                 i = k[3]
                   p = i*100
                 o = Math.round10(p,0)
+                  console.log(o , ' ------====== o ll=====------  2 ')
+                  console.log(obj , ' ------====== obj  ll=====------  2 ')
+                  console.log(obj[0] , ' ------====== o ll=====------  2 ')
+
                 ll = `${l}${obj[0][2]}` 
                 console.log(ll , ' ------======ll=====------  2 ')
                 return ll
@@ -269,6 +273,10 @@ const obj = [["100","FF"],
               i = k[3]
               p = i*100
             o = Math.round10(p,0)
+            console.log(o , ' ------====== o ll=====------  2 ')
+            console.log(o , ' ------====== o ll=====------  2 ')
+            console.log(obj , ' ------====== obj  ll=====------  2 ')
+            console.log(obj[0] , ' ------====== o ll=====------  2 ')
             ll = `${l}${obj[0][2]}` 
             console.log(ll , ' ------====== ll=====------  4 ')
             return ll
