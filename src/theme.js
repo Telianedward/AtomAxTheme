@@ -333,16 +333,16 @@ const obj = [["100","FF"],
         //                           dhc:color.canvas.overlay,
         //                           dc:color.canvas.overlay,
         //                           dt:color.canvas.overlay
-        //                         })  = themes({l:color.canvas.subtle,
-        //                           lHC:color.canvas.subtle,
-        //                           lC:color.canvas.subtle,
-        //                           lT:color.canvas.subtle,
-        //                           d:color.canvas.overlay,
-        //                           dd:color.canvas.overlay,
-        //                           dhc:color.canvas.overlay,
-        //                           dc:color.canvas.overlay,
-        //                           dt:color.canvas.overlay
-        //                         });
+                                // })  = themes({l:color.canvas.subtle,
+                                //   lHC:color.canvas.subtle,
+                                //   lC:color.canvas.subtle,
+                                //   lT:color.canvas.subtle,
+                                //   d:color.canvas.overlay,
+                                //   dd:color.canvas.overlay,
+                                //   dhc:color.canvas.overlay,
+                                //   dc:color.canvas.overlay,
+                                //   dt:color.canvas.overlay
+                                // });
 
       // const  themes({l:color.neutral.muted,
       //                           lHC:color.neutral.muted,
@@ -353,16 +353,16 @@ const obj = [["100","FF"],
       //                           dhc:color.border.muted,
       //                           dc:color.border.muted,
       //                           dt:color.border.muted
-      //                         }) = themes({l:color.neutral.muted,
-      //                           lHC:color.neutral.muted,
-      //                           lC:color.neutral.muted,
-      //                           lT:color.neutral.muted,
-      //                           d:color.border.muted,
-      //                           dd:color.border.muted,
-      //                           dhc:color.border.muted,
-      //                           dc:color.border.muted,
-      //                           dt:color.border.muted
-      //                         });
+                              // }) = themes({l:color.neutral.muted,
+                              //   lHC:color.neutral.muted,
+                              //   lC:color.neutral.muted,
+                              //   lT:color.neutral.muted,
+                              //   d:color.border.muted,
+                              //   dd:color.border.muted,
+                              //   dhc:color.border.muted,
+                              //   dc:color.border.muted,
+                              //   dt:color.border.muted
+                              // });
         
 
       // const  themes({l:color.fg.default,
@@ -410,7 +410,46 @@ console.log(color.neutral.muted, 'color.neutral.muted')
 console.log(color.border.muted, 'color.border.muted')
 console.log(color.fg.default, 'color.fg.default')
 console.log(color.fg.muted, 'color.fg.muted')
-
+console.log(themes({l:color.canvas.subtle,
+                                      lHC:color.canvas.subtle,
+                                      lC:color.canvas.subtle,
+                                      lT:color.canvas.subtle,
+                                      d:color.canvas.overlay,
+                                      dd:color.canvas.overlay,
+                                      dhc:color.canvas.overlay,
+                                      dc:color.canvas.overlay,
+                                      dt:color.canvas.overlay
+                                    }), '_bc_')
+console.log(themes({l:color.neutral.muted,
+                                      lHC:color.neutral.muted,
+                                      lC:color.neutral.muted,
+                                      lT:color.neutral.muted,
+                                      d:color.border.muted,
+                                      dd:color.border.muted,
+                                      dhc:color.border.muted,
+                                      dc:color.border.muted,
+                                      dt:color.border.muted
+                                    }), '_boc_')
+console.log(themes({l:color.fg.default,
+                                      lHC:color.fg.default,
+                                      lC:color.fg.default,
+                                      lT:color.fg.default,
+                                      d:color.fg.default,
+                                      dd:color.fg.default,
+                                      dhc:color.fg.default,
+                                      dc:color.fg.default,
+                                      dt:color.fg.default
+                                    }), 'fc')
+console.log(themes({   l:color.fg.muted,
+                                          lHC:color.fg.muted,
+                                          lC:color.fg.muted,
+                                          lT:color.fg.muted,
+                                          d:color.fg.muted,
+                                          dd:color.fg.muted,
+                                          dhc:color.fg.muted,
+                                          dc:color.fg.muted,
+                                          dt:color.fg.muted
+                                        }), '_fuc_')
 console.log(color.canvas.subtle, 'color.canvas.subtle')
 
 console.log(color.neutral.muted, 'color.neutral.muted')
