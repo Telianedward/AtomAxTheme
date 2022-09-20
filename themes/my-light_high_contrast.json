@@ -469,7 +469,7 @@
     "symbolIcon.propertyforeground": "undefined",
     "symbolIcon.referenceForeground": "undefined",
     "symbolIcon.snippetForeground": "#ee5a5d",
-    "symbolIcon.stringForeground": "#172182192FF",
+    "symbolIcon.stringForeground": "#acb6c033",
     "symbolIcon.structForeground": "#368cf9",
     "symbolIcon.textForeground": "#26a148",
     "symbolIcon.typeParameterForeground": "#a0111f",
@@ -1148,7 +1148,7 @@
         "storage.modifier"
       ],
       "settings": {
-        "foreground": "#971368"
+        "foreground": "#7d0c57"
       }
     },
     {
