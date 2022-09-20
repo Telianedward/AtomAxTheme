@@ -211,7 +211,7 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,l
+      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,ll
       j = /\(([^)]+)\)/gm;
       h = [];
       console.log(x ,' <------------------------ x |')
@@ -222,9 +222,9 @@ const obj = [["100","FF"],
                     h.push(m[1]);
                   }
              k =  h[0].split(',')
-             l = color_.r(k[0],k[1],k[2])
-             console.log(l , ' ------====== l=====------  1 ')
-             return l
+             ll = color_.r(k[0],k[1],k[2])
+             console.log(ll, ' ------====== l=====------  1 ')
+             return ll
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
         
        
@@ -232,16 +232,17 @@ const obj = [["100","FF"],
               h.push(m[1]);
             }
             k =  h[0].split(',')
-              l = color_.r(k[0],k[1],k[2])
+            ll = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
-                    return l 
+                    console.log(ll, ' ------====== l1=====------  1 ')
+                    return ll 
                   }
                 i = k[3]
                   p = i*100
                 o = Math.round10(p,0)
-                l = `${l}${obj[0][2]}` 
-                console.log(l , ' ------====== l=====------  2 ')
-                return l
+                ll = `${l}${obj[0][2]}` 
+                console.log(ll , ' ------======ll=====------  2 ')
+                return ll
               
             }
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
@@ -251,9 +252,9 @@ const obj = [["100","FF"],
               h.push(m[1]);
             }
             k =  h[0].split(',')
-            l = hsl_(k[0],k[1],k[2])
-            console.log(l , ' ------====== l=====------  3 ')
-            return l
+            ll = hsl_(k[0],k[1],k[2])
+            console.log(ll , ' ------====== ll=====------  3 ')
+            return ll
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
          
             while ((m=j.exec(x)) !== null) {
@@ -262,14 +263,15 @@ const obj = [["100","FF"],
 
             k =  h[0].split(',')
               if( k[3].length==0 ){
-                return l
+                console.log(ll , ' ------====== l2=====------  4 ')
+                return ll
               }
               i = k[3]
               p = i*100
             o = Math.round10(p,0)
-            l = `${l}${obj[0][2]}` 
-            console.log(l , ' ------====== l=====------  4 ')
-            return l
+            ll = `${l}${obj[0][2]}` 
+            console.log(ll , ' ------====== ll=====------  4 ')
+            return ll
         
           }
       } else {
