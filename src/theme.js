@@ -211,7 +211,7 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m,h
+      let a,b,c,d,f,g,j,k,l,m,h,i,o,p
 
       if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
@@ -227,10 +227,14 @@ const obj = [["100","FF"],
             k =  h[0].split(',')
               l = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
-                    return l
+                    return l 
                   }
-                console.log(Math.round10((Number(k[3])*100),0)," nUmber ")
-                return `${l}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
+                i = k[3]
+                  console.log(i,' -- i --')
+                o = Math.round10((Number(i)*100),0)
+
+                console.log( o ," nUmber ")
+                return `${l}${obj[0][2]}` 
             }
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
@@ -243,8 +247,11 @@ const obj = [["100","FF"],
               if( k[3].length==0 ){
                 return l
               }
-              console.log(Math.round10((Number(k[3])*100),0)," nUmber ")
-             return `${hsl_(k[0],k[1],k[2])}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
+              i = k[3]
+              console.log(i,' -- i --')
+            o = Math.round10((Number(i)*100),0)
+            console.log( o ," nUmber ")
+            return `${l}${obj[0][2]}` 
           }
       } else {
         console.log (x," -- x ---")
