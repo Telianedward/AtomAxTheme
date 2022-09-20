@@ -216,11 +216,11 @@ const obj = [["100","FF"],
       if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test){
           if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
              j = /\((.*)\)/gm;
-             k = j.split(',')
+             k =  x.match(j)[0].split(',')
               return color_.r(k[0],k[1],k[2])
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
-              j = /\((.*)\)/gm;
-              k = j.split(',')
+            j = /\((.*)\)/gm;
+            k =  x.match(j)[0].split(',')
               l = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
                     return l
