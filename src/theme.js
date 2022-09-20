@@ -4,9 +4,7 @@ const { _gC } = require("./colors");
 // Convert to hex
 // VS Code doesn't support other formats like hsl, rgba etc.
 console.log(_gC,'_gC ')
-  hex = (color)=>{
-  return color;
-}
+
   max = (val, n) =>  {
   debug(`ensuring ${val} is no more than ${n}`);
   return val > n ? n : val;
@@ -329,8 +327,7 @@ const obj = [["100","FF"],
 
     _gT = ({ theme, name }) => {
   const themes = (options) => options[theme]; // Usage : themes({ l : "lightblue", d : "darkblue", dd : "royalblue", hc : "blue" })
-  const  color = _gC(theme); // Usage : color.fg.default
-        const  scale = color.scale; // Usage : scale.blue[6]
+         const  color = _gC(theme); // Usage : color.fg.default
         const  _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""];
 
 
