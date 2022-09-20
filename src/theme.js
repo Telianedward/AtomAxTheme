@@ -242,6 +242,7 @@ const obj = [["100","FF"],
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
             k = j.split(',')
+            console.log(k,'-----k=====')
              return hsl_(k[0],k[1],k[2])
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
             j = /\((.*)\)/gm;
