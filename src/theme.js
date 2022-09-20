@@ -3,7 +3,7 @@ const { _gC } = require("./colors");
 
 // Convert to hex
 // VS Code doesn't support other formats like hsl, rgba etc.
-
+console.log(_gC,'_gC ')
   hex = (color)=>{
   return color;
 }
@@ -220,7 +220,7 @@ const obj = [["100","FF"],
               ["2","05"],
               ["1","03"],
               ["0","00"],];
-    _cO= ( x , obj ) => {
+    _cO = ( x , obj ) => {
       let a,
           b,
           c,
@@ -250,6 +250,7 @@ const obj = [["100","FF"],
                       while ((m=j.exec(x)) !== null) {
                         h.push(m[1]);
                       }
+                      console.log(h,'h')
                         k =  h[0].split(',')
                         v = color_.g(k[0],k[1],k[2])
                         if( k[3].length==0 ){
@@ -368,7 +369,7 @@ const obj = [["100","FF"],
                                 dt : color.fg.default
                               }),
 
-    _fuc_  = themes({ l : color.fg.muted,
+    _fuc_  = themes({   l : color.fg.muted,
                                 lHC : color.fg.muted,
                                 lC : color.fg.muted,
                                 lT : color.fg.muted,
