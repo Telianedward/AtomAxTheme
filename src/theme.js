@@ -211,16 +211,20 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m
+      let a,b,c,d,f,g,j,k,l,m,h
 
       if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test){
           if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
              j = /\((.*)\)/gm;
-             k =  x.match(j)[0].split(',')
+             h = x.match(j)[0]
+             console.log(h,'h')
+             k =  h[0].split(',')
               return color_.r(k[0],k[1],k[2])
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
             j = /\((.*)\)/gm;
-            k =  x.match(j)[0].split(',')
+            h = x.match(j)[0]
+            console.log(h,'h')
+            k =  h[0].split(',')
               l = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
                     return l
