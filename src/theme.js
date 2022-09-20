@@ -211,47 +211,38 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,res
+      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,l
       j = /\(([^)]+)\)/gm;
       h = [];
       console.log(x ,' <------------------------ x |')
       if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
          
-            while ((m=j.exec(x)) !== null) {
-              h.push(m[1]);
-            }
-
-
-            // h = x.match(j) 
-            console.log(h,'h')
-             console.log(h,'h')
+                  while ((m=j.exec(x)) !== null) {
+                    h.push(m[1]);
+                  }
              k =  h[0].split(',')
-              return color_.r(k[0],k[1],k[2])
+             l = color_.r(k[0],k[1],k[2])
+             console.log(l , ' ------====== l=====------  1 ')
+             return l
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
         
        
             while ((m=j.exec(x)) !== null) {
               h.push(m[1]);
             }
-
-
-            // h = x.match(j) 
-            console.log(h,'h')
             k =  h[0].split(',')
-            console.log(k,'-----k=====')
               l = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
                     return l 
                   }
                 i = k[3]
-                  console.log(i,' -- i --')
                   p = i*100
-                  console.log(p,' -- p --')
                 o = Math.round10(p,0)
-
-                console.log( o ," nUmber ")
-                return `${l}${obj[0][2]}` 
+                l = `${l}${obj[0][2]}` 
+                console.log(l , ' ------====== l=====------  2 ')
+                return l
+              
             }
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
@@ -259,41 +250,34 @@ const obj = [["100","FF"],
             while ((m=j.exec(x)) !== null) {
               h.push(m[1]);
             }
-
-
-            // h = x.match(j) 
-            console.log(h,'h')
-            console.log(h,'h')
             k =  h[0].split(',')
-            console.log(k,'-----k=====')
-             return hsl_(k[0],k[1],k[2])
+            l = hsl_(k[0],k[1],k[2])
+            console.log(l , ' ------====== l=====------  3 ')
+            return l
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
          
             while ((m=j.exec(x)) !== null) {
               h.push(m[1]);
             }
 
-
-            // h = x.match(j) 
-            console.log(h,'h')
-            console.log(h,'h')
             k =  h[0].split(',')
-            console.log(k,'-----k=====')
               if( k[3].length==0 ){
                 return l
               }
               i = k[3]
-              console.log(i,' -- i --')
               p = i*100
-              console.log(p,' -- p --')
             o = Math.round10(p,0)
-            console.log( o ," nUmber ")
-            return `${l}${obj[0][2]}` 
+            l = `${l}${obj[0][2]}` 
+            console.log(l , ' ------====== l=====------  4 ')
+            return l
+        
           }
       } else {
         console.log (x," -- x ---")
         if (x.length <= 9){
-            console.log (x,"x 1 ")
+           
+             console.log(x , ' ------====== x =====------  4 ')
+  
           return x
         }
         if(x.length == 11){
@@ -309,13 +293,14 @@ const obj = [["100","FF"],
                         g = (100  - f);
                           if( g <= 0 ) {
                              x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
-                             console.log (x,"x 3 ") 
+                             
+                             console.log (x,"x 5 ") 
                              return x
                           }else{
                             obj.forEach( (et , i) => {  
                               if(et[0] == g){
                                   x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
-                                  console.log (x,"x 2 ")
+                                  console.log (x,"x  6  ")
                                   return x
                               }
                             })
