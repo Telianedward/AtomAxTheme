@@ -4,9 +4,110 @@ const { _gC } = require("./colors");
 // Convert to hex
 // VS Code doesn't support other formats like hsl, rgba etc.
 
-   hex = (color)=>{
-  return _ch(color).hex();
+  hex = (color)=>{
+  return color;
 }
+  max = (val, n) =>  {
+  debug(`ensuring ${val} is no more than ${n}`);
+  return val > n ? n : val;
+}
+
+  min = (val, n) => {
+  debug(`ensuring ${val} is no less than ${n}`);
+  return val < n ? n : val;
+}
+
+  cycle = (val) => {
+  debug(`resolving ${val} within the 0-259 range`);
+  val = max(val, 1e7);
+  val = min(val, -1e7);
+  while (val < 0) {
+    val += 360;
+  }
+  while (val > 359) {
+    val -= 360;
+  }
+  return val;
+}
+
+hsl_ = (hue, saturation, luminosity)=> {
+  hue = cycle(hue);
+  saturation = min(max(saturation, 100), 0);
+  luminosity = min(max(luminosity, 100), 0);
+
+  saturation /= 100;
+  luminosity /= 100;
+
+  const rgb = toRgb(hue, saturation, luminosity);
+
+  return `#${rgb.map(n => (256 + n).toString(16).substr(-2)).join("")}`;
+}
+color_ = {
+  c: ( c ) => {
+      let h = c.toString( 16 );
+      return h.length == 1 ? "0" + h : h;
+  },
+  r: ( r, g, b ) => {
+      return "#" + ( ( 1 << 24 ) + ( r << 16 ) + ( g << 8 ) + b ).toString( 16 ).slice( 1 );
+  },
+  h: ( h ) => {
+      //#hex To Rgb
+      h.replace( /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+          , ( m, r, g, b ) => '#' + r + r + g + g + b + b )
+          .substring( 1 ).match( /.{2}/g )
+          .map( x => parseInt( x, 16 ) )
+  },
+  j: ( h ) => {
+      var c;
+      if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test( h ) ) {
+          c = h.substring( 1 ).split( '' );
+          if ( c.length == 3 ) {
+              c = [ c[ 0 ], c[ 0 ], c[ 1 ], c[ 1 ], c[ 2 ], c[ 2 ] ];
+          }
+          c = '0x' + c.join( '' );
+          return [ ( c >> 16 ) & 255, ( c >> 8 ) & 255, c & 255 ].join( ',' );
+      }
+      throw new Error( 'Bad Hex' );
+  }
+}
+  decimalAdjust = ( t, v, exp ) => {
+        /**
+         * examples:
+         *  Math.round10(5.25, 0);  // 5
+            Math.round10(5.25, -1); // 5.3
+            Math.round10(5.25, -2); // 5.25
+            Math.round10(5, 0);     // 5
+            Math.round10(5, -1);    // 5
+            Math.round10(5, -2);    // 5
+      * Decimal adjustment of a number.
+      *
+      * @param {String}  type  The type of adjustment.
+      * @param {Number}  value The number.
+      * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
+      * @returns {Number} The adjusted value.
+      */
+      if ( typeof exp === 'undefined' || +exp === 0 ) {
+          return Math[ t ]( v );
+      }
+      v = +v;
+      exp = +exp;
+
+      if ( isNaN( v ) || !( typeof exp === 'number' && exp % 1 === 0 ) ) {
+          return NaN;
+      }
+
+      v = v.toString().split( 'e' );
+      v = Math[ t ]( +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] - exp ) : -exp ) ) );
+
+      v = v.toString().split( 'e' );
+      return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
+    },
+      Math.round10 = ( v, exp ) => { return decimalAdjust( 'round', v, exp ) },
+      Math.floor10 = ( v, exp ) => { return decimalAdjust( 'floor', v, exp ) },
+      Math.ceil10 = ( v, exp ) => { return decimalAdjust( 'ceil', v, exp ) }
+
+
+
 
 const obj = [["100","FF"],
               ["99","FC"],
@@ -110,49 +211,73 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g
-      console.log (x," -- x ---")
-          if (x.length <= 9){
-              console.log (x,"x")
-            return x
+      let a,b,c,d,f,g,j,k,l,m
+
+      if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test){
+          if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+             j = /\((.*)\)/gm;
+             k = j.split(',')
+              return color_.r(k[0],k[1],k[2])
+          } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+              j = /\((.*)\)/gm;
+              k = j.split(',')
+              l = color_.r(k[0],k[1],k[2])
+                  if( k[3].length==0 ){
+                    return l
+                  }
+                
+                return `${l}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
+            }
+      } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test){
+          if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+            j = /\((.*)\)/gm;
+            k = j.split(',')
+             return hsl_(k[0],k[1],k[2])
+          }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test){
+            j = /\((.*)\)/gm;
+            k = j.split(',')
+              if( k[3].length==0 ){
+                return l
+              }
+             return `${hsl_(k[0],k[1],k[2])}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
           }
-          if(x.length == 11){
-              obj.forEach( (ej, i) => {  
-                ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
-                    a = ej[0] , 
-                    b = i,
-                    obj.forEach( (el , i) => {  
-                      if(el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase()){
-                          c = el[0] ,
-                          d = i,
-                          f =(100 - a) + (100 - c),
-                          g = (100  - f);
-                            if( g <= 0 ) {
-                               x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
-                               console.log (x,"x 3 ") 
-                               return x
-                            }else{
-                              obj.forEach( (et , i) => {  
-                                if(et[0] == g){
-                                    x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
-                                    console.log (x,"x 2 ")
-                                    return x
-                                }
-                              })
-                            }
-                      }
-                    })
+      } else {
+        console.log (x," -- x ---")
+        if (x.length <= 9){
+            console.log (x,"x")
+          return x
+        }
+        if(x.length == 11){
+            obj.forEach( (ej, i) => {  
+              ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
+                  a = ej[0] , 
+                  b = i,
+                  obj.forEach( (el , i) => {  
+                    if(el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase()){
+                        c = el[0] ,
+                        d = i,
+                        f =(100 - a) + (100 - c),
+                        g = (100  - f);
+                          if( g <= 0 ) {
+                             x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
+                             console.log (x,"x 3 ") 
+                             return x
+                          }else{
+                            obj.forEach( (et , i) => {  
+                              if(et[0] == g){
+                                  x = `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
+                                  console.log (x,"x 2 ")
+                                  return x
+                              }
+                            })
+                          }
+                    }
+                  })
+                ):false
+            });
 
-
-                  ):false
-              });
-             
-
-
-
-              
-          }
-     
+        }
+      }
     }
 // Choosing colors from primer/primitives
 // There are multiple ways to define what color is used:
