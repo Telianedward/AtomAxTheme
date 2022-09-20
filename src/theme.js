@@ -244,7 +244,7 @@ const obj = [["100","FF"],
                   console.log(obj , ' ------====== obj  ll=====------  2 ')
                   console.log(obj[0] , ' ------====== o ll=====------  2 ')
 
-                ll = `${l}${obj[0][2]}` 
+                ll = `${l}${obj[0][1]}` 
                 console.log(ll , ' ------======ll=====------  2 ')
                 return ll
               
@@ -277,7 +277,7 @@ const obj = [["100","FF"],
             console.log(o , ' ------====== o ll=====------  2 ')
             console.log(obj , ' ------====== obj  ll=====------  2 ')
             console.log(obj[0] , ' ------====== o ll=====------  2 ')
-            ll = `${l}${obj[0][2]}` 
+            ll = `${l}${obj[0][1]}` 
             console.log(ll , ' ------====== ll=====------  4 ')
             return ll
         
