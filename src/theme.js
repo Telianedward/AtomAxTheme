@@ -379,7 +379,7 @@ const obj = [["100","FF"],
                                 dc : color.fg.muted,
                                 dt : color.fg.muted
                               })
-
+  console.log(color,"color")
 console.log(color.canvas.subtle, 'color.canvas.subtle')
 console.log(color.neutral.muted, 'color.neutral.muted')
 console.log(color.border.muted, 'color.border.muted')
