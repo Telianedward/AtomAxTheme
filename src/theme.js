@@ -168,16 +168,16 @@ const obj = [["100","FF"],
 
 
 
-    _bc_  = themes({      l : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
-                                  lHC : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
-                                  lC : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
-                                  lT : _cO(`${hex(color.canvas.subtle)}${_x_[10]}`,obj),
-                                  d : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
-                                  dd : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
-                                  dhc : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
-                                  dc : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),
-                                  dt : _cO(`${hex(color.canvas.overlay)}${_x_[10]}`,obj),}
-                                ),
+    _bc_  = themes({      l : color.canvas.subtle,
+                                  lHC : color.canvas.subtle,
+                                  lC : color.canvas.subtle,
+                                  lT : color.canvas.subtle,
+                                  d : color.canvas.overlay,
+                                  dd : color.canvas.overlay,
+                                  dhc : color.canvas.overlay,
+                                  dc : color.canvas.overlay,
+                                  dt : color.canvas.overlay
+                                }),
 
       _boc_ = themes({ l : color.neutral.muted,
                                 lHC : color.neutral.muted,
@@ -187,8 +187,8 @@ const obj = [["100","FF"],
                                 dd : color.border.muted,
                                 dhc : color.border.muted,
                                 dc : color.border.muted,
-                                dt : color.border.muted,}
-                              ),
+                                dt : color.border.muted
+                              }),
         
 
       _fc_ = themes({ l : color.fg.default,
@@ -199,19 +199,19 @@ const obj = [["100","FF"],
                                 dd : color.fg.default,
                                 dhc : color.fg.default,
                                 dc : color.fg.default,
-                                dt : color.fg.default,}
-                              ),
+                                dt : color.fg.default
+                              }),
 
-    _fuc_  = themes({ l : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                lHC : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                lC : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                lT : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                d : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                dd : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                dhc : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                dc : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),
-                                dt : _cO(`${hex(color.fg.muted)}${_x_[10]}`,obj),}
-                              )
+    _fuc_  = themes({ l : color.fg.muted,
+                                lHC : color.fg.muted,
+                                lC : color.fg.muted,
+                                lT : color.fg.muted,
+                                d : color.fg.muted,
+                                dd : color.fg.muted,
+                                dhc : color.fg.muted,
+                                dc : color.fg.muted,
+                                dt : color.fg.muted
+                              })
   return {
     name : name,
     colors : {
@@ -399,7 +399,7 @@ const obj = [["100","FF"],
       "editorGutter.foldingControlforeground" : _cO(`${hex(_fc_)}${_x_[10]}`,obj),
       "editorGutter.modifiedBackground" : _cO(`${hex(color.success.fg)}${_x_[10]}`,obj),
       "editorHint.border" : _cO(`${hex(color.success.emphasis)}${_x_[10]}`,obj),
-      "editorHint.foreground" :_cO(`${hex(color.accent.f)}${_x_[5]}`,obj),
+      "editorHint.foreground" : _cO(`${hex(color.accent.fg)}${_x_[5]}`,obj),
       "editorHoverWidget.background" : _cO(`${hex(_bc_)}${_x_[10]}`,obj),
       "editorHoverWidget.border" : _cO(`${hex(_boc_)}${_x_[10]}`,obj),
       "editorHoverWidget.foreground" : _cO(`${hex(_fc_)}${_x_[10]}`,obj),
