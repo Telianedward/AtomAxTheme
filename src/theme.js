@@ -5,6 +5,7 @@ const { _gC } = require("./colors");
 // VS Code doesn't support other formats like hsl, rgba etc.
 
 hex = (color)=>{
+  console.log(color,'color')
     return _ch(color).hex();
 }
  max = (val, n) =>  {
@@ -328,7 +329,7 @@ const obj = [["100","FF"],
 //    e.g."textLink.foreground" : themes({ l : scale.blue[5], d : scale.blue[2], dd : scale.blue[3], hc : scale.blue[3] }  ),
 
      _gT = ({ theme, name }) => {
-     themes = (options) => {options[theme]}
+     const themes = (options) => {options[theme]}
      const   color = _gC(theme), // Usage : color.fg.default
         scale = color.scale, // Usage : scale.blue[6]
         _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""],
