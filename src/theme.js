@@ -229,7 +229,7 @@ const obj = [["100","FF"],
                   if( k[3].length==0 ){
                     return l
                   }
-                
+                console.log(Math.round10((Number(k[3])*100),0)," nUmber ")
                 return `${l}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
             }
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
@@ -243,6 +243,7 @@ const obj = [["100","FF"],
               if( k[3].length==0 ){
                 return l
               }
+              console.log(Math.round10((Number(k[3])*100),0)," nUmber ")
              return `${hsl_(k[0],k[1],k[2])}${obj[Math.round10((Number(k[3])*100),0)][2]}` 
           }
       } else {
