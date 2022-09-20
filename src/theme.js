@@ -211,18 +211,31 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m,h,i,o,p
+      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,res
       j = /\(([^)]+)\)/gm;
+      h = [];
       if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
          
-             h = x.match(j)
+            while ((m=j.exec(x)) !== null) {
+              h.push(m[1]);
+            }
+
+
+            // h = x.match(j) 
+            console.log(h,'h')
              console.log(h,'h')
              k =  h.split(',')
               return color_.r(k[0],k[1],k[2])
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
         
-            h = x.match(j)
+       
+            while ((m=j.exec(x)) !== null) {
+              h.push(m[1]);
+            }
+
+
+            // h = x.match(j) 
             console.log(h,'h')
             k =  h[0](replace()).split(',')
             console.log(k,'-----k=====')
@@ -242,14 +255,26 @@ const obj = [["100","FF"],
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
        
-            h = x.match(j)
+            while ((m=j.exec(x)) !== null) {
+              h.push(m[1]);
+            }
+
+
+            // h = x.match(j) 
+            console.log(h,'h')
             console.log(h,'h')
             k =  h.split(',')
             console.log(k,'-----k=====')
              return hsl_(k[0],k[1],k[2])
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
          
-            h = x.match(j)
+            while ((m=j.exec(x)) !== null) {
+              h.push(m[1]);
+            }
+
+
+            // h = x.match(j) 
+            console.log(h,'h')
             console.log(h,'h')
             k =  h.split(',')
             console.log(k,'-----k=====')
