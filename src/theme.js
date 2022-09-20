@@ -211,7 +211,7 @@ const obj = [["100","FF"],
               ["1","03"],
               ["0","00"],];
     _cO= ( x , obj ) => {
-      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,ll
+      let a,b,c,d,f,g,j,k,l,m,h,i,o,p,ll, v
       j = /\(([^)]+)\)/gm;
       h = [];
       console.log(x ,' <------------------------ x |')
@@ -221,73 +221,45 @@ const obj = [["100","FF"],
                   while ((m=j.exec(x)) !== null) {
                     h.push(m[1]);
                   }
-             k =  h[0].split(',')
-             ll = color_.r(k[0],k[1],k[2])
-             console.log(ll, ' ------====== l=====------  1 ')
-             return ll
+                  k =  h[0].split(',')
+             return color_.r(k[0],k[1],k[2])
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-        
-       
-            while ((m=j.exec(x)) !== null) {
-              h.push(m[1]);
-            }
-            k =  h[0].split(',')
-            ll = color_.r(k[0],k[1],k[2])
-                  if( k[3].length==0 ){
-                    console.log(ll, ' ------====== l1=====------  1 ')
-                    return ll 
+                  while ((m=j.exec(x)) !== null) {
+                    h.push(m[1]);
                   }
-                i = k[3]
-                  p = i*100
-                o = Math.round10(p,0)
-                  console.log(o , ' ------====== o ll=====------  2 ')
-                  console.log(obj , ' ------====== obj  ll=====------  2 ')
-                  console.log(obj[0] , ' ------====== o ll=====------  2 ')
-
-                ll = `${l}${obj[0][1]}` 
-                console.log(ll , ' ------======ll=====------  2 ')
-                return ll
-              
+                  k =  h[0].split(',')
+                  v = color_.r(k[0],k[1],k[2])
+                  if( k[3].length==0 ){
+                    return v 
+                  }
+                  i = k[3]
+                    p = i*100
+                  o = Math.round10(p,0)
+                return `${l}${obj[0][1]}` 
             }
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-       
-            while ((m=j.exec(x)) !== null) {
-              h.push(m[1]);
-            }
-            k =  h[0].split(',')
-            ll = hsl_(k[0],k[1],k[2])
-            console.log(ll , ' ------====== ll=====------  3 ')
-            return ll
+                  while ((m=j.exec(x)) !== null) {
+                    h.push(m[1]);
+                  }
+                  k =  h[0].split(',')
+            return hsl_(k[0],k[1],k[2])
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
-         
-            while ((m=j.exec(x)) !== null) {
-              h.push(m[1]);
-            }
-
-            k =  h[0].split(',')
-              if( k[3].length==0 ){
-                console.log(ll , ' ------====== l2=====------  4 ')
-                return ll
-              }
-              i = k[3]
-              p = i*100
-            o = Math.round10(p,0)
-            console.log(o , ' ------====== o ll=====------  2 ')
-            console.log(o , ' ------====== o ll=====------  2 ')
-            console.log(obj , ' ------====== obj  ll=====------  2 ')
-            console.log(obj[0] , ' ------====== o ll=====------  2 ')
-            ll = `${l}${obj[0][1]}` 
-            console.log(ll , ' ------====== ll=====------  4 ')
-            return ll
-        
+                while ((m=j.exec(x)) !== null) {
+                  h.push(m[1]);
+                }
+                k =  h[0].split(',')
+                v = color_.r(k[0],k[1],k[2])
+                if( k[3].length==0 ){
+                  return v
+                }
+                i = k[3]
+                p = i*100
+                o = Math.round10(p,0)
+          return `${l}${obj[0][1]}`
           }
       } else {
-        console.log (x," -- x ---")
         if (x.length <= 9){
-           
-             console.log(x , ' ------====== x =====------  4 ')
-  
           return x
         }
         if(x.length == 11){
