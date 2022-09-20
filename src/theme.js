@@ -111,7 +111,7 @@ const obj = [["100","FF"],
               ["0","00"],];
     _cO= ( x , obj ) => {
       let a,b,c,d,f,g
-    
+      console.log (x," -- x ---")
           if (x.length <= 9){
               console.log (x,"x")
             return x
