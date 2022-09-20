@@ -214,6 +214,7 @@ const obj = [["100","FF"],
       let a,b,c,d,f,g,j,k,l,m,h,i,o,p,res
       j = /\(([^)]+)\)/gm;
       h = [];
+      console.log(x ,' <------------------------ x |')
       if(/(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
          
@@ -225,7 +226,7 @@ const obj = [["100","FF"],
             // h = x.match(j) 
             console.log(h,'h')
              console.log(h,'h')
-             k =  h.split(',')
+             k =  h[0].split(',')
               return color_.r(k[0],k[1],k[2])
           } else if (/^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
         
@@ -237,7 +238,7 @@ const obj = [["100","FF"],
 
             // h = x.match(j) 
             console.log(h,'h')
-            k =  h.split(',')
+            k =  h[0].split(',')
             console.log(k,'-----k=====')
               l = color_.r(k[0],k[1],k[2])
                   if( k[3].length==0 ){
@@ -263,7 +264,7 @@ const obj = [["100","FF"],
             // h = x.match(j) 
             console.log(h,'h')
             console.log(h,'h')
-            k =  h.split(',')
+            k =  h[0].split(',')
             console.log(k,'-----k=====')
              return hsl_(k[0],k[1],k[2])
           }else if(/^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
@@ -276,7 +277,7 @@ const obj = [["100","FF"],
             // h = x.match(j) 
             console.log(h,'h')
             console.log(h,'h')
-            k =  h.split(',')
+            k =  h[0].split(',')
             console.log(k,'-----k=====')
               if( k[3].length==0 ){
                 return l
@@ -292,7 +293,7 @@ const obj = [["100","FF"],
       } else {
         console.log (x," -- x ---")
         if (x.length <= 9){
-            console.log (x,"x")
+            console.log (x,"x 1 ")
           return x
         }
         if(x.length == 11){
@@ -323,7 +324,6 @@ const obj = [["100","FF"],
                   })
                 ):false
             });
-
         }
       }
     }
