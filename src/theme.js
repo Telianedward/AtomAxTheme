@@ -235,7 +235,7 @@ const obj = [["100","FF"],
                   i = k[3]
                     p = i*100
                   o = Math.round10(p,0)
-                return `${l}${obj[0][1]}` 
+                return `${v}${obj[0][1]}` 
             }
       } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
           if(/^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x)){
@@ -256,7 +256,7 @@ const obj = [["100","FF"],
                 i = k[3]
                 p = i*100
                 o = Math.round10(p,0)
-          return `${l}${obj[0][1]}`
+          return `${v}${obj[0][1]}`
           }
       } else {
         if (x.length <= 9){
