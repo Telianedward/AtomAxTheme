@@ -328,7 +328,7 @@ const obj = [["100","FF"],
 //    e.g."textLink.foreground" : themes({ l : scale.blue[5], d : scale.blue[2], dd : scale.blue[3], hc : scale.blue[3] }  ),
 
     _gT = ({ theme, name }) => {
-  const themes = (options) => options[theme], // Usage : themes({ l : "lightblue", d : "darkblue", dd : "royalblue", hc : "blue" })
+  const themes = (options) => options[theme]; // Usage : themes({ l : "lightblue", d : "darkblue", dd : "royalblue", hc : "blue" })
   const  color = _gC(theme); // Usage : color.fg.default
         const  scale = color.scale; // Usage : scale.blue[6]
         const  _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""];
