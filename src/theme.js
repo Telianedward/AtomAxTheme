@@ -1,5 +1,14 @@
 
-const { _gC } = require("./colors");
+const _l = require("@primer/primitives/dist/json/colors/light.json"),
+_lHC = require("@primer/primitives/dist/json/colors/light_high_contrast.json"),
+_lC = require("@primer/primitives/dist/json/colors/light_colorblind.json"),
+_lT = require("@primer/primitives/dist/json/colors/light_tritanopia.json"),
+_d = require("@primer/primitives/dist/json/colors/dark.json"),
+_dD = require("@primer/primitives/dist/json/colors/dark_dimmed.json"),
+_dHC  = require("@primer/primitives/dist/json/colors/dark_high_contrast.json"),
+_dC = require("@primer/primitives/dist/json/colors/dark_colorblind.json"),
+_dT = require("@primer/primitives/dist/json/colors/dark_tritanopia.json"),
+_gC = (t) => {return t === "l"?_l:(t === "lhc"?_lHC:(t === "lc"?_lC:(t === "lt"?_lT:(t === "d"?_d:(t === "dd"?_dD:(t === "dhc"?_dHC:(t === "dc"?_dC:(t === "dt"?_dT:false))))))))}
 
 
 const max = (val, n) =>  {
@@ -322,7 +331,7 @@ const obj = [["100","FF"],
 // 4.Per theme.Useful when a certain theme needs an exception
 //    e.g."textLink.foreground" : themes({ l : scale.blue[5], d : scale.blue[2], dd : scale.blue[3], hc : scale.blue[3] }  ),
 
-    _gT = ({ theme, name }) => {
+const _gT = ({ theme, name }) => {
          const themes = (options) => {options[theme]}
      const   color = _gC(theme), // Usage : color.fg.default
         scale = color.scale, // Usage : scale.blue[6]
