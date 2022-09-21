@@ -1,4 +1,4 @@
-import { promises as fs } from "fs"
+import fs from "fs"
 import _gT from "./theme"
 const l = _gT( { theme: "l", name: "Default Light+" } )
 const lHC = _gT( { theme: "lhc", name: "Default High Contrast Light" } )
