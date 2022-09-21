@@ -276,6 +276,38 @@ const decimalAdjust = ( t, v, exp ) => {
                           p = i*100
                           o = Math.round10(p,0)
                           console.log(`${v}${obj[o][1]}`,' ----color 111')
+
+                          if( v.length == 11 ){
+                            obj.forEach( (ej, i) => {  
+                              ej[1].toLowerCase() == `${v[9]}${v[10]}`.toLowerCase()?(
+                                  a = ej[0] , 
+                                  b = i,
+                                  obj.forEach( (el , i) => {  
+                                    if( el[1].toLowerCase() == `${v[7]}${v[8]}`.toLowerCase() ){
+                                        c = el[0] ,
+                                        d = i,
+                                          f =(100 - a) + (100 - c),
+                                        g = (100  - f);
+                                          if( g <= 0 ) {
+                                            console.log(`#${v[1]}${v[2]}${v[3]}${v[4]}${v[5]}${v[6]}1a`,' ----color 2')
+                                            return `#${v[1]}${v[2]}${v[3]}${v[4]}${v[5]}${v[6]}1a`
+                                          } else {
+                                            obj.forEach( (et , i) => {  
+                                              if( et[0] == g ){
+                                                console.log(`#${v[1]}${v[2]}${v[3]}${v[4]}${v[5]}${v[6]}${et.b}`,'----color')
+                                                  return `#${v[1]}${v[2]}${v[3]}${v[4]}${v[5]}${v[6]}${et.b}`
+                                              }
+                                            })
+                                          }
+                                    }
+                                  })
+                                ):false
+                            });
+                        }
+
+
+
+
                     return `${v}${obj[o][1]}`
                   }
             } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
