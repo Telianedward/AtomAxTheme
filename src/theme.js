@@ -67,13 +67,13 @@ const   hslToRgb = (h, s, l) => {
     var q = l < 0.5 ? (l * (1 + s) ):( l + s - l * s);
     var p = 2 * l - q;
   
-          r = hue2rgb(p, q, h + 1/3);
-          g = hue2rgb(p, q, h);
-          b = hue2rgb(p, q, h - 1/3);
+          r = Math.round10(hue2rgb(p, q, h + 1/3),0);
+          g = Math.round10(hue2rgb(p, q, h),0);
+          b = Math.round10(hue2rgb(p, q, h - 1/3),0);
   }
   console.log(r,'--- r--- ')
   console.log(g,'--- g--- ')
-  console.log(b,'--- b--- ')
+  console.log(p,'--- b--- ')
   return [ r * 255, g * 255, b * 255 ];
 }
 const hsl_ = (hue, saturation, luminosity)=> {
