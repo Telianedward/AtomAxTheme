@@ -52,6 +52,9 @@ const   hslToRgb = (h, s, l) => {
         h = h/360
         s = Number(s.replace('%', ''))/100
         l = Number(l.replace('%', ''))/100
+        console.log(h ,'--- h--- ')
+        console.log(s,'--- s--- ')
+        console.log(l,'--- l--- ')
         h == 0 && s == 0 ?(
      // Например H = 0, S = 0 и L = 40%, получаем 0,4 * 255 = 102, поэтому R = 102, G = 102 и B = 102
         r = g = b = l
