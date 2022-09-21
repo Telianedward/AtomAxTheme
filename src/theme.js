@@ -30,6 +30,9 @@ const cycle = (val) => {
 const   hslToRgb = (h, s, l) => {
   var r, g, b;
 
+  console.log(h,'h')
+  console.log(s,'s')
+  console.log(l,'l')
   if (s == 0) {
     r = g = b = l; // achromatic
   } else {
