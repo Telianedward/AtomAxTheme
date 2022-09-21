@@ -1,7 +1,11 @@
 const _ch = require("../node_modules/chroma-js/chroma");
 const { _gC } = require("./colors");
 
-
+const hex = (color)=>{
+      console.log(color,'color')
+      console.log(_ch(color).hex(),'hex')
+        return _ch(color).hex();
+    }
 const max = (val, n) =>  {
   debug(`ensuring ${val} is no more than ${n}`);
   return val > n ? n : val;
