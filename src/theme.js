@@ -8,12 +8,12 @@ const hex = (color)=>{
         return _ch(color).hex();
     }
 const max = (val, n) =>  {
-  debug(`ensuring ${val} is no more than ${n}`);
+  // debug(`ensuring ${val} is no more than ${n}`);
   return val > n ? n : val;
 }
 
 const  min = (val, n) => {
-  debug(`ensuring ${val} is no less than ${n}`);
+  // debug(`ensuring ${val} is no less than ${n}`);
   return val < n ? n : val;
 }
 
