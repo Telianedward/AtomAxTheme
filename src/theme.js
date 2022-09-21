@@ -19,7 +19,7 @@ const  min = (val, n) => {
 
 const cycle = (val) => {
   console.log(val,'val')
-  debug(`resolving ${val} within the 0-259 range`);
+  // debug(`resolving ${val} within the 0-259 range`);
   val = max(val, 1e7);
   val = min(val, -1e7);
   while (val < 0) {
