@@ -53,7 +53,7 @@ const   hslToRgb = (h, s, l) => {
       console.log(l, 'l - ')
       l = Number(l.replace('%', ''))/100
       s = Number(s.replace('%', ''))/100
-      h = ((h*100)/360)
+      h = ((h*100)/360)/100
       console.log(l, 'l - +')
       console.log(h, 'h - +')
       console.log(s, 's - +')
