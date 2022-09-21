@@ -1,14 +1,14 @@
-const fs = require("fs").promises,
-      _gT = require("./theme"),
-      l = _gT({ theme: "l", name: "Default Light+"}),
-      lHC = _gT({ theme: "lhc",name: "Default High Contrast Light"}),
-      lC = _gT({theme: "lc", name: "Default Colorblind Light"}),
-      lT = _gT({theme: "lt", name: "Default Light+ Tritanopia"}),
-      d = _gT({ theme: "d", name: "Default Dark+"}),
-      dD = _gT({ theme: "dd", name: "Default Dark+ Dimmed"}),
-      dHC = _gT({theme: "dhc", name: "Default High Contrast"}),
-      dC = _gT({theme: "dc", name: "Default Dark+ Colorblind"}),
-      dT = _gT({theme: "dt", name: "Default Dark+ Tritanopia"})
+import { promises as fs } from "fs"
+import _gT from "./theme"
+const l = _gT( { theme: "l", name: "Default Light+" } )
+const lHC = _gT( { theme: "lhc", name: "Default High Contrast Light" } )
+const lC = _gT( { theme: "lc", name: "Default Colorblind Light" } )
+const lT = _gT( { theme: "lt", name: "Default Light+ Tritanopia" } )
+const d = _gT( { theme: "d", name: "Default Dark+" } )
+const dD = _gT( { theme: "dd", name: "Default Dark+ Dimmed" } )
+const dHC = _gT( { theme: "dhc", name: "Default High Contrast" } )
+const dC = _gT( { theme: "dc", name: "Default Dark+ Colorblind" } )
+const dT = _gT( { theme: "dt", name: "Default Dark+ Tritanopia" } )
   fs.mkdir("./themes", { recursive: true })
     .then(() => Promise.all([
       fs.writeFile("./themes/my-light.json", JSON.stringify(l, null, 2)),
