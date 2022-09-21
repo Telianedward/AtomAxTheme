@@ -27,22 +27,32 @@ const cycle = (val) => {
   }
   return val;
 }
-const hue2rgb = (t1, t2, tr) => {
-      return 6 * tr < 1 ? (
-          t2 + ( t1 - t2 ) * 6 * tr
-      ):(
-        2 * tr < 1 ? (
-          t1
-        ):(
-          3 * tr < 2 ? (
-              t2 + ( t1 - t2 ) * (0.666 - tr) * 6
-          ):(
-                t2 
-          )
-        )
-      )
+// const hue2rgb = (t1, t2, tr) => {
+//       return 6 * tr < 1 ? (
+//           t2 + ( t1 - t2 ) * 6 * tr
+//       ):(
+//         2 * tr < 1 ? (
+//           t1
+//         ):(
+//           3 * tr < 2 ? (
+//               t2 + ( t1 - t2 ) * (0.666 - tr) * 6
+//           ):(
+//                 t2 
+//           )
+//         )
+//       )
+// }
+const hue2rgb = (p, q, t) => {
+  console.log(p,'p')
+  console.log(q,'q')
+  console.log(t,'t')
+    if (t < 0) t += 1;
+    if (t > 1) t -= 1;
+    if (t < 1/6) return p + (q - p) * 6 * t;
+    if (t < 1/2) return q;
+    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+  return p;
 }
-
 
 const   hslToRgb = (h, s, l) => {
 
