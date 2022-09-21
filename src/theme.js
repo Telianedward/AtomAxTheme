@@ -48,15 +48,17 @@ const   hslToRgb = (h, s, l) => {
             console.log(p,'--- p--- ')
           return p;
       }
-      console.log(h,'h - ')
-      console.log(s,'s - ')
-      console.log(l,'l - ')
+      console.log(h, 'h - ')
+      console.log(s, 's - ')
+      console.log(l, 'l - ')
       l = Number(l.replace('%', ''))/100
       s = Number(s.replace('%', ''))/100
+      h = ((h*100)/360)
+      console.log(l, 'l - +')
+      console.log(h, 'h - +')
+      console.log(s, 's - +')
+     
 
-      console.log(l,'l - +')
-      console.log(h,'h - +')
-      console.log(s,'s - +')
       if(l < 0.5){
         console.log(l * (1 + s) , `${l} * ( ${l} + ${s}  ) `)
       }else{
@@ -64,12 +66,12 @@ const   hslToRgb = (h, s, l) => {
       }
       
       
-    var q = l < 0.5 ? (l * (1 + s) ):( l + s - l * s);
+    var q = l < 0.5 ? ( l * ( 1 + s ) ):( l + s - l * s );
     var p = 2 * l - q;
   
-          r = Math.round10(hue2rgb(p, q, h + 1/3),0);
-          g = Math.round10(hue2rgb(p, q, h),0);
-          b = Math.round10(hue2rgb(p, q, h - 1/3),0);
+          r = Math.round10(hue2rgb( p, q, h + 1/3), 0);
+          g = Math.round10(hue2rgb( p, q, h ), 0);
+          b = Math.round10(hue2rgb( p, q, h - 1/3 ), 0);
   }
   console.log(r,'--- r--- ')
   console.log(g,'--- g--- ')
