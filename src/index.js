@@ -1,5 +1,5 @@
-import { promises as fs } from "fs"
-import _gT from "./theme"
+import { promises as fs } from "fs.js"
+import _gT from "./theme.js"
 const l = _gT( { theme: "l", name: "Default Light+" } )
 const lHC = _gT( { theme: "lhc", name: "Default High Contrast Light" } )
 const lC = _gT( { theme: "lc", name: "Default Colorblind Light" } )
