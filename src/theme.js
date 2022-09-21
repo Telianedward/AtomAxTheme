@@ -275,8 +275,8 @@ const decimalAdjust = ( t, v, exp ) => {
                           i = k[3]
                           p = i*100
                           o = Math.round10(p,0)
-                          console.log(`${v}${obj[o][b]}`,' ----color 111')
-                    return `${v}${obj[o][b]}`
+                          console.log(`${v}${obj[o][1]}`,' ----color 111')
+                    return `${v}${obj[o][1]}`
                   }
             } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
                 if( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
@@ -301,8 +301,8 @@ const decimalAdjust = ( t, v, exp ) => {
                       i = k[3]
                       p = i*100
                       o = Math.round10(p,0)
-                      console.log(`${v}${obj[o][b]}`,' ----color 1')
-                    return `${v}${obj[o][b]}`
+                      console.log(`${v}${obj[o][1]}`,' ----color 1')
+                    return `${v}${obj[o][1]}`
                 }
             } else {
               if (x.length <= 9){
