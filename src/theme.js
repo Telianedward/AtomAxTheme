@@ -374,16 +374,17 @@ const _gT = ({ theme, name }) => {
                             dc :_cO(`${hex(color.fg.muted)}`,obj),
                             dt :_cO(`${hex(color.fg.muted)}`,obj)
                           });
-                          themes({l :" --l---",
-                                          lHC :" --lHC---",
-                                            lC :" --lC---",
-                                            lT :" --lT---",
-                                            d :" --d---",
-                                            dd :" --dd---",
-                                            dhc :" --dhc---",
-                                            dc :" --dc---",
-                                            dt :" --dt---",
-                                            });
+                      
+                                            console.log(themes({l :" --l---",
+                                            lHC :" --lHC---",
+                                              lC :" --lC---",
+                                              lT :" --lT---",
+                                              d :" --d---",
+                                              dd :" --dd---",
+                                              dhc :" --dhc---",
+                                              dc :" --dc---",
+                                              dt :" --dt---",
+                                              });)
         console.log(color,"color")
         console.log(color.canvas.subtle, 'color.canvas.subtle')
         console.log(color.neutral.muted, 'color.neutral.muted')
