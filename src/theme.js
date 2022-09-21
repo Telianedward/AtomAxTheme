@@ -326,50 +326,51 @@ const _gT = ({ theme, name }) => {
           const themes = (options) => {options[theme]};
           const color = _gC(theme);
           const _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""];
-          const _bc_  = themes({ l : color.canvas.subtle,
-                                          lHC : color.canvas.subtle,
-                                          lC : color.canvas.subtle,
-                                          lT : color.canvas.subtle,
-                                          d : color.canvas.overlay,
-                                          dd : color.canvas.overlay,
-                                          dhc : color.canvas.overlay,
-                                          dc : color.canvas.overlay,
-                                          dt : color.canvas.overlay
-                                            }
-                                        );
-          const  _boc_ = themes({ l : color.neutral.muted,
-                                            lHC : color.neutral.muted,
-                                            lC : color.neutral.muted,
-                                            lT : color.neutral.muted,
-                                            d : color.border.muted,
-                                            dd : color.border.muted,
-                                            dhc : color.border.muted,
-                                            dc : color.border.muted,
-                                            dt : color.border.muted
-                                          }
-                                        );
-          const _fc_ = themes({ l : color.fg.default,
-                                          lHC : color.fg.default,
-                                          lC : color.fg.default,
-                                          lT : color.fg.default,
-                                          d : color.fg.default,
-                                          dd : color.fg.default,
-                                          dhc : color.fg.default,
-                                          dc : color.fg.default,
-                                          dt : color.fg.default
-                                        }
-                                      );
-          const _fuc_  = themes({ l : color.fg.muted,
-                                            lHC : color.fg.muted,
-                                            lC : color.fg.muted,
-                                            lT : color.fg.muted,
-                                            d : color.fg.muted,
-                                            dd : color.fg.muted,
-                                            dhc : color.fg.muted,
-                                            dc : color.fg.muted,
-                                            dt : color.fg.muted
-                                          }
-                                        );
+          const      _bc_  = themes({      l :_cO(`${hex(color.canvas.subtle)}`,obj),
+                              lHC :_cO(`${hex(color.canvas.subtle)}`,obj),
+                              lC :_cO(`${hex(color.canvas.subtle)}`,obj),
+                              lT :_cO(`${hex(color.canvas.subtle)}`,obj),
+                              d :_cO(`${hex(color.canvas.overlay)}`,obj),
+                              dd :_cO(`${hex(color.canvas.overlay)}`,obj),
+                              dhc :_cO(`${hex(color.canvas.overlay)}`,obj),
+                              dc :_cO(`${hex(color.canvas.overlay)}`,obj),
+                              dt :_cO(`${hex(color.canvas.overlay)}`,obj)
+                            });
+
+        const   _boc_ = themes({ l :_cO(`${hex(color.neutral.muted)}`,obj),
+                            lHC :_cO(`${hex(color.neutral.muted)}`,obj),
+                            lC :_cO(`${hex(color.neutral.muted)}`,obj),
+                            lT :_cO(`${hex(color.neutral.muted)}`,obj),
+                            d :_cO(`${hex(color.border.muted)}`,obj),
+                            dd :_cO(`${hex(color.border.muted)}`,obj),
+                            dhc :_cO(`${hex(color.border.muted)}`,obj),
+                            dc :_cO(`${hex(color.border.muted)}`,obj),
+                            dt :_cO(`${hex(color.border.muted)}`,obj)
+                          });
+
+
+      const       _fc_ = themes({ l :_cO(`${hex(color.fg.default)}`,obj),
+                            lHC :_cO(`${hex(color.fg.default)}`,obj),
+                            lC :_cO(`${hex(color.fg.default)}`,obj),
+                            lT :_cO(`${hex(color.fg.default)}`,obj),
+                            d :_cO(`${hex(color.fg.default)}`,obj),
+                            dd :_cO(`${hex(color.fg.default)}`,obj),
+                            dhc :_cO(`${hex(color.fg.default)}`,obj),
+                            dc :_cO(`${hex(color.fg.default)}`,obj),
+                            dt :_cO(`${hex(color.fg.default)}`,obj)
+                          });
+
+      const       _fuc_  = themes({ l :_cO(`${hex(color.fg.muted)}`,obj),
+                            lHC :_cO(`${hex(color.fg.muted)}`,obj),
+                            lC :_cO(`${hex(color.fg.muted)}`,obj),
+                            lT :_cO(`${hex(color.fg.muted)}`,obj),
+                            d :_cO(`${hex(color.fg.muted)}`,obj),
+                            dd :_cO(`${hex(color.fg.muted)}`,obj),
+                            dhc :_cO(`${hex(color.fg.muted)}`,obj),
+                            dc :_cO(`${hex(color.fg.muted)}`,obj),
+                            dt :_cO(`${hex(color.fg.muted)}`,obj)
+                          });
+
         console.log(color,"color")
         console.log(color.canvas.subtle, 'color.canvas.subtle')
         console.log(color.neutral.muted, 'color.neutral.muted')
