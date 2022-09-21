@@ -75,7 +75,7 @@ const   hslToRgb = (h, s, l) => {
   }
   console.log(r,'--- r--- ')
   console.log(g,'--- g--- ')
-  console.log(p,'--- b--- ')
+  console.log(b,'--- b--- ')
   return [ r * 255, g * 255, b * 255 ];
 }
 const hsl_ = (hue, saturation, luminosity)=> {
