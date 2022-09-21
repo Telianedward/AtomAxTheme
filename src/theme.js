@@ -48,42 +48,37 @@ const   hslToRgb = (h, s, l) => {
 
       //   H = 193 ° S = 67% L = 28%.
   let  r, g, b , x , z, t1 , t2, tr , tg , tb
-  // преобразование 360 градусов по кругу в 1 путем деления угла на 360.
-  h = h/360
-  s = Number(s.replace('%', ''))/100
-  l = Number(l.replace('%', ''))/100
-
-
-
-  if (h == 0 && s == 0) {
+        // преобразование 360 градусов по кругу в 1 путем деления угла на 360.
+        h = h/360
+        s = Number(s.replace('%', ''))/100
+        l = Number(l.replace('%', ''))/100
+        h == 0 && s == 0 ?(
      // Например H = 0, S = 0 и L = 40%, получаем 0,4 * 255 = 102, поэтому R = 102, G = 102 и B = 102
-    r = g = b = l; 
-  } else {
-      console.log(h, 'h - ')
-      console.log(s, 's - ')
-      console.log(l, 'l - ')
-     
-      t1 =  s < 0.5 ? (
-        // Если яркость меньше 0,5 (50%),
-          l * ( 1.0 + s )
-      ):(
-        // яркость равна или больше, то 0,5 (50%),
-          l + s  - ( l * s )
-      ),
-      t2 = (2 * h) - t1,
-      // Все значения должны находиться в диапазоне от 0 до 1
-          tr = h + 1/3
-          tg = h
-          tb = h - 1/3
-
-        r  =  Math.round10( hue2rgb(t1 , t2 , tr ) )
-        g = Math.round10(hue2rgb(t1 , t2 , tg ), 0)
-        b = Math.round10(hue2rgb( t1 , t2 , tb  ), 0)
-  }
-  console.log(r,'--- r--- ')
-  console.log(g,'--- g--- ')
-  console.log(b,'--- b--- ')
-  return [ r * 255, g * 255, b * 255 ];
+        r = g = b = l
+        ):(
+          console.log(h, 'h - '),
+          console.log(s, 's - '),
+          console.log(l, 'l - '),
+          t1 =  s < 0.5 ? (
+            // Если яркость меньше 0,5 (50%),
+              l * ( 1.0 + s )
+          ):(
+            // яркость равна или больше, то 0,5 (50%),
+              l + s  - ( l * s )
+          ),
+          t2 = (2 * h) - t1,
+          // Все значения должны находиться в диапазоне от 0 до 1
+              tr = h + 1/3,
+              tg = h,
+              tb = h - 1/3,
+              r  =  Math.round10( hue2rgb(t1 , t2 , tr ), 0),
+              g = Math.round10(hue2rgb(t1 , t2 , tg ), 0),
+              b = Math.round10(hue2rgb( t1 , t2 , tb  ), 0)
+          )
+            console.log(r,'--- r--- ')
+            console.log(g,'--- g--- ')
+            console.log(b,'--- b--- ')
+        return [ r * 255, g * 255, b * 255 ];
 }
 const hsl_ = (hue, saturation, luminosity)=> {
   console.log(hue ,' hue ----- ')
