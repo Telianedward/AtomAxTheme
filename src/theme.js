@@ -1,7 +1,5 @@
 import _ch from "../node_modules/chroma-js/chroma";
-import  _gC from "./colors";
-
-
+import { _gC } from "./colors";
 
 const hex = (color)=>{
       console.log(color,'color')
