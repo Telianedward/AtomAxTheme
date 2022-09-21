@@ -1,5 +1,7 @@
-const _ch = require("../node_modules/chroma-js/chroma");
-const { _gC } = require( "./colors" ).default;
+import _ch from "../node_modules/chroma-js/chroma";
+import  default from "./colors";
+
+const { _gC } = default;
 
 const hex = (color)=>{
       console.log(color,'color')
@@ -2105,4 +2107,4 @@ const _gT = ({ theme, name }) => {
   };
 }
 
-module.exports = _gT;
+export default _gT;
