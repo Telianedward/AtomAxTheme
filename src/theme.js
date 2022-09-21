@@ -1,7 +1,7 @@
 import _ch from "../node_modules/chroma-js/chroma.js" ;
 import _gC from "./colors.js";
 import _toRgb from "../node_modules/hsl-to-rgb-for-reals/converter.js";
-import debug from "../node_modules/debug/src/index.js";
+
 
 const hex = (color)=>{
       console.log(color,'color')
@@ -9,17 +9,17 @@ const hex = (color)=>{
         return _ch(color).hex();
     }
 const max = (val, n) =>  {
-  debug(`ensuring ${val} is no more than ${n}`);
+  // debug(`ensuring ${val} is no more than ${n}`);
   return val > n ? n : val;
 }
 
 const  min = (val, n) => {
-  debug(`ensuring ${val} is no less than ${n}`);
+  // debug(`ensuring ${val} is no less than ${n}`);
   return val < n ? n : val;
 }
 const cycle = (val) => {
   console.log(val,'val')
-  debug(`resolving ${val} within the 0-259 range`);
+  // debug(`resolving ${val} within the 0-259 range`);
   val = max(val, 1e7);
   val = min(val, -1e7);
   while (val < 0) {
@@ -38,7 +38,9 @@ const hsl_ = (hue, saturation, luminosity)=> {
 
   saturation /= 100;
   luminosity /= 100;
-
+  console.log(hue ,' hue ----- ')
+  console.log(saturation ,' saturation ----- ')
+  console.log(luminosity ,' luminosity ----- ')
   const rgb = _toRgb(hue, saturation, luminosity);
 
   return `#${rgb.map(n => (256 + n).toString(16).substr(-2)).join("")}`;

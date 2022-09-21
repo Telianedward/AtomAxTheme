@@ -83,7 +83,6 @@
     "@primer/primitives": "7.9.0",
     "chroma-js": "^2.4.2",
     "color": "^4.2.3",
-    "debug": "^4.1.1",
     "esbuild": "^0.15.8",
     "hsl-to-rgb-for-reals": "1.1.1",
     "nodemon": "^2.0.20"
