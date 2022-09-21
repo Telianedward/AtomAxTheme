@@ -36,33 +36,29 @@ const   hslToRgb = (h, s, l) => {
   if (s == 0) {
     r = g = b = l; // achromatic
   } else {
-    function  hue2rgb(p, q, t){
-
-        console.log(p,'p')
-        console.log(q,'q')
-        console.log(t,'t')
-        if (t < 0) t += 1;
-        if (t > 1) t -= 1;
-        if (t < 1/6) return p + (q - p) * 6 * t;
-        if (t < 1/2) return q;
-        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-        return p;
-    }
-
+      function  hue2rgb(p, q, t){
+          console.log(p,'p')
+          console.log(q,'q')
+          console.log(t,'t')
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1/6) return p + (q - p) * 6 * t;
+            if (t < 1/2) return q;
+            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+          return p;
+      }
     var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
     var p = 2 * l - q;
-    console.log(p,'p - ')
-    console.log(q,'q - ')
-    console.log(t,'t - ')
-    r = hue2rgb(p, q, h + 1/3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1/3);
+          console.log(p,'p - ')
+          console.log(q,'q - ')
+          console.log(t,'t - ')
+          r = hue2rgb(p, q, h + 1/3);
+          g = hue2rgb(p, q, h);
+          b = hue2rgb(p, q, h - 1/3);
   }
-
   return [ r * 255, g * 255, b * 255 ];
 }
 const hsl_ = (hue, saturation, luminosity)=> {
-
   console.log(hue ,' hue ----- ')
   console.log(saturation ,' saturation ----- ')
   console.log(luminosity ,' luminosity ----- ')
