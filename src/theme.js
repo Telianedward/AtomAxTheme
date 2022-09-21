@@ -326,16 +326,16 @@ const _gT = ({ theme, name }) => {
           const themes = (options) => {options[theme]};
           const color = _gC(theme);
           const _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""];
-          const      _bc_  = themes({      l :_cO(`${hex(color.canvas.subtle)}`,obj),
-                              lHC :_cO(`${hex(color.canvas.subtle)}`,obj),
-                              lC :_cO(`${hex(color.canvas.subtle)}`,obj),
-                              lT :_cO(`${hex(color.canvas.subtle)}`,obj),
-                              d :_cO(`${hex(color.canvas.overlay)}`,obj),
-                              dd :_cO(`${hex(color.canvas.overlay)}`,obj),
-                              dhc :_cO(`${hex(color.canvas.overlay)}`,obj),
-                              dc :_cO(`${hex(color.canvas.overlay)}`,obj),
-                              dt :_cO(`${hex(color.canvas.overlay)}`,obj)
-                            });
+          const   _bc_  = themes({l :_cO(`${hex(color.canvas.subtle)}`,obj),
+                                          lHC :_cO(`${hex(color.canvas.subtle)}`,obj),
+                                          lC :_cO(`${hex(color.canvas.subtle)}`,obj),
+                                          lT :_cO(`${hex(color.canvas.subtle)}`,obj),
+                                          d :_cO(`${hex(color.canvas.overlay)}`,obj),
+                                          dd :_cO(`${hex(color.canvas.overlay)}`,obj),
+                                          dhc :_cO(`${hex(color.canvas.overlay)}`,obj),
+                                          dc :_cO(`${hex(color.canvas.overlay)}`,obj),
+                                          dt :_cO(`${hex(color.canvas.overlay)}`,obj)
+                                        });
 
         const   _boc_ = themes({ l :_cO(`${hex(color.neutral.muted)}`,obj),
                             lHC :_cO(`${hex(color.neutral.muted)}`,obj),
