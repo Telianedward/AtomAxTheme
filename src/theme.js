@@ -27,7 +27,7 @@ const cycle = (val) => {
   }
   return val;
 }
-   hslToRgb = (h, s, l) => {
+const   hslToRgb = (h, s, l) => {
   var r, g, b;
 
   if (s == 0) {
@@ -289,7 +289,7 @@ const obj = [["100","FF"],
                         h.push(m[1]);
                       }
                       k =  h[0].split(',')
-                 
+                 console.log(k,'k');
                   return hsl_(k[0],k[1],k[2])
               }else if( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
                     while ( (m=j.exec(x)) !== null ) {
