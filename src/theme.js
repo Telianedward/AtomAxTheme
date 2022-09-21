@@ -129,14 +129,8 @@ const hslToRgb = (h, s, l) => {
               console.log(Math.round10((b*255),0),'--- b--- ')
           return [ Math.round10((r*255),0), Math.round10((g*255),0),Math.round10((b*255),0) ];
 }
-const hsl_ = (hue, saturation, luminosity)=> {
-  console.log(hue ,' hue ----- ')
-  console.log(saturation ,' saturation ----- ')
-  console.log(luminosity ,' luminosity ----- ')
-  let k = hslToRgb(hue, saturation, luminosity)
-  console.log(k[0] ,' hue ----- + ')
-  console.log(k[1] ,' saturation ----- +  ')
-  console.log(k[2] ,' luminosity ----- + ')
+const hsl_ = (h, s, l)=> {
+  let k = hslToRgb(h, s, l)
   return _cl.g(k[0],k[1],k[2])
 }
 const _cl = {
