@@ -1,4 +1,4 @@
-const _ch = require("../node_modules2/chroma-js/chroma");
+const _ch = require("../node_modules/chroma-js/chroma");
 const { _gC } = require("./colors");
 
 // Convert to hex
