@@ -277,6 +277,7 @@ const decimalAdjust = ( t, v, exp ) => {
                           p = i*100
                           o = Math.round10(p,0)
                           z = `${v}${obj[o][1]}`
+                      console.log(z, ` z  --> ${z.length}  -<--`)
                           if( z.length == 11 ){
                                 obj.forEach( (ej, i) => {  
                                   ej[1].toLowerCase() == `${z[9]}${z[10]}`.toLowerCase()?(
@@ -286,7 +287,7 @@ const decimalAdjust = ( t, v, exp ) => {
                                         if( el[1].toLowerCase() == `${z[7]}${z[8]}`.toLowerCase() ){
                                             c = el[0] ,
                                             d = i,
-                                              f =(100 - a) + (100 - c),
+                                            f =(100 - a) + (100 - c),
                                             g = (100  - f);
                                               if( g <= 0 ) {
                                                 console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
