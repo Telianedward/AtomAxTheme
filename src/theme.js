@@ -304,7 +304,7 @@ const decimalAdjust = ( t, v, exp ) => {
                                     ):false
                                 });
                             }
-                            console.log(z,' ----color 111')
+                            console.log(z,'  -- 1111 rgba ---')
                     return z
                   }
             } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
@@ -358,7 +358,7 @@ const decimalAdjust = ( t, v, exp ) => {
                                 ):false
                             });
                         }
-                        console.log(z,' ----color 111')
+                        console.log(z,' ----color 11 --hsl ---')
                         return z
                 }
             } else {
