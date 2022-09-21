@@ -55,7 +55,14 @@ const   hslToRgb = (h, s, l) => {
 
       console.log(l,'l - +')
       console.log(h,'h - +')
-    var q = l/100 < 0.5 ? (l * (1 + s) ):( l + s - l * s);
+      if(l < 0.5){
+        console.log(l * (1 + s) , `${l} * ( ${l} + ${s}  ) `)
+      }else{
+        console.log(l + s - (1 * s) , `( ${l} + ${s}) - ( ${l} * ${s}) ) `)
+      }
+      
+      
+    var q = l < 0.5 ? (l * (1 + s) ):( l + s - l * s);
     var p = 2 * l - q;
   
           r = hue2rgb(p, q, h + 1/3);
