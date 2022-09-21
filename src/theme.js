@@ -73,7 +73,7 @@ const   hslToRgb = (h, s, l) => {
               tb = h - 1/3,
               r  =  hue2rgb(t1 , t2 , tr ),
               g = hue2rgb(t1 , t2 , tg ),
-              b = hue2rgb( t1 , t2 , tb  ), 0)
+              b = hue2rgb( t1 , t2 , tb  )
           )
             console.log(Math.round10((r*255),0) ,'--- r--- ')
             console.log(Math.round10((g*255),0),'--- g--- ')
