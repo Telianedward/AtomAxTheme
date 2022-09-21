@@ -45,6 +45,7 @@ const   hslToRgb = (h, s, l) => {
             if (t < 1/6) return p + (q - p) * 6 * t;
             if (t < 1/2) return q;
             if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            console.log(p,'--- p--- ')
           return p;
       }
       console.log(h,'h - ')
@@ -70,7 +71,9 @@ const   hslToRgb = (h, s, l) => {
           g = hue2rgb(p, q, h);
           b = hue2rgb(p, q, h - 1/3);
   }
-
+  console.log(r,'--- r--- ')
+  console.log(g,'--- g--- ')
+  console.log(b,'--- b--- ')
   return [ r * 255, g * 255, b * 255 ];
 }
 const hsl_ = (hue, saturation, luminosity)=> {
