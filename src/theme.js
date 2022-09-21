@@ -36,7 +36,7 @@ const   hslToRgb = (h, s, l) => {
   if (s == 0) {
     r = g = b = l; // achromatic
   } else {
-     hue2rgb = (p, q, t) => {
+    function  hue2rgb(p, q, t){
 
         console.log(p,'p')
         console.log(q,'q')
