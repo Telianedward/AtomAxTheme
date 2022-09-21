@@ -304,8 +304,8 @@ const decimalAdjust = ( t, v, exp ) => {
                                     ):false
                                 });
                             }
-                            console.log(`${v}${obj[o][1]}`,' ----color 111')
-                    return `${v}${obj[o][1]}`
+                            console.log(z,' ----color 111')
+                    return z
                   }
             } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
                 if( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
@@ -358,8 +358,8 @@ const decimalAdjust = ( t, v, exp ) => {
                                 ):false
                             });
                         }
-                      console.log(`${v}${obj[o][1]}`,' ----color 1')
-                    return `${v}${obj[o][1]}`
+                        console.log(z,' ----color 111')
+                        return z
                 }
             } else {
               if (x.length <= 9){
