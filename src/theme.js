@@ -9,17 +9,14 @@ const hex = (color)=>{
         return _ch(color).hex();
     }
 const max = (val, n) =>  {
-  // debug(`ensuring ${val} is no more than ${n}`);
   return val > n ? n : val;
 }
 
 const  min = (val, n) => {
-  // debug(`ensuring ${val} is no less than ${n}`);
   return val < n ? n : val;
 }
 const cycle = (val) => {
   console.log(val,'val')
-  // debug(`resolving ${val} within the 0-259 range`);
   val = max(val, 1e7);
   val = min(val, -1e7);
   while (val < 0) {
@@ -32,6 +29,10 @@ const cycle = (val) => {
 }
 
 const hsl_ = (hue, saturation, luminosity)=> {
+
+  console.log(hue ,' hue ----- ')
+  console.log(saturation ,' saturation ----- ')
+  console.log(luminosity ,' luminosity ----- ')
   hue = cycle(hue);
   saturation = min(max(saturation, 100), 0);
   luminosity = min(max(luminosity, 100), 0);
