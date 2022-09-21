@@ -51,10 +51,11 @@ const   hslToRgb = (h, s, l) => {
       console.log(s,'s - ')
       console.log(l,'l - ')
       l = Number(l.replace('%', ''))/100
-      h = Number(h.replace('%', ''))/100
+      s = Number(s.replace('%', ''))/100
 
       console.log(l,'l - +')
       console.log(h,'h - +')
+      console.log(s,'s - +')
       if(l < 0.5){
         console.log(l * (1 + s) , `${l} * ( ${l} + ${s}  ) `)
       }else{
