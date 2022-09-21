@@ -1,5 +1,5 @@
 const _ch = require("../node_modules/chroma-js/chroma");
-const { _gC } = require("./colors");
+const { _gC } = require( "./colors" ).default;
 
 // Convert to hex
 // VS Code doesn't support other formats like hsl, rgba etc.

@@ -1,5 +1,5 @@
 const _ch = require("../node_modules/chroma-js/chroma");
-const { _gC } = require("./colors");
+const { _gC } = require( "./colors" ).default;
 
 const hex = (color)=>{
       console.log(color,'color')
@@ -330,7 +330,7 @@ const _gT = ({ theme, name }) => {
           const themes = (options) => {options[theme]};
           const color = _gC(theme);
           const _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""];
-          const   _bc_  = themes({l :_cO(`${hex(color.canvas.subtle)}`,obj),
+          const _bc_  = themes({l :_cO(`${hex(color.canvas.subtle)}`,obj),
                                           lHC :_cO(`${hex(color.canvas.subtle)}`,obj),
                                           lC :_cO(`${hex(color.canvas.subtle)}`,obj),
                                           lT :_cO(`${hex(color.canvas.subtle)}`,obj),
@@ -375,15 +375,15 @@ const _gT = ({ theme, name }) => {
                             dt :_cO(`${hex(color.fg.muted)}`,obj)
                           });
                       
-        console.log(themes({l : " --l---",
-                                              lHC : " --lHC---",
-                                              lC : " --lC---",
-                                              lT : " --lT---",
-                                              d : " --d---",
-                                              dd : " --dd---",
-                                              dhc : " --dhc---",
-                                              dc : " --dc---",
-                                              dt : " --dt---"
+        console.log(themes({l : "_ --l---",
+                                              lHC : "_ --lHC---",
+                                              lC : "_ --lC---",
+                                              lT : "_ --lT---",
+                                              d : "_ --d---",
+                                              dd : "_ --dd---",
+                                              dhc : "_ --dhc---",
+                                              dc : "_ --dc---",
+                                              dt : "_ --dt---"
                                       }))
         console.log(color,"color")
         console.log(color.canvas.subtle, 'color.canvas.subtle')

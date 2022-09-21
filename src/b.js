@@ -1,5 +1,5 @@
 
-const { _gC } = require("./colors");
+const { _gC } = require( "./colors" ).default;
 
 
 const max = (val, n) =>  {
