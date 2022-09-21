@@ -1,7 +1,7 @@
 import _ch from "../node_modules/chroma-js/chroma.js" ;
 import _gC from "./colors.js";
 import _toRgb from "../node_modules/hsl-to-rgb-for-reals/converter.js";
-import debug from "/node_modules/debug/src/index.js";
+import debug from "../node_modules/debug/src/index.js";
 
 const hex = (color)=>{
       console.log(color,'color')
