@@ -27,25 +27,7 @@ const cycle = (val) => {
   }
   return val;
 }
-// const hue2rgb = (t1, t2, tr) => {
-//       return 6 * tr < 1 ? (
-//           t2 + ( t1 - t2 ) * 6 * tr
-//       ):(
-//         2 * tr < 1 ? (
-//           t1
-//         ):(
-//           3 * tr < 2 ? (
-//               t2 + ( t1 - t2 ) * (0.666 - tr) * 6
-//           ):(
-//                 t2 
-//           )
-//         )
-//       )
-// }
-const hue2rgb = (p, q, t) => {
-  console.log(p,'p')
-  console.log(q,'q')
-  console.log(t,'t')
+const hue2rgb_ = (p, q, t) => {
     if (t < 0) t += 1;
     if (t > 1) t -= 1;
     if (t < 1/6) return p + (q - p) * 6 * t;
@@ -53,123 +35,64 @@ const hue2rgb = (p, q, t) => {
     if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
   return p;
 }
-
-// const   hslToRgb = (h, s, l) => {
-
-//       //   H = 193 ° S = 67% L = 28%.
-//   let  r, g, b , x , z, t1 , t2, tr , tg , tb
-//         // преобразование 360 градусов по кругу в 1 путем деления угла на 360.
-//         h = h/360
-//         s = Number(s.replace('%', ''))/100
-//         l = Number(l.replace('%', ''))/100
-//         console.log(h ,'--- h--- ')
-//         console.log(s,'--- s--- ')
-//         console.log(l,'--- l--- ')
-//         h == 0 && s == 0 ?(
-//      // Например H = 0, S = 0 и L = 40%, получаем 0,4 * 255 = 102, поэтому R = 102, G = 102 и B = 102
-//         r = g = b = l
-//         ):(
-//           console.log(h, 'h - '),
-//           console.log(s, 's - '),
-//           console.log(l, 'l - '),
-//           t1 =  s < 0.5 ? (
-//             // Если яркость меньше 0,5 (50%),
-//               l * ( 1.0 + s )
-//           ):(
-//             // яркость равна или больше, то 0,5 (50%),
-//               l + s  - ( l * s )
-//           ),
-//           t2 = (2 * h) - t1,
-//           // Все значения должны находиться в диапазоне от 0 до 1
-//               tr = h + 1/3,
-//               tg = h,
-//               tb = h - 1/3,
-//               r  =  hue2rgb(t1 , t2 , tr ),
-//               g = hue2rgb(t1 , t2 , tg ),
-//               b = hue2rgb( t1 , t2 , tb  )
-//           )
-//               console.log(r*255 ,'--- r--- ')
-//               console.log(g*255,'--- g--- ')
-//               console.log(b*255,'--- b--- ')
-//             console.log(Math.round10((r*255),0) ,'--- r--- ')
-//             console.log(Math.round10((g*255),0),'--- g--- ')
-//             console.log(Math.round10((b*255),0),'--- b--- ')
-//         return [ Math.round10((r*255),0), Math.round10((g*255),0),Math.round10((b*255),0) ];
-// }
-const hslToRgb = (h, s, l) => {
-  let  r, g, b;
-  h = h/360
-  s = Number(s.replace('%', ''))/100
-  l = Number(l.replace('%', ''))/100
-  
-  if (h == 0 && s == 0) {
-    r = g = b = l; // achromatic
-  } else {
-      console.log(h, 'h - ')
-      console.log(s, 's - ')
-      console.log(l, 'l - ')
-     
-     
-      console.log(l, 'l - +')
-      console.log(h, 'h - +')
-      console.log(s, 's - +')
-      
-    var q = l < 0.5 ? ( l * ( 1 + s ) ):( l + s - l * s );
-    var p = 2 * l - q;
-  
-          r = hue2rgb( p, q, h + 1/3)
-          g =   hue2rgb( p, q, h )
-          b =   hue2rgb( p, q, h - 1/3 )
+const hslToRgb_ = (h, s, l) => {
+  let r,
+      g,
+      b,
+      q,
+      p
+      h = h/360
+      s = Number(s.replace('%', ''))/100
+      l = Number(l.replace('%', ''))/100
+          h == 0 && s == 0?(
+                r = g = b = l 
+          ):(
+              q = l < 0.5 ? ( l * ( 1 + s ) ):( l + s - l * s ),
+              p = 2 * l - q,
+              r = hue2rgb_( p, q, h + 1/3),
+              g = hue2rgb_( p, q, h ),
+              b = hue2rgb_( p, q, h - 1/3 )
+          )
+      return [ Math.round10((r*255),0), Math.round10((g*255),0),Math.round10((b*255),0) ]
   }
-              console.log(r*255 ,'--- r--- ')
-              console.log(g*255,'--- g--- ')
-              console.log(b*255,'--- b--- ')
-              console.log(Math.round10((r*255),0) ,'--- r--- ')
-              console.log(Math.round10((g*255),0),'--- g--- ')
-              console.log(Math.round10((b*255),0),'--- b--- ')
-          return [ Math.round10((r*255),0), Math.round10((g*255),0),Math.round10((b*255),0) ];
-}
 const hsl_ = (h, s, l)=> {
-  let k = hslToRgb(h, s, l)
+  let k = hslToRgb_(h, s, l)
   return _cl.g(k[0],k[1],k[2])
 }
 const _cl = {
-  c: ( c ) => {
-      let h = c.toString( 16 );
-      return h.length == 1 ? "0" + h : h;
-  },
-  r: ( r, g, b ) => {
-      return "#" + ( ( 1 << 24 ) + ( r << 16 ) + ( g << 8 ) + b ).toString( 16 ).slice( 1 );
-  },
-  h: ( h ) => {
-      //#hex To Rgb
-      h.replace( /^#?([a-f\d])([a-f\d])([a-f\d])$/i
-          , ( m, r, g, b ) => '#' + r + r + g + g + b + b )
-          .substring( 1 ).match( /.{2}/g )
-          .map( x => parseInt( x, 16 ) )
-  },
-  j: ( h ) => {
-      var c;
-      if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test( h ) ) {
-          c = h.substring( 1 ).split( '' );
-          if ( c.length == 3 ) {
-              c = [ c[ 0 ], c[ 0 ], c[ 1 ], c[ 1 ], c[ 2 ], c[ 2 ] ];
-          }
-          c = '0x' + c.join( '' );
-          return [ ( c >> 16 ) & 255, ( c >> 8 ) & 255, c & 255 ].join( ',' );
-      }
-      throw new Error( 'Bad Hex' );
-  },
-  h : (c) =>  {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-  },
-  g : (r, g, b) =>  {
-    return "#" + _cl.h(r) + _cl.h(g) + _cl.h(b);
-  }
-
-
-
+    c: ( c ) => {
+        let h = c.toString( 16 );
+        return h.length == 1 ? "0" + h : h;
+    },
+    r: ( r, g, b ) => {
+        return "#" + ( ( 1 << 24 ) + ( r << 16 ) + ( g << 8 ) + b ).toString( 16 ).slice( 1 );
+    },
+    h: ( h ) => {
+        //#hex To Rgb
+        h.replace( /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+            , ( m, r, g, b ) => '#' + r + r + g + g + b + b )
+            .substring( 1 ).match( /.{2}/g )
+            .map( x => parseInt( x, 16 ) )
+    },
+    j: ( h ) => {
+        var c;
+        if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test( h ) ) {
+            c = h.substring( 1 ).split( '' );
+            if ( c.length == 3 ) {
+                c = [ c[ 0 ], c[ 0 ], c[ 1 ], c[ 1 ], c[ 2 ], c[ 2 ] ];
+            }
+            c = '0x' + c.join( '' );
+            return [ ( c >> 16 ) & 255, ( c >> 8 ) & 255, c & 255 ].join( ',' );
+        }
+        throw new Error( 'Bad Hex' );
+    },
+    h : (c) =>  {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    },
+    g : (r, g, b) =>  {
+      return "#" + _cl.h(r) + _cl.h(g) + _cl.h(b);
+    }
 }
 const decimalAdjust = ( t, v, exp ) => {
         /**
@@ -187,238 +110,232 @@ const decimalAdjust = ( t, v, exp ) => {
       * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
       * @returns {Number} The adjusted value.
       */
-      if ( typeof exp === 'undefined' || +exp === 0 ) {
-          return Math[ t ]( v );
-      }
-      v = +v;
-      exp = +exp;
-
-      if ( isNaN( v ) || !( typeof exp === 'number' && exp % 1 === 0 ) ) {
-          return NaN;
-      }
-
-      v = v.toString().split( 'e' );
-      v = Math[ t ]( +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] - exp ) : -exp ) ) );
-
-      v = v.toString().split( 'e' );
+          if ( typeof exp === 'undefined' || +exp === 0 ) {
+              return Math[ t ]( v );
+          }
+          v = +v;
+          exp = +exp;
+          if ( isNaN( v ) || !( typeof exp === 'number' && exp % 1 === 0 ) ) {
+              return NaN;
+          }
+          v = v.toString().split( 'e' );
+          v = Math[ t ]( +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] - exp ) : -exp ) ) );
+          v = v.toString().split( 'e' );
       return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
     }
-      Math.round10 = ( v, exp ) => { return decimalAdjust( 'round', v, exp ) },
-      Math.floor10 = ( v, exp ) => { return decimalAdjust( 'floor', v, exp ) },
-      Math.ceil10 = ( v, exp ) => { return decimalAdjust( 'ceil', v, exp ) }
+    Math.round10 = ( v, exp ) => { return decimalAdjust( 'round', v, exp ) },
+    Math.floor10 = ( v, exp ) => { return decimalAdjust( 'floor', v, exp ) },
+    Math.ceil10 = ( v, exp ) => { return decimalAdjust( 'ceil', v, exp ) }
 
 
 
 
-const obj = [["100","FF"],
-              ["99","FC"],
-              ["98","FA"],
-              ["97","F7"],
-              ["96","F5"],
-              ["95","F2"],
-              ["94","F0"],
-              ["93","ED"],
-              ["92","EB"],
-              ["91","E8"],
-              ["90","E6"],
-              ["89","E3"],
-              ["88","E0"],
-              ["87","DE"],
-              ["86","DB"],
-              ["85","D9"],
-              ["84","D6"],
-              ["83","D4"],
-              ["82","D1"],
-              ["81","CF"],
-              ["80","CC"],
-              ["79","C9"],
-              ["78","C7"],
-              ["77","C4"],
-              ["76","C2"],
-              ["75","BF"],
-              ["74","BD"],
-              ["73","BA"],
-              ["72","B8"],
-              ["71","B5"],
-              ["70","B3"],
-              ["69","B0"],
-              ["68","AD"],
-              ["67","AB"],
-              ["66","A8"],
-              ["65","A6"],
-              ["64","A3"],
-              ["63","A1"],
-              ["62","9E"],
-              ["61","9C"],
-              ["60","99"],
-              ["59","96"],
-              ["58","94"],
-              ["57","91"],
-              ["56","8F"],
-              ["55","8C"],
-              ["54","8A"],
-              ["53","87"],
-              ["52","85"],
-              ["51","82"],
-              ["50","80"],
-              ["49","7D"],
-              ["48","7A"],
-              ["47","78"],
-              ["46","75"],
-              ["45","73"],
-              ["44","70"],
-              ["43","6E"],
-              ["42","6B"],
-              ["41","69"],
-              ["40","66"],
-              ["39","63"],
-              ["38","61"],
-              ["37","5E"],
-              ["36","5C"],
-              ["35","59"],
-              ["34","57"],
-              ["33","54"],
-              ["32","52"],
-              ["31","4F"],
-              ["30","4D"],
-              ["29","4A"],
-              ["28","47"],
-              ["27","45"],
-              ["26","42"],
-              ["25","40"],
-              ["24","3D"],
-              ["23","3B"],
-              ["22","38"],
-              ["21","36"],
-              ["20","33"],
-              ["19","30"],
-              ["18","2E"],
-              ["17","2B"],
-              ["16","29"],
-              ["15","26"],
-              ["14","24"],
-              ["13","21"],
-              ["12","1F"],
-              ["11","1C"],
-              ["10","1A"],
-              ["9","17"],
-              ["8","14"],
-              ["7","12"],
-              ["6","0F"],
-              ["5","0D"],
-              ["4","0A"],
-              ["3","08"],
-              ["2","05"],
-              ["1","03"],
-              ["0","00"],];
-   const _cO = ( x , obj ) => {
-      let a,
-          b,
-          c,
-          d,
-          f,
-          g,
-          j,
-          k,
-          l,
-          m,
-          h,
-          i,
-          o,
-          p,
-          v
-          j = /\(([^)]+)\)/gm;
-          h = [];
-          console.log(x ,' <------------------------ x |')
-          if( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x) ){
-              if( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
-                      while ( (m=j.exec(x)) !== null ) {
-                        h.push(m[1]);
-                      }
-                      k =  h[0].split(',')
-                  return _cl.g(k[0],k[1],k[2])
-              } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
-                      while ((m=j.exec(x)) !== null) {
-                        h.push(m[1]);
-                      }
-                      console.log(h,'h')
+    const obj = [["100","FF"],
+                ["99","FC"],
+                ["98","FA"],
+                ["97","F7"],
+                ["96","F5"],
+                ["95","F2"],
+                ["94","F0"],
+                ["93","ED"],
+                ["92","EB"],
+                ["91","E8"],
+                ["90","E6"],
+                ["89","E3"],
+                ["88","E0"],
+                ["87","DE"],
+                ["86","DB"],
+                ["85","D9"],
+                ["84","D6"],
+                ["83","D4"],
+                ["82","D1"],
+                ["81","CF"],
+                ["80","CC"],
+                ["79","C9"],
+                ["78","C7"],
+                ["77","C4"],
+                ["76","C2"],
+                ["75","BF"],
+                ["74","BD"],
+                ["73","BA"],
+                ["72","B8"],
+                ["71","B5"],
+                ["70","B3"],
+                ["69","B0"],
+                ["68","AD"],
+                ["67","AB"],
+                ["66","A8"],
+                ["65","A6"],
+                ["64","A3"],
+                ["63","A1"],
+                ["62","9E"],
+                ["61","9C"],
+                ["60","99"],
+                ["59","96"],
+                ["58","94"],
+                ["57","91"],
+                ["56","8F"],
+                ["55","8C"],
+                ["54","8A"],
+                ["53","87"],
+                ["52","85"],
+                ["51","82"],
+                ["50","80"],
+                ["49","7D"],
+                ["48","7A"],
+                ["47","78"],
+                ["46","75"],
+                ["45","73"],
+                ["44","70"],
+                ["43","6E"],
+                ["42","6B"],
+                ["41","69"],
+                ["40","66"],
+                ["39","63"],
+                ["38","61"],
+                ["37","5E"],
+                ["36","5C"],
+                ["35","59"],
+                ["34","57"],
+                ["33","54"],
+                ["32","52"],
+                ["31","4F"],
+                ["30","4D"],
+                ["29","4A"],
+                ["28","47"],
+                ["27","45"],
+                ["26","42"],
+                ["25","40"],
+                ["24","3D"],
+                ["23","3B"],
+                ["22","38"],
+                ["21","36"],
+                ["20","33"],
+                ["19","30"],
+                ["18","2E"],
+                ["17","2B"],
+                ["16","29"],
+                ["15","26"],
+                ["14","24"],
+                ["13","21"],
+                ["12","1F"],
+                ["11","1C"],
+                ["10","1A"],
+                ["9","17"],
+                ["8","14"],
+                ["7","12"],
+                ["6","0F"],
+                ["5","0D"],
+                ["4","0A"],
+                ["3","08"],
+                ["2","05"],
+                ["1","03"],
+                ["0","00"]
+              ];
+    const _cO = ( x , obj ) => {
+        let a,
+            b,
+            c,
+            d,
+            f,
+            g,
+            j,
+            k,
+            l,
+            m,
+            h,
+            i,
+            o,
+            p,
+            v
+            j = /\(([^)]+)\)/gm;
+            h = [];
+            console.log(x ,' <------------------------ x |')
+            if( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x) ){
+                if( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                        while ( (m=j.exec(x)) !== null ) {
+                          h.push(m[1]);
+                        }
                         k =  h[0].split(',')
-                        v = _cl.g(k[0],k[1],k[2])
-                        if( k[3].length==0 ){
-                          return v 
+                        console.log( _cl.g(k[0],k[1],k[2]) ,' ----color 23333333')
+                    return _cl.g(k[0],k[1],k[2])
+                } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                        while ((m=j.exec(x)) !== null) {
+                          h.push(m[1]);
                         }
-                        i = k[3]
-                        p = i*100
-                        o = Math.round10(p,0)
-                       
-                  return `${v}${obj[0][1]}`
-                }
-          } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
-              if( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                        console.log(h,'h')
+                          k =  h[0].split(',')
+                          v = _cl.g(k[0],k[1],k[2])
+                          if( k[3].length==0 ){
+                            console.log(`${v}${obj[0][1]}`,' ----color 2222')
+                            return v 
+                          }
+                          i = k[3]
+                          p = i*100
+                          o = Math.round10(p,0)
+                          console.log(`${v}${obj[0][1]}`,' ----color 111')
+                    return `${v}${obj[0][1]}`
+                  }
+            } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
+                if( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
+                        while ( (m=j.exec(x)) !== null ) {
+                          h.push(m[1]);
+                        }
+                        k =  h[0].split(',')
+                  console.log(k,'k');
+                    return hsl_(k[0],k[1],k[2])
+                }else if( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
                       while ( (m=j.exec(x)) !== null ) {
                         h.push(m[1]);
                       }
                       k =  h[0].split(',')
-                 console.log(k,'k');
-                  return hsl_(k[0],k[1],k[2])
-              }else if( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
-                    while ( (m=j.exec(x)) !== null ) {
-                      h.push(m[1]);
-                    }
-                    k =  h[0].split(',')
-                    console.log(k,'k');
-                    v = hsl_(k[0],k[1],k[2])
-                    if( k[3].length==0 ){
-                      return v
-                    }
-                    i = k[3]
-                    p = i*100
-                    o = Math.round10(p,0)
-                  return `${v}${obj[0][1]}`
+                      console.log(k,'k');
+                      v = hsl_(k[0],k[1],k[2])
+                      if( k[3].length==0 ){
+                        console.log(v,' ----color 123123')
+                        return v
+                      
+                      }
+                      i = k[3]
+                      p = i*100
+                      o = Math.round10(p,0)
+                      console.log(`${v}${obj[0][1]}`,' ----color 1')
+                    return `${v}${obj[0][1]}`
+                }
+            } else {
+              if (x.length <= 9){
+                console.log( x,' ----color 66666666');
+                return x
               }
-          } else {
-            if (x.length <= 9){
-              return x
-            }
-            if( x.length == 11 ){
-                obj.forEach( (ej, i) => {  
-                  ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
-                      a = ej[0] , 
-                      b = i,
-                      obj.forEach( (el , i) => {  
-                        if( el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase() ){
-                            c = el[0] ,
-                            d = i,
-                              f =(100 - a) + (100 - c),
-                            g = (100  - f);
-                              if( g <= 0 ) {
-                                return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
-                              } else {
-                                obj.forEach( (et , i) => {  
-                                  if( et[0] == g ){
-                                      return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
-                                  }
-                                })
-                              }
-                        }
-                      })
-                    ):false
-                });
-            }
-          } 
-    }
-// Choosing colors from primer/primitives
-// There are multiple ways to define what color is used:
-
-// 1.Global variable
-//    e.g."textLink.foreground" : color.fg.default,
-// 2.Color scale
-//    e.g."textLink.foreground" : scale.blue[5],
-// 3.Hex value : All themes will use this scale.Only use for exceptions
-//    e.g."textLink.foreground" : "#fff",
-// 4.Per theme.Useful when a certain theme needs an exception
-//    e.g."textLink.foreground" : themes({ l : scale.blue[5], d : scale.blue[2], dd : scale.blue[3], hc : scale.blue[3] }  ),
-
+              if( x.length == 11 ){
+                  obj.forEach( (ej, i) => {  
+                    ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
+                        a = ej[0] , 
+                        b = i,
+                        obj.forEach( (el , i) => {  
+                          if( el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase() ){
+                              c = el[0] ,
+                              d = i,
+                                f =(100 - a) + (100 - c),
+                              g = (100  - f);
+                                if( g <= 0 ) {
+                                  console.log(`#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`,' ----color 2')
+                                  return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
+                                } else {
+                                  obj.forEach( (et , i) => {  
+                                    if( et[0] == g ){
+                                      console.log(`#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`,'----color')
+                                        return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
+                                    }
+                                  })
+                                }
+                          }
+                        })
+                      ):false
+                  });
+              }
+            } 
+      }
 const _gT = ({ theme, name }) => {
           const themes = (options) => {options[theme]};
           const color = _gC(theme);
