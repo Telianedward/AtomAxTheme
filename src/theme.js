@@ -27,51 +27,58 @@ const cycle = (val) => {
   }
   return val;
 }
-const   hslToRgb = (h, s, l) => {
-  var r, g, b;
+const hue2rgb = (t1, t2, tr) => {
+      return 6 * tr < 1 ? (
+          t2 + ( t1 - t2 ) * 6 * tr
+      ):(
+        2 * tr < 1 ? (
+          t1
+        ):(
+          3 * tr < 2 ? (
+              t2 + ( t1 - t2 ) * (0.666 - tr) * 6
+          ):(
+                t2 
+          )
+        )
+      )
+}
 
-  console.log(h,'h')
-  console.log(s,'s')
-  console.log(l,'l')
-  if (s == 0) {
-    r = g = b = l; // achromatic
+
+const   hslToRgb = (h, s, l) => {
+
+      //   H = 193 ° S = 67% L = 28%.
+  let  r, g, b , x , z, t1 , t2, tr , tg , tb
+  // преобразование 360 градусов по кругу в 1 путем деления угла на 360.
+  h = h/360
+  s = Number(s.replace('%', ''))/100
+  l = Number(l.replace('%', ''))/100
+
+
+
+  if (h == 0 && s == 0) {
+     // Например H = 0, S = 0 и L = 40%, получаем 0,4 * 255 = 102, поэтому R = 102, G = 102 и B = 102
+    r = g = b = l; 
   } else {
-      function  hue2rgb(p, q, t){
-          console.log(p,'p')
-          console.log(q,'q')
-          console.log(t,'t')
-            if (t < 0) t += 1;
-            if (t > 1) t -= 1;
-            if (t < 1/6) return p + (q - p) * 6 * t;
-            if (t < 1/2) return q;
-            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-            console.log(p,'--- p--- ')
-          return p;
-      }
       console.log(h, 'h - ')
       console.log(s, 's - ')
       console.log(l, 'l - ')
-      l = Number(l.replace('%', ''))/100
-      s = Number(s.replace('%', ''))/100
-      h = ((h*100)/360)/100
-      console.log(l, 'l - +')
-      console.log(h, 'h - +')
-      console.log(s, 's - +')
      
+      t1 =  s < 0.5 ? (
+        // Если яркость меньше 0,5 (50%),
+          l * ( 1.0 + s )
+      ):(
+        // яркость равна или больше, то 0,5 (50%),
+          l + s  - ( l * s )
+      ),
+      t2 = (2 * h) - t1,
+      // Все значения должны находиться в диапазоне от 0 до 1
+          tr = h + 1/3
+          tg = h
+          tb = h - 1/3
 
-      if(l < 0.5){
-        console.log(l * (1 + s) , `${l} * ( ${l} + ${s}  ) `)
-      }else{
-        console.log(l + s - (1 * s) , `( ${l} + ${s}) - ( ${l} * ${s}) ) `)
-      }
-      
-      
-    var q = l < 0.5 ? ( l * ( 1 + s ) ):( l + s - l * s );
-    var p = 2 * l - q;
-  
-          r = Math.round10(hue2rgb( p, q, h + 1/3), 0);
-          g = Math.round10(hue2rgb( p, q, h ), 0);
-          b = Math.round10(hue2rgb( p, q, h - 1/3 ), 0);
+        r  =  Math.round10( hue2rgb(t1 , t2 , tr ) )
+        g = Math.round10(hue2rgb(t1 , t2 , tg ), 0)
+        b = Math.round10(hue2rgb( t1 , t2 , tb  ), 0)
   }
   console.log(r,'--- r--- ')
   console.log(g,'--- g--- ')
