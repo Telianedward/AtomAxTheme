@@ -290,12 +290,13 @@ const decimalAdjust = ( t, v, exp ) => {
                                       b = i,
                                       obj.forEach( (el , i) => {  
                                         s = `${z[7]}${z[8]}`
+                                        console.log(s,`sssssssss` )
                                         if( el[1].toLowerCase() == s.toLowerCase() ){
-                                          console.log(`el 1 ${el[1].toLowerCase()}   <->  ${s.toLowerCase()}  ` ),
-                                            c = el[0] ,
-                                            d = i,
-                                            f =(100 - a) + (100 - c),
-                                            g = (100  - f);
+                                              console.log(`el 1 ${el[1].toLowerCase()}   <->  ${s.toLowerCase()}  ` ),
+                                              c = el[0] ,
+                                              d = i,
+                                              f =(100 - a) + (100 - c),
+                                              g = (100  - f);
                                               if( g <= 0 ) {
                                                 console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
                                                 return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
