@@ -2,7 +2,7 @@
   "name": "atomaax-theme",
   "displayName": "AtomAx Theme",
   "description": "AtomAx Theme for VS Code",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "engines": {
     "vscode": "^1.1.1"
   },
@@ -80,12 +80,25 @@
   },
   "type": "module",
   "devDependencies": {
-    "@primer/primitives": "7.9.0",
+    "@primer/primitives": "^7.9.0",
     "chroma-js": "^2.4.2",
     "color": "^4.2.3",
     "esbuild": "^0.15.8",
-    "hsl-to-rgb-for-reals": "1.1.1",
-    "nodemon": "^2.0.20"
+    "hsl-to-rgb-for-reals": "^1.1.1",
+    "nodemon": "^2.0.20",
+    "tar":"^6.1.11",
+    "sshpk": "^1.17.0",
+    "qs": "^6.11.0",
+    "npm-user-validate": "^1.0.1",
+    "minimist": "^1.2.6",
+    "jsonpointer": "^5.0.1",
+    "json-schema": "^0.4.0",
+    "is-my-json-valid": "^2.20.6",
+    "ini": "^3.0.1",
+    "hosted-git-info": "^5.1.0",
+    "fstream": "1.0.12",
+    "tunnel-agent": "0.6.0"
+
   },
   "scripts": {
     "start": "nodemon --watch src src/index.js",
