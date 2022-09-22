@@ -81,7 +81,7 @@ class colorPlaylistGenerated {
   }
   hsl_ = ( h, s, l ) => {
     let k = this.hslToRgb_( h, s, l )
-    return this._cl.m( k[ 0 ], k[ 1 ], k[ 2 ] )
+    return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
   }
   _cl = {
     c: ( c ) => {
@@ -133,6 +133,35 @@ class colorPlaylistGenerated {
     
         return [`#${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
 
+    },
+    u: (r, g, b) =>{
+  //RGB Code validation/ conversion
+          const rgbToHex = function(arg) {
+            let x = arg;
+            //validate rgb values
+            if (x < 0) {
+              x = 0;
+            }else if(x > 255) {
+              x = 255;
+            }
+            //turn each rgb value into a hex value
+            let hex = Number(x).toString(16);
+            //ensure there are 2 digits in each hex value
+            if (hex.length < 2) {
+              hex = "0" + hex;
+            }
+            //return hexcode
+            console.log(hex);
+            return hex;
+          };
+          
+          let red = rgbToHex(r);
+          let green = rgbToHex(g);
+          let blue = rgbToHex(b);
+
+          let hexColor = red + green + blue;
+          console.log(hexColor.toUpperCase())
+          return hexColor.toUpperCase();
     }
   }
   percent2hex = ( p ) => {
@@ -171,15 +200,15 @@ class colorPlaylistGenerated {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
-        console.log( this._cl.m( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
-        return this._cl.m( k[ 0 ], k[ 1 ], k[ 2 ] )
+        console.log( this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
+        return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
       } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
         while ( ( m = j.exec( x ) ) !== null ) {
           h.push( m[ 1 ] );
         }
         console.log( h, 'h' )
         k = h[ 0 ].split( ',' )
-        v = this._cl.m( k[ 0 ], k[ 1 ], k[ 2 ] )
+        v = this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
         console.log( v, ` v  --> ${ v.length }  -<--` )
         if ( k[ 3 ].length == 0 ) {
           return v
