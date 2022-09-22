@@ -1,6 +1,6 @@
 {
   "name": "Default High Contrast",
-  "colors": {
+  "_cs": {
     "activityBar.activeBackground": "#272b33",
     "activityBar.activeBorder": "#09b43a80",
     "activityBar.activeFocusBorder": "#09b43a",
@@ -470,7 +470,7 @@
     "symbolIcon.propertyforeground": "#f0f3f6",
     "symbolIcon.referenceForeground": "#f0f3f6",
     "symbolIcon.snippetForeground": "#ff6a69",
-    "symbolIcon.stringForeground": "#15816717999",
+    "symbolIcon.stringForeground": "#15816717966",
     "symbolIcon.structForeground": "#409eff",
     "symbolIcon.textForeground": "#09b43a",
     "symbolIcon.typeParameterForeground": "#ff6a69",
