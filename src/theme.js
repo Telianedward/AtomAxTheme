@@ -36,113 +36,12 @@ return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
 }
 class colorPlaylistGenerated{
           constructor() {
-              this.obj = [["100","FF"],
-              ["99","FC"],
-              ["98","FA"],
-              ["97","F7"],
-              ["96","F5"],
-              ["95","F2"],
-              ["94","F0"],
-              ["93","ED"],
-              ["92","EB"],
-              ["91","E8"],
-              ["90","E6"],
-              ["89","E3"],
-              ["88","E0"],
-              ["87","DE"],
-              ["86","DB"],
-              ["85","D9"],
-              ["84","D6"],
-              ["83","D4"],
-              ["82","D1"],
-              ["81","CF"],
-              ["80","CC"],
-              ["79","C9"],
-              ["78","C7"],
-              ["77","C4"],
-              ["76","C2"],
-              ["75","BF"],
-              ["74","BD"],
-              ["73","BA"],
-              ["72","B8"],
-              ["71","B5"],
-              ["70","B3"],
-              ["69","B0"],
-              ["68","AD"],
-              ["67","AB"],
-              ["66","A8"],
-              ["65","A6"],
-              ["64","A3"],
-              ["63","A1"],
-              ["62","9E"],
-              ["61","9C"],
-              ["60","99"],
-              ["59","96"],
-              ["58","94"],
-              ["57","91"],
-              ["56","8F"],
-              ["55","8C"],
-              ["54","8A"],
-              ["53","87"],
-              ["52","85"],
-              ["51","82"],
-              ["50","80"],
-              ["49","7D"],
-              ["48","7A"],
-              ["47","78"],
-              ["46","75"],
-              ["45","73"],
-              ["44","70"],
-              ["43","6E"],
-              ["42","6B"],
-              ["41","69"],
-              ["40","66"],
-              ["39","63"],
-              ["38","61"],
-              ["37","5E"],
-              ["36","5C"],
-              ["35","59"],
-              ["34","57"],
-              ["33","54"],
-              ["32","52"],
-              ["31","4F"],
-              ["30","4D"],
-              ["29","4A"],
-              ["28","47"],
-              ["27","45"],
-              ["26","42"],
-              ["25","40"],
-              ["24","3D"],
-              ["23","3B"],
-              ["22","38"],
-              ["21","36"],
-              ["20","33"],
-              ["19","30"],
-              ["18","2E"],
-              ["17","2B"],
-              ["16","29"],
-              ["15","26"],
-              ["14","24"],
-              ["13","21"],
-              ["12","1F"],
-              ["11","1C"],
-              ["10","1A"],
-              ["9","17"],
-              ["8","14"],
-              ["7","12"],
-              ["6","0F"],
-              ["5","0D"],
-              ["4","0A"],
-              ["3","08"],
-              ["2","05"],
-              ["1","03"],
-              ["0","00"]
-            ];
+   
           }
-         static hex = (color)=>{
-              console.log(color,'color')
-              console.log(_ch(color).this.hex(),'this.hex')
-                return _ch(color).this.this.hex();
+         static hex = (c)=>{
+              console.log(c,'color')
+              console.log(_ch(c).this.hex(),'this.hex')
+                return _ch(c).this.this.hex();
           }
           static hue2rgb_ = (p, q, t) => {
               if (t < 0) t += 1;
@@ -217,7 +116,7 @@ class colorPlaylistGenerated{
         }
         static hex2percent = (p) => {
           // для ввода окончания прозрачности (узнать на сколько  процентов цвет становиться прозрачным)
-          return  Math.round(parseInt("0x" + hex / 255 * 100))
+          return  Math.round(parseInt(`0x${p}` / 255 * 100))
         }
         static _cO = ( x) => {
             let a,
@@ -261,50 +160,28 @@ class colorPlaylistGenerated{
                               }
                               i = k[3]
                               p = i*100
-                              o = Math.round10(p,0)
-                              z = `${v}${obj[o][1]}`
+                              o =  Math.round10(p,0)
+                              z = `${v}${percent2hex(o)}`
                               console.log(z, ` z  --> ${z.length}  -<--`)
-                              if( z.length == 11 ){
-
-                                  t = `${z[9]}${z[10]}`
-
-
-
-                                    obj.forEach( (ej, i) => {  
-                                    
-                                    
-                                      ej[1].toLowerCase() == t.toLowerCase()?(
-                                            console.log(`ej 1 ${ej[1].toLowerCase()}   <->  ${t.toLowerCase()}  ` ),
-                                          a = ej[0] , 
-                                          b = i,
-                                          obj.forEach( (el , i) => {  
-                                            s = `${z[7]}${z[8]}`
-                                            console.log(s,`sssssssss` ),
-                                            console.log(`el 1 ${el[1].toLowerCase()}   <->  ${s.toLowerCase()}  ` )
-                                            if( el[1].toLowerCase() == s.toLowerCase() ){
-                                                  console.log(`el 1 ${el[1].toLowerCase()}   <->  ${s.toLowerCase()}  ` ),
-                                                  c = el[0] ,
-                                                  d = i,
-                                                  f =(100 - a) + (100 - c),
-                                                  g = (100  - f);
-                                                  if( g <= 0 ) {
-                                                    console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
-                                                    return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
-                                                  } else {
-                                                    obj.forEach( (et , i) => {  
-                                                      if( et[0] == g ){
-                                                        console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${et.b}`,'----color')
-                                                          return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${et.b}`
-                                                      }
-                                                    })
-                                                  }
-                                            }
-                                          })
-                                        ):false
-                                    });
-                                }
-                                console.log(z,'  -- 1111 rgba ---')
-                        return z
+                                    if( z.length == 11 ){
+                                      t = `${z[9]}${z[10]}`,
+                                      s = `${z[7]}${z[8]}`,
+                                      a = hex2percent(t),
+                                      c = hex2percent(a),
+                                      c = el[0] ,
+                                      d = i,
+                                      f =( 100 - a ) + ( 100 - c ),
+                                      g = (100  - f);
+                                      if( g <= 0 ) {
+                                            console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
+                                        return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
+                                      } else {
+                                            console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`,'----color')
+                                        return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`
+                                      }
+                                    }
+                                    console.log(z,'  -- 1111 rgba ---')
+                                return z
                       }
                 } else if (/(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test(x)){
                     if( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test(x) ){
@@ -329,69 +206,48 @@ class colorPlaylistGenerated{
                           i = k[3]
                           p = i*100
                           o = Math.round10(p,0)
-                          z = `${v}${obj[o][1]}`
-                          if( z.length == 11 ){
-                                obj.forEach( (ej, i) => {  
-                                  ej[1].toLowerCase() == `${z[9]}${z[10]}`.toLowerCase()?(
-                                      a = ej[0] , 
-                                      b = i,
-                                      obj.forEach( (el , i) => {  
-                                        if( el[1].toLowerCase() == `${z[7]}${z[8]}`.toLowerCase() ){
-                                            c = el[0] ,
-                                            d = i,
-                                              f =(100 - a) + (100 - c),
-                                            g = (100  - f);
-                                              if( g <= 0 ) {
-                                                console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
-                                                return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
-                                              } else {
-                                                obj.forEach( (et , i) => {  
-                                                  if( et[0] == g ){
-                                                    console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${et.b}`,'----color')
-                                                      return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${et.b}`
-                                                  }
-                                                })
-                                              }
-                                        }
-                                      })
-                                    ):false
-                                });
-                            }
+                          z =`${v}${percent2hex(o)}`
+                              if( z.length == 11 ){
+                                t = `${z[9]}${z[10]}`,
+                                s = `${z[7]}${z[8]}`,
+                                a = hex2percent(t),
+                                c = hex2percent(a),
+                                c = el[0] ,
+                                d = i,
+                                f =( 100 - a ) + ( 100 - c ),
+                                g = (100  - f);
+                                if( g <= 0 ) {
+                                      console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
+                                  return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
+                                } else {
+                                      console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`,'----color')
+                                  return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`
+                                }
+                              }
                             console.log(z,' ----color 11 --hsl ---')
                             return z
                     }
                 } else {
                   if (x.length <= 9){
-                    console.log( x,' ----color 66666666');
+                        console.log( x,' ----color 66666666');
                     return x
-                  }
-                  if( x.length == 11 ){
-                      obj.forEach( (ej, i) => {  
-                        ej[1].toLowerCase() == `${x[9]}${x[10]}`.toLowerCase()?(
-                            a = ej[0] , 
-                            b = i,
-                            obj.forEach( (el , i) => {  
-                              if( el[1].toLowerCase() == `${x[7]}${x[8]}`.toLowerCase() ){
-                                  c = el[0] ,
-                                  d = i,
-                                    f =(100 - a) + (100 - c),
-                                  g = (100  - f);
-                                    if( g <= 0 ) {
-                                      console.log(`#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`,' ----color 2')
-                                      return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}1a`
-                                    } else {
-                                      obj.forEach( (et , i) => {  
-                                        if( et[0] == g ){
-                                          console.log(`#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`,'----color')
-                                            return `#${x[1]}${x[2]}${x[3]}${x[4]}${x[5]}${x[6]}${et.b}`
-                                        }
-                                      })
-                                    }
+                  }else if( z.length == 11 ){
+                              t = `${z[9]}${z[10]}`,
+                              s = `${z[7]}${z[8]}`,
+                              a = hex2percent(t),
+                              c = hex2percent(a),
+                              c = el[0] ,
+                              d = i,
+                              f =( 100 - a ) + ( 100 - c ),
+                              g = (100  - f);
+                              if( g <= 0 ) {
+                                      console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
+                                return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
+                              } else {
+                                        console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`,'----color')
+                                return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`
                               }
-                            })
-                          ):false
-                      });
-                  }
+                            }
                 } 
           }
       _gT = ({ theme, name }) => {
