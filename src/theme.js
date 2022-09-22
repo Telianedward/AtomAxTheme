@@ -5,7 +5,7 @@ import _toRgb from "../node_modules/hsl-to-rgb-for-reals/converter.js";
 Math.round10 = ( v, exp ) => { return decimalAdjust( 'round', v, exp ) }
 Math.floor10 = ( v, exp ) => { return decimalAdjust( 'floor', v, exp ) }
 Math.ceil10 = ( v, exp ) => { return decimalAdjust( 'ceil', v, exp ) }
-decimalAdjust = ( t, v, exp ) => {
+const decimalAdjust = ( t, v, exp ) => {
   /**
    * examples:
    *  Math.round10(5.25, 0);  // 5
