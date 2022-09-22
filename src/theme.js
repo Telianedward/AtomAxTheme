@@ -34,21 +34,11 @@ const decimalAdjust = ( t, v, exp ) => {
   v = v.toString().split( 'e' );
   return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
 }
-function
- componentToHex(c) {
-  var hex = c.toString(16);
-  return hex.length == 1 ? "0" + hex : hex;
-}
-function rgbToHex(r, g, b) {
-  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
 class colorPlaylistGenerated {
   constructor() {
 
   }
   hex = ( c ) => {
-    // console.log( c, 'color' )
-    // console.log( _ch( c ).hex(), 'this.hex' )
     return _ch( c ).hex;
   }
   hue2rgb_ = ( p, q, t ) => {
@@ -92,7 +82,6 @@ class colorPlaylistGenerated {
       return "#" + ( ( 1 << 24 ) + ( r << 16 ) + ( g << 8 ) + b ).toString( 16 ).slice( 1 );
     },
     h: ( h ) => {
-      //#hex To Rgb
       h.replace( /^#?([a-f\d])([a-f\d])([a-f\d])$/i
         , ( m, r, g, b ) => '#' + r + r + g + g + b + b )
         .substring( 1 ).match( /.{2}/g )
@@ -182,23 +171,19 @@ class colorPlaylistGenerated {
       s
     j = /\(([^)]+)\)/gm;
     h = [];
-    console.log( x, ' <------------------------ x |' )
     if ( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test( x ) ) {
       if ( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
         while ( ( m = j.exec( x ) ) !== null ) {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
-        console.log( this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
         return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
       } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
         while ( ( m = j.exec( x ) ) !== null ) {
           h.push( m[ 1 ] );
         }
-        console.log( h, 'h' )
         k = h[ 0 ].split( ',' )
         v = this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
-        console.log( v, ` v  --> ${ v.length }  -<--` )
         if ( k[ 3 ].length == 0 ) {
           return v
         }
@@ -206,46 +191,37 @@ class colorPlaylistGenerated {
         p = i * 100
         o = Math.round10( p, 0 )
         z = `${ v }${ this.percent2hex( o ) }`
-        console.log( z, ` z  --> ${ z.length }  -<--` )
         if ( z.length == 11 ) {
             t = `${ z[ 9 ] }${ z[ 10 ] }`,
             s = `${ z[ 7 ] }${ z[ 8 ] }`,
             a = this.hex2percent( t ),
             c = this.hex2percent( a ),
-
             d = i,
             f = ( 100 - a ) + ( 100 - c ),
             g = ( 100 - f );
           if ( g <= 0 ) {
-            console.log( `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`, ' ----color 2' )
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
           } else {
-            console.log( `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`, '----color' )
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
           }
         }
-        console.log( z, '  -- 1111 rgba ---' )
         return z
       }
     } else if ( /(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test( x ) ) {
-      if ( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
-        while ( ( m = j.exec( x ) ) !== null ) {
-          h.push( m[ 1 ] );
-        }
-        k = h[ 0 ].split( ',' )
-        console.log( k, 'k' );
-        return this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
-      } else if ( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
-        while ( ( m = j.exec( x ) ) !== null ) {
-          h.push( m[ 1 ] );
-        }
-        k = h[ 0 ].split( ',' )
-        console.log( k, 'k' );
-        v = this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
-        if ( k[ 3 ].length == 0 ) {
-          console.log( v, ' ----color 123123' )
+          if ( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
+            while ( ( m = j.exec( x ) ) !== null ) {
+              h.push( m[ 1 ] );
+            }
+            k = h[ 0 ].split( ',' )
+            return this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
+          } else if ( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
+            while ( ( m = j.exec( x ) ) !== null ) {
+              h.push( m[ 1 ] );
+            }
+            k = h[ 0 ].split( ',' )
+            v = this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
+            if ( k[ 3 ].length == 0 ) {
           return v
-
         }
         i = k[ 3 ]
         p = i * 100
@@ -261,41 +237,31 @@ class colorPlaylistGenerated {
             f = ( 100 - a ) + ( 100 - c ),
             g = ( 100 - f );
           if ( g <= 0 ) {
-            console.log( `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`, ' ----color 2' )
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
           } else {
-            console.log( `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`, '----color' )
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
           }
         }
-        console.log( z, ' ----color 11 --hsl ---' )
         return z
       }
     } else {
       if ( x.length <= 9 ) {
-        console.log( x, ' ----color 66666666' );
         return x
       } else if ( x.length == 11 ) {
         t = `${ z[ 9 ] }${ z[ 10 ] }`,
           s = `${ z[ 7 ] }${ z[ 8 ] }`,
           a = this.hex2percent( t ),
           c = this.hex2percent( a ),
-
           d = i,
           f = ( 100 - a ) + ( 100 - c ),
           g = ( 100 - f );
         if ( g <= 0 ) {
-          console.log( `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`, ' ----color 2' )
           return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
         } else {
-          console.log( `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`, '----color' )
           return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
         }
       }
     }
-  }
-  _gg = () => {
-
   }
   _gT = ( { theme, name } ) => {
     const themes = ( options ) => { options[ theme ] },
@@ -345,32 +311,6 @@ class colorPlaylistGenerated {
         dc: this._cO( `${ this.hex( _c.fg.muted ) }` ),
         dt: this._cO( `${ this.hex( _c.fg.muted ) }`, )
       } )
-
-    console.log( themes( {
-      l: "_ --l---",
-      lHC: "_ --lHC---",
-      lC: "_ --lC---",
-      lT: "_ --lT---",
-      d: "_ --d---",
-      dd: "_ --dd---",
-      dhc: "_ --dhc---",
-      dc: "_ --dc---",
-      dt: "_ --dt---"
-    } ) )
-    console.log( _c, "_c" )
-    console.log( _c.canvas.subtle, '_c.canvas.subtle' )
-    console.log( _c.neutral.muted, '_c.neutral.muted' )
-    console.log( _c.border.muted, '_c.border.muted' )
-    console.log( _c.fg.default, '_c.fg.default' )
-    console.log( _c.fg.muted, '_c.fg.muted' )
-    console.log( _bc_, '_bc_' )
-    console.log( _c.canvas.subtle, '_c.canvas.subtle' )
-    console.log( _boc_, '_boc_' )
-    console.log( _c.neutral.muted, '_c.neutral.muted' )
-    console.log( _c.fg.default, '_c.fg.default' )
-    console.log( _c.fg.default, 'this.__c.fg.default' )
-    console.log( _c.fg.muted, '_c.fg.muted' )
-    console.log( _c.fg.muted, 'this.__c.fg.muted' )
     return {
       name: name,
       _cs: {
