@@ -155,6 +155,7 @@ class colorPlaylistGenerated {
         console.log( h, 'h' )
         k = h[ 0 ].split( ',' )
         v = this._cl.g( k[ 0 ], k[ 1 ], k[ 2 ] )
+        console.log( v, ` v  --> ${ v.length }  -<--` )
         if ( k[ 3 ].length == 0 ) {
           return v
         }
@@ -164,7 +165,7 @@ class colorPlaylistGenerated {
         z = `${ v }${ this.percent2hex( o ) }`
         console.log( z, ` z  --> ${ z.length }  -<--` )
         if ( z.length == 11 ) {
-          t = `${ z[ 9 ] }${ z[ 10 ] }`,
+            t = `${ z[ 9 ] }${ z[ 10 ] }`,
             s = `${ z[ 7 ] }${ z[ 8 ] }`,
             a = this.hex2percent( t ),
             c = this.hex2percent( a ),

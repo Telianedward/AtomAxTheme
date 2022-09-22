@@ -178,7 +178,7 @@
     "editorInfo.border": "#0349b480",
     "editorInfo.foreground": "#0349b4",
     "editorInlayHint.background": "#ffffff",
-    "editorInlayHint.foreground": "#0e1116",
+    "editorInlayHint.foreground": "#0e111666",
     "editorInlayHint.parameterBackground": "#88929d",
     "editorInlayHint.parameterForeground": "#0349b4",
     "editorInlayHint.typeBackground": "#88929d",
