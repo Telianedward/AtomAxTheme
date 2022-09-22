@@ -643,8 +643,7 @@
     "notebook.focusedCellBackground": "#ff6a694d",
     "notebook.inactiveSelectedCellBorder": "#7a828e",
     "notebook.outputContainerBackgroundColor": "#010409",
-    "notebook.outputContainerBorderColor": "#7a828e",
-    "quickInput.list.focusBackground": "#010409"
+    "notebook.outputContainerBorderColor": "#7a828e"
   },
   "semanticHighlighting": true,
   "tokenColors": [

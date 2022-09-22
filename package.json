@@ -2,9 +2,9 @@
   "name": "atomaax-theme",
   "displayName": "AtomAx Theme",
   "description": "AtomAx Theme for VS Code",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "engines": {
-    "vscode": "^1.1.1"
+    "vscode": "^0.10.5."
   },
   "categories": [
     "Themes"
@@ -17,6 +17,7 @@
     "color": "#232323",
     "theme": "dark"
   },
+  "homepage": "https://github.com/telianedward/AtomaxAxTheme",
   "repository": {
     "type": "git",
     "url": "https://github.com/telianedward/AtomaxAxTheme"
@@ -31,26 +32,6 @@
   ],
   "contributes": {
     "themes": [
-      {
-        "label": "AtomAx Light+",
-        "uiTheme": "vs",
-        "path": "./themes/my-light.json"
-      },
-      {
-        "label": "AtomAx High Contrast Light",
-        "uiTheme": "hc-light",
-        "path": "./themes/my-light_high_contrast.json"
-      },
-      {
-        "label": "AtomAx Colorblind Light",
-        "uiTheme": "vs",
-        "path": "./themes/my-light_colorblind.json"
-      },
-      {
-        "label": "AtomAx Light+ Tritanopia",
-        "uiTheme": "hc-light",
-        "path": "./themes/my-light_tritanopia.json"
-      },
       {
         "label": "AtomAx Dark+",
         "uiTheme": "vs-dark",
@@ -75,6 +56,26 @@
         "label": "AtomAx Dark+ Tritanopia",
         "uiTheme": "hc-black",
         "path": "./themes/my-dark_tritanopia.json"
+      },
+      {
+        "label": "AtomAx Light+",
+        "uiTheme": "vs",
+        "path": "./themes/my-light.json"
+      },
+      {
+        "label": "AtomAx High Contrast Light",
+        "uiTheme": "hc-light",
+        "path": "./themes/my-light_high_contrast.json"
+      },
+      {
+        "label": "AtomAx Colorblind Light",
+        "uiTheme": "vs",
+        "path": "./themes/my-light_colorblind.json"
+      },
+      {
+        "label": "AtomAx Light+ Tritanopia",
+        "uiTheme": "hc-light",
+        "path": "./themes/my-light_tritanopia.json"
       }
     ]
   },

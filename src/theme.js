@@ -992,8 +992,7 @@ const  hex = ( c ) => {
             "notebook.focusedCellBackground": _cO( `${color.danger.muted }${ _x_[ 3 ] }` ),
             "notebook.inactiveSelectedCellBorder": _cO( `${color.border.muted }${ _x_[ 10 ] }` ),
             "notebook.outputContainerBackgroundColor": _cO( `${color.canvas.inset }${ _x_[ 10 ] }` ),
-            "notebook.outputContainerBorderColor": _cO( `${color.border.muted }${ _x_[ 10 ] }` ),
-            "quickInput.list.focusBackground": _cO( `${color.canvas.inset }${ _x_[ 10 ] }`)
+            "notebook.outputContainerBorderColor": _cO( `${color.border.muted }${ _x_[ 10 ] }` )
       },
       semanticHighlighting: true,
       "tokenColors": [
