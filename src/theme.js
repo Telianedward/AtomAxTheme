@@ -138,20 +138,16 @@ class colorPlaylistGenerated {
   //RGB Code validation/ conversion
           const _rgb2Hex = function(arg) {
             let x = arg;
-            //validate rgb values
+
             if (x < 0) {
               x = 0;
             }else if(x > 255) {
               x = 255;
             }
-            //turn each rgb value into a hex value
             let hex = Number(x).toString(16);
-            //ensure there are 2 digits in each hex value
             if (hex.length < 2) {
               hex = "0" + hex;
             }
-            //return hexcode
-            console.log(hex);
             return hex;
           }
           return `#${_rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`;
