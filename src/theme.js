@@ -1,4 +1,3 @@
-import _ch from "../node_modules/chroma-js/chroma.js";
 import _gC from "./colors.js";
 import _toRgb from "../node_modules/hsl-to-rgb-for-reals/converter.js";
 
@@ -36,11 +35,9 @@ const decimalAdjust = ( t, v, exp ) => {
 }
 class colorPlaylistGenerated {
   constructor() {
+  
+  }
 
-  }
-  hex = ( c ) => {
-    return _ch( c ).hex;
-  }
   hue2rgb_ = ( p, q, t ) => {
     if ( t < 0 ) t += 1;
     if ( t > 1 ) t -= 1;
