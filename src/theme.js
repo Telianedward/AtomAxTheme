@@ -252,72 +252,72 @@ class colorPlaylistGenerated{
           }
       _gT = ({ theme, name }) => {
               const themes = (options) => {options[theme]},
-                _c = _gC(theme),
-                _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""],
-                _bc_  = themes({l :this._cO(`${this.hex(_c.canvas.subtle)}`),
-                                        lHC :this._cO(`${this.hex(_c.canvas.subtle)}`),
-                                        lC :this._cO(`${this.hex(_c.canvas.subtle)}`),
-                                        lT :this._cO(`${this.hex(_c.canvas.subtle)}`),
-                                        d :this._cO(`${this.hex(_c.canvas.overlay)}`),
-                                        dd :this._cO(`${this.hex(_c.canvas.overlay)}`),
-                                        dhc :this._cO(`${this.hex(_c.canvas.overlay)}`),
-                                        dc :this._cO(`${this.hex(_c.canvas.overlay)}`),
-                                        dt :this._cO(`${this.hex(_c.canvas.overlay)}`,)
-                                      }),
-                _boc_ = themes({ l :this._cO(`${this.hex(_c.neutral.muted)}`),
-                                          lHC :this._cO(`${this.hex(_c.neutral.muted)}`),
-                                          lC :this._cO(`${this.hex(_c.neutral.muted)}`),
-                                          lT :this._cO(`${this.hex(_c.neutral.muted)}`),
-                                          d :this._cO(`${this.hex(_c.border.muted)}`),
-                                          dd :this._cO(`${this.hex(_c.border.muted)}`),
-                                          dhc :this._cO(`${this.hex(_c.border.muted)}`),
-                                          dc :this._cO(`${this.hex(_c.border.muted)}`),
-                                          dt :this._cO(`${this.hex(_c.border.muted)}`,)
-                                        }),
-                _fc_ = themes({ l :this._cO(`${this.hex(_c.fg.default)}`),
-                                          lHC :this._cO(`${this.hex(_c.fg.default)}`),
-                                          lC :this._cO(`${this.hex(_c.fg.default)}`),
-                                          lT :this._cO(`${this.hex(_c.fg.default)}`),
-                                          d :this._cO(`${this.hex(_c.fg.default)}`),
-                                          dd :this._cO(`${this.hex(_c.fg.default)}`),
-                                          dhc :this._cO(`${this.hex(_c.fg.default)}`),
-                                          dc :this._cO(`${this.hex(_c.fg.default)}`),
-                                          dt :this._cO(`${this.hex(_c.fg.default)}`,)
-                                        }),
-                _fuc_  = themes({ l :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          lHC :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          lC :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          lT :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          d :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          dd :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          dhc :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          dc :this._cO(`${this.hex(_c.fg.muted)}`),
-                                          dt :this._cO(`${this.hex(_c.fg.muted)}`,)
-                                        })         
-            console.log(themes({l : "_ --l---",
-                                                  lHC : "_ --lHC---",
-                                                  lC : "_ --lC---",
-                                                  lT : "_ --lT---",
-                                                  d : "_ --d---",
-                                                  dd : "_ --dd---",
-                                                  dhc : "_ --dhc---",
-                                                  dc : "_ --dc---",
-                                                  dt : "_ --dt---"
-                                          }))
-            console.log(_c,"_c")
-            console.log(_c.canvas.subtle, '_c.canvas.subtle')
-            console.log(_c.neutral.muted, '_c.neutral.muted')
-            console.log(_c.border.muted, '_c.border.muted')
-            console.log(_c.fg.default, '_c.fg.default')
-            console.log(_c.fg.muted, '_c.fg.muted')
-            console.log(_bc_, '_bc_')
-            console.log(_c.canvas.subtle, '_c.canvas.subtle')
-            console.log(_boc_, '_boc_')
-            console.log(_c.neutral.muted, '_c.neutral.muted')
-            console.log(_c.fg.default, '_c.fg.default')
-            console.log(_c.fg.default, 'this.__c.fg.default')
-            console.log(_c.fg.muted, '_c.fg.muted')
-            console.log(_c.fg.muted, 'this.__c.fg.muted')
+                    _c = _gC(theme),
+                    _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""],
+                    _bc_  = themes({l :this._cO(`${this.hex(_c.canvas.subtle)}`),
+                                            lHC :this._cO(`${this.hex(_c.canvas.subtle)}`),
+                                            lC :this._cO(`${this.hex(_c.canvas.subtle)}`),
+                                            lT :this._cO(`${this.hex(_c.canvas.subtle)}`),
+                                            d :this._cO(`${this.hex(_c.canvas.overlay)}`),
+                                            dd :this._cO(`${this.hex(_c.canvas.overlay)}`),
+                                            dhc :this._cO(`${this.hex(_c.canvas.overlay)}`),
+                                            dc :this._cO(`${this.hex(_c.canvas.overlay)}`),
+                                            dt :this._cO(`${this.hex(_c.canvas.overlay)}`,)
+                                          }),
+                    _boc_ = themes({ l :this._cO(`${this.hex(_c.neutral.muted)}`),
+                                              lHC :this._cO(`${this.hex(_c.neutral.muted)}`),
+                                              lC :this._cO(`${this.hex(_c.neutral.muted)}`),
+                                              lT :this._cO(`${this.hex(_c.neutral.muted)}`),
+                                              d :this._cO(`${this.hex(_c.border.muted)}`),
+                                              dd :this._cO(`${this.hex(_c.border.muted)}`),
+                                              dhc :this._cO(`${this.hex(_c.border.muted)}`),
+                                              dc :this._cO(`${this.hex(_c.border.muted)}`),
+                                              dt :this._cO(`${this.hex(_c.border.muted)}`,)
+                                            }),
+                    _fc_ = themes({ l :this._cO(`${this.hex(_c.fg.default)}`),
+                                              lHC :this._cO(`${this.hex(_c.fg.default)}`),
+                                              lC :this._cO(`${this.hex(_c.fg.default)}`),
+                                              lT :this._cO(`${this.hex(_c.fg.default)}`),
+                                              d :this._cO(`${this.hex(_c.fg.default)}`),
+                                              dd :this._cO(`${this.hex(_c.fg.default)}`),
+                                              dhc :this._cO(`${this.hex(_c.fg.default)}`),
+                                              dc :this._cO(`${this.hex(_c.fg.default)}`),
+                                              dt :this._cO(`${this.hex(_c.fg.default)}`,)
+                                            }),
+                    _fuc_  = themes({ l :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              lHC :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              lC :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              lT :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              d :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              dd :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              dhc :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              dc :this._cO(`${this.hex(_c.fg.muted)}`),
+                                              dt :this._cO(`${this.hex(_c.fg.muted)}`,)
+                                            })         
+                    console.log(themes({l : "_ --l---",
+                                                          lHC : "_ --lHC---",
+                                                          lC : "_ --lC---",
+                                                          lT : "_ --lT---",
+                                                          d : "_ --d---",
+                                                          dd : "_ --dd---",
+                                                          dhc : "_ --dhc---",
+                                                          dc : "_ --dc---",
+                                                          dt : "_ --dt---"
+                                                  }))
+                    console.log(_c,"_c")
+                    console.log(_c.canvas.subtle, '_c.canvas.subtle')
+                    console.log(_c.neutral.muted, '_c.neutral.muted')
+                    console.log(_c.border.muted, '_c.border.muted')
+                    console.log(_c.fg.default, '_c.fg.default')
+                    console.log(_c.fg.muted, '_c.fg.muted')
+                    console.log(_bc_, '_bc_')
+                    console.log(_c.canvas.subtle, '_c.canvas.subtle')
+                    console.log(_boc_, '_boc_')
+                    console.log(_c.neutral.muted, '_c.neutral.muted')
+                    console.log(_c.fg.default, '_c.fg.default')
+                    console.log(_c.fg.default, 'this.__c.fg.default')
+                    console.log(_c.fg.muted, '_c.fg.muted')
+                    console.log(_c.fg.muted, 'this.__c.fg.muted')
       return {
         name : name,
         _cs : {
