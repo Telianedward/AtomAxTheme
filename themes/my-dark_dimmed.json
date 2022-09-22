@@ -1,6 +1,6 @@
 {
   "name": "AtomAx Dark+ Dimmed",
-  "_cs": {
+  "color": {
     "activityBar.activeBackground": "#1c2128",
     "activityBar.activeBorder": "#347d3980",
     "activityBar.activeFocusBorder": "#347d39",

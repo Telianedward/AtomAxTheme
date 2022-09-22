@@ -1,6 +1,6 @@
 {
   "name": "AtomAx Dark+ Colorblind",
-  "_cs": {
+  "color": {
     "activityBar.activeBackground": "#010409",
     "activityBar.activeBorder": "#1f6feb80",
     "activityBar.activeFocusBorder": "#1f6feb",

@@ -1,6 +1,6 @@
 {
   "name": "AtomAx High Contrast",
-  "_cs": {
+  "color": {
     "activityBar.activeBackground": "#010409",
     "activityBar.activeBorder": "#09b43a80",
     "activityBar.activeFocusBorder": "#09b43a",

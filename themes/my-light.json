@@ -1,6 +1,6 @@
 {
   "name": "AtomAx Light+",
-  "_cs": {
+  "color": {
     "activityBar.activeBackground": "#f6f8fa",
     "activityBar.activeBorder": "#2da44e80",
     "activityBar.activeFocusBorder": "#2da44e",

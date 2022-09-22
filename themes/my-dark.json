@@ -1,6 +1,6 @@
 {
   "name": "AtomAx Dark+",
-  "_cs": {
+  "color": {
     "activityBar.activeBackground": "#010409",
     "activityBar.activeBorder": "#23863680",
     "activityBar.activeFocusBorder": "#238636",
