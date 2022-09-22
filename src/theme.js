@@ -276,7 +276,7 @@ class colorPlaylistGenerated {
         "activityBar.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "activityBar.dropBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "activityBar.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
-        "activityBar.inactiveForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "activityBar.inactiveForeground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
         "activityBarBadge.background": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
         "activityBarBadge.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
 
@@ -290,7 +290,7 @@ class colorPlaylistGenerated {
         "breadcrumb.activeSelectionforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
         "breadcrumb.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "breadcrumb.focusforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "breadcrumb.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "breadcrumb.foreground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
         "breadcrumbPicker.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
 
         "button.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
@@ -367,7 +367,7 @@ class colorPlaylistGenerated {
         "dropdown.listBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
 
         "editor.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editor.findMatchBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "editor.findMatchBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "editor.findMatchBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
         "editor.findMatchHighlightBackground": this._cO( `${ _c.attention.emphasis }${ _x_[ 2 ] }` ),
         "editor.findMatchHighlightBorder": this._cO( `${ _c.attention.emphasis }${ _x_[ 2 ] }` ),
@@ -383,11 +383,11 @@ class colorPlaylistGenerated {
         "editor.lineHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "editor.lineHighlightBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "editor.linkedEditingBackground": this._cO( `${ _c.attention.fg }${ _x_[ 8 ] }` ),
-        "editor.rangeHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editor.rangeHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "editor.rangeHighlightBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "editor.selectionBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "editor.selectionForeground": this._cO( `${ _c.accent.muted }}${ _x_[ 5 ] }` ),
-        "editor.selectionHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editor.selectionHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
         "editor.selectionHighlightborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "editor.snippetFinalTabstopHighlightBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editor.snippetFinalTabstopHighlightborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
@@ -398,7 +398,7 @@ class colorPlaylistGenerated {
         "editor.symbolHighlightBorder": this._cO( `${ _c.done.emphasis }${ _x_[ 4 ] }` ),
         "editor.wordHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "editor.wordHighlightBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.wordHighlightStrongBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editor.wordHighlightStrongBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "editor.wordHighlightStrongBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "editorBracketHighlight.foreground1": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
         "editorBracketHighlight.foreground2": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
@@ -456,7 +456,7 @@ class colorPlaylistGenerated {
         "editorHint.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
         "editorHoverWidget.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editorHoverWidget.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorHoverWidget.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorHoverWidget.foreground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
         "editorHoverWidget.highlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
         "editorHoverWidget.statusBarBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
         "editorIndentGuide.activeBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
@@ -466,14 +466,14 @@ class colorPlaylistGenerated {
         "editorInfo.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
         "editorInlayHint.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editorInlayHint.foreground": this._cO( `${ _c.fg.default }${ _x_[ 4 ] }` ),
-        "editorInlayHint.parameterBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorInlayHint.parameterForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorInlayHint.typeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorInlayHint.typeForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorInlayHint.parameterBackground": this._cO( `${ _c.border.muted }${ _x_[ 5 ] }` ),
+        "editorInlayHint.parameterForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "editorInlayHint.typeBackground": this._cO( `${ _c.border.muted }${ _x_[ 5 ] }` ),
+        "editorInlayHint.typeForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
         "editorLightBulb.foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
         "editorLightBulbAutoFix.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "editorLineNumber.activeForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorLineNumber.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorLineNumber.foreground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
         "editorLink.activeForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
         "editorMarkerNavigation.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editorMarkerNavigationError.background": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
@@ -494,7 +494,7 @@ class colorPlaylistGenerated {
         "editorOverviewRuler.incomingContentforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
         "editorOverviewRuler.infoForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
         "editorOverviewRuler.modifiedForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.rangeHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
+        "editorOverviewRuler.rangeHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "editorOverviewRuler.selectionHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "editorOverviewRuler.warningForeground": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
         "editorOverviewRuler.wordHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
@@ -640,7 +640,7 @@ class colorPlaylistGenerated {
         "mergeEditor.conflict.unhandledUnfocused.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "mergeEditor.conflictingLines.background": this._cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
 
-        "minimap.background": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "minimap.background": this._cO( `${ _c.border.muted }${ _x_[ 3 ] }` ),
         "minimap.errorHighlight": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
         "minimap.findMatchHighlight": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "minimap.foregroundOpacity": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
@@ -804,12 +804,12 @@ class colorPlaylistGenerated {
         "symbolIcon.unitForeground": this._cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
         "symbolIcon.variableForeground": this._cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
 
-        "tab.activeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.activeBackground": this._cO( `${ _c.border.muted }${ _x_[ 4 ] }` ),
         "tab.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "tab.activeBorderTop": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "tab.activeForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "tab.activeModifiedBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.border": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "tab.hoverBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "tab.hoverBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "tab.hoverforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
@@ -829,7 +829,7 @@ class colorPlaylistGenerated {
         "tab.unfocusedInactiveForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
         "tab.unfocusedInactiveModifiedBorder": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
 
-        "terminal.foreground": this._cO( `${ _c.fg.muted }${ _x_[ 7 ] }` ),
+        "terminal.foreground": this._cO( `${ _c.fg.muted }${ _x_[ 5 ] }` ),
         'terminal.ansiBlack': this._cO( `${ _c.ansi.black }${ _x_[ 10 ] }` ),
         'terminal.ansiRed': this._cO( `${ _c.ansi.red }${ _x_[ 10 ] }` ),
         'terminal.ansiGreen': this._cO( `${ _c.ansi.green }${ _x_[ 10 ] }` ),
@@ -993,10 +993,7 @@ class colorPlaylistGenerated {
         "notebook.focusedCellBackground": this._cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
         "notebook.inactiveSelectedCellBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "notebook.outputContainerBackgroundColor": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "notebook.outputContainerBorderColor": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "quickInput.list.focusBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }`, )
-
-
+        "notebook.outputContainerBorderColor": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` )
       },
       semanticHighlighting: true,
       "tokenColors": [
@@ -1633,7 +1630,9 @@ class colorPlaylistGenerated {
         {
           "scope": [
             "punctuation.definition.string.begin.html",
-            "punctuation.definition.string.end.html"
+            "punctuation.definition.string.end.html",
+            "punctuation.definition.string.template.begin.js",
+            "punctuation.definition.string.template.end.js"
           ],
           "settings": {
             "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
