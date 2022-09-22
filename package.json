@@ -4,7 +4,7 @@
   "description": "AtomAx Theme for VS Code",
   "version": "0.2.2",
   "engines": {
-    "vscode": "^0.10.5."
+    "vscode": "^1.0.0"
   },
   "categories": [
     "Themes"
