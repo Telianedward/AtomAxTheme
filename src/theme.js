@@ -261,14 +261,14 @@ class colorPlaylistGenerated {
     }
   }
   _gT = ( { theme, name } ) => {
-    const themes = ( options ) => { options[ theme ] },
-      _c = _gC( themes ),
-      _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ]
-      console.log(themes,"themes")
-      console.log(_c,"color")
+    const themes = ( options ) => { options[ theme ] }
+    const _c = _gC( themes )
+    const  _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ]
+     
+      console.log(_c,"colors")
     return {
       name: name,
-      color: {
+      colors: {
         "activityBar.activeBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "activityBar.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "activityBar.activeFocusBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
