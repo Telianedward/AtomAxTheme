@@ -262,22 +262,11 @@ const  hex = ( c ) => {
   }
   const _gT = ( { theme, name } ) => {
       const themes = ( options ) => { options[ theme ] }
-      const color = _gC( theme )
+      const color = _gC( themes )
       const _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ]
      
     return {
       name: name,
-      type:     themes( {
-        l: "vs",
-        lHC:  "hc-light",
-        lC:  "vs",
-        lT:  "hc-light",
-        d:  "vs-dark",
-        dd:  "vs-dark",
-        dhc:  "hc-black",
-        dc:  "vs-dark",
-        dt:  "hc-black",
-      } ),
       color: {
             "activityBar.activeBackground": _cO( `${color.canvas.inset }${ _x_[ 10 ] }` ),
             "activityBar.activeBorder": _cO( `${color.success.emphasis }${ _x_[ 5 ] }` ),
