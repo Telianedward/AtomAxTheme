@@ -231,7 +231,7 @@ class colorPlaylistGenerated{
                   if (x.length <= 9){
                         console.log( x,' ----color 66666666');
                     return x
-                  }else if( z.length == 11 ){
+                  }else if( x.length == 11 ){
                               t = `${z[9]}${z[10]}`,
                               s = `${z[7]}${z[8]}`,
                               a = hex2percent(t),
