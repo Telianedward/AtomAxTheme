@@ -40,10 +40,10 @@ class colorPlaylistGenerated{
           }
           hex = (c)=>{
               console.log(c,'color')
-              console.log(_ch(c).this.hex(),'this.hex')
-                return _ch(c).this;
+              console.log(_ch(c).hex(),'this.hex')
+                return _ch(c).hex;
           }
-          static hue2rgb_ = (p, q, t) => {
+            hue2rgb_ = (p, q, t) => {
               if (t < 0) t += 1;
               if (t > 1) t -= 1;
               if (t < 1/6) return p + (q - p) * 6 * t;
@@ -51,7 +51,7 @@ class colorPlaylistGenerated{
               if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
             return p;
           }
-          static hslToRgb_ = (h, s, l) => {
+            hslToRgb_ = (h, s, l) => {
           let r,
               g,
               b,
@@ -71,11 +71,11 @@ class colorPlaylistGenerated{
                   )
               return [ Math.round10((r*255),0), Math.round10((g*255),0),Math.round10((b*255),0) ]
           }
-          static hsl_ = (h, s, l)=> {
+          hsl_ = (h, s, l)=> {
             let k = hslToRgb_(h, s, l)
             return this._cl.g(k[0],k[1],k[2])
           }
-          static _cl = {
+          _cl = {
             c: ( c ) => {
                 let h = c.toString( 16 );
                 return h.length == 1 ? "0" + h : h;
@@ -110,15 +110,15 @@ class colorPlaylistGenerated{
               return "#" + this._cl.h(r) + this._cl.h(g) + this._cl.h(b);
             }
         } 
-        static percent2hex = (p) => {
+        percent2hex = (p) => {
           // для ввода % ( процентов  от  0 - 100) в таблице прозрачности 
           return  (Math.round(p / 100 * 255) + 0x10000).toString(16).substr(-2)
         }
-        static hex2percent = (p) => {
+        hex2percent = (p) => {
           // для ввода окончания прозрачности (узнать на сколько  процентов цвет становиться прозрачным)
           return  Math.round(parseInt(`0x${p}` / 255 * 100))
         }
-        static _cO = ( x) => {
+        _cO = ( x) => {
             let a,
                 b,
                 c,
