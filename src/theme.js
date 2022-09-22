@@ -278,12 +278,13 @@ const decimalAdjust = ( t, v, exp ) => {
                           p = i*100
                           o = Math.round10(p,0)
                           z = `${v}${obj[o][1]}`
-                      console.log(z, ` z  --> ${z.length}  -<--`)
+                                     console.log(z, ` z  --> ${z.length}  -<--`)
                           if( z.length == 11 ){
                                 obj.forEach( (ej, i) => {  
                                   t = `${z[9]}${z[10]}`
-                                  console.log(`ej 1 ${ej[1].toLowerCase()}   <->  ${t.toLowerCase()}  ` )
+                                 
                                   ej[1].toLowerCase() == t.toLowerCase()?(
+                                        console.log(`ej 1 ${ej[1].toLowerCase()}   <->  ${t.toLowerCase()}  ` ),
                                       a = ej[0] , 
                                       b = i,
                                       obj.forEach( (el , i) => {  
