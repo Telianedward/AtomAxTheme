@@ -249,7 +249,8 @@ const decimalAdjust = ( t, v, exp ) => {
             p,
             v,
             z,
-            t
+            t,
+            s
             j = /\(([^)]+)\)/gm;
             h = [];
             console.log(x ,' <------------------------ x |')
@@ -288,7 +289,9 @@ const decimalAdjust = ( t, v, exp ) => {
                                       a = ej[0] , 
                                       b = i,
                                       obj.forEach( (el , i) => {  
-                                        if( el[1].toLowerCase() == `${z[7]}${z[8]}`.toLowerCase() ){
+                                        s = `${z[7]}${z[8]}`
+                                        if( el[1].toLowerCase() == s.toLowerCase() ){
+                                          console.log(`el 1 ${el[1].toLowerCase()}   <->  ${s.toLowerCase()}  ` ),
                                             c = el[0] ,
                                             d = i,
                                             f =(100 - a) + (100 - c),
