@@ -83,7 +83,7 @@
   "devDependencies": {
     "@primer/primitives": "7.9.0",
     "color": "4.2.3",
-    "esbuild": "0.15.8",
+    "esbuild": "0.15.9",
     "hsl-to-rgb-for-reals": "1.1.1"
 
   },
