@@ -34,6 +34,14 @@ const decimalAdjust = ( t, v, exp ) => {
   v = v.toString().split( 'e' );
   return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
 }
+function
+ componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
 class colorPlaylistGenerated {
   constructor() {
 
@@ -73,7 +81,7 @@ class colorPlaylistGenerated {
   }
   hsl_ = ( h, s, l ) => {
     let k = this.hslToRgb_( h, s, l )
-    return this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] )
+    return rgbToHex( k[ 0 ], k[ 1 ], k[ 2 ] )
   }
   _cl = {
     c: ( c ) => {
@@ -91,7 +99,7 @@ class colorPlaylistGenerated {
         .map( x => parseInt( x, 16 ) )
     },
     j: ( h ) => {
-      var c;
+      let c;
       if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test( h ) ) {
         c = h.substring( 1 ).split( '' );
         if ( c.length == 3 ) {
@@ -103,7 +111,7 @@ class colorPlaylistGenerated {
       throw new Error( 'Bad Hex' );
     },
     h: ( c ) => {
-      var hex = c.toString( 16 );
+      let hex = c.toString(16);
       return hex.length == 1 ? "0" + hex : hex;
     },
     g: ( r, g, b ) => {
@@ -149,15 +157,15 @@ class colorPlaylistGenerated {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
-        console.log( this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
-        return this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] )
+        console.log( rgbToHex( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
+        return rgbToHex( k[ 0 ], k[ 1 ], k[ 2 ] )
       } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
         while ( ( m = j.exec( x ) ) !== null ) {
           h.push( m[ 1 ] );
         }
         console.log( h, 'h' )
         k = h[ 0 ].split( ',' )
-        v = this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] )
+        v = rgbToHex( k[ 0 ], k[ 1 ], k[ 2 ] )
         console.log( v, ` v  --> ${ v.length }  -<--` )
         if ( k[ 3 ].length == 0 ) {
           return v
