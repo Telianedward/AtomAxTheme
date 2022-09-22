@@ -131,7 +131,7 @@ class colorPlaylistGenerated {
           return hex;
         };
     
-        return [`${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
+        return [`#${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
 
     }
   }
