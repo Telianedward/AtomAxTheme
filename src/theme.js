@@ -73,7 +73,7 @@ class colorPlaylistGenerated {
   }
   hsl_ = ( h, s, l ) => {
     let k = this.hslToRgb_( h, s, l )
-    return this._cl.g( k[ 0 ], k[ 1 ], k[ 2 ] )
+    return this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] )
   }
   _cl = {
     c: ( c ) => {
@@ -108,6 +108,9 @@ class colorPlaylistGenerated {
     },
     g: ( r, g, b ) => {
       return "#" + this._cl.h( r ) + this._cl.h( g ) + this._cl.h( b );
+    },
+    k: ( r, g, b ) => {
+      return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
   }
   percent2hex = ( p ) => {
@@ -146,15 +149,15 @@ class colorPlaylistGenerated {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
-        console.log( this._cl.g( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
-        return this._cl.g( k[ 0 ], k[ 1 ], k[ 2 ] )
+        console.log( this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] ), ' ----color 23333333' )
+        return this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] )
       } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
         while ( ( m = j.exec( x ) ) !== null ) {
           h.push( m[ 1 ] );
         }
         console.log( h, 'h' )
         k = h[ 0 ].split( ',' )
-        v = this._cl.g( k[ 0 ], k[ 1 ], k[ 2 ] )
+        v = this._cl.k( k[ 0 ], k[ 1 ], k[ 2 ] )
         console.log( v, ` v  --> ${ v.length }  -<--` )
         if ( k[ 3 ].length == 0 ) {
           return v
