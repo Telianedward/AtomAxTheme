@@ -267,7 +267,18 @@ const  hex = ( c ) => {
      
     return {
       name: name,
-      _cs: {
+      type:     themes( {
+        l: "vs",
+        lHC:  "hc-light",
+        lC:  "vs",
+        lT:  "hc-light",
+        d:  "vs-dark",
+        dd:  "vs-dark",
+        dhc:  "hc-black",
+        dc:  "vs-dark",
+        dt:  "hc-black",
+      } ),
+      color: {
             "activityBar.activeBackground": _cO( `${color.canvas.inset }${ _x_[ 10 ] }` ),
             "activityBar.activeBorder": _cO( `${color.success.emphasis }${ _x_[ 5 ] }` ),
             "activityBar.activeFocusBorder": _cO( `${color.success.emphasis }${ _x_[ 10 ] }` ),
