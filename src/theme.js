@@ -72,7 +72,7 @@ class colorPlaylistGenerated{
               return [ Math.round10((r*255),0), Math.round10((g*255),0),Math.round10((b*255),0) ]
           }
           hsl_ = (h, s, l)=> {
-            let k = hslToRgb_(h, s, l)
+            let k = this.hslToRgb_(h, s, l)
             return this._cl.g(k[0],k[1],k[2])
           }
           _cl = {
@@ -161,13 +161,13 @@ class colorPlaylistGenerated{
                               i = k[3]
                               p = i*100
                               o =  Math.round10(p,0)
-                              z = `${v}${percent2hex(o)}`
+                              z = `${v}${this.percent2hex(o)}`
                               console.log(z, ` z  --> ${z.length}  -<--`)
                                     if( z.length == 11 ){
                                       t = `${z[9]}${z[10]}`,
                                       s = `${z[7]}${z[8]}`,
-                                      a = hex2percent(t),
-                                      c = hex2percent(a),
+                                      a = this.hex2percent(t),
+                                      c = this.hex2percent(a),
                                       c = el[0] ,
                                       d = i,
                                       f =( 100 - a ) + ( 100 - c ),
@@ -176,8 +176,8 @@ class colorPlaylistGenerated{
                                             console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
                                         return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
                                       } else {
-                                            console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`,'----color')
-                                        return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`
+                                            console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${this.percent2hex(g)}`,'----color')
+                                        return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${this.percent2hex(g)}`
                                       }
                                     }
                                     console.log(z,'  -- 1111 rgba ---')
@@ -206,12 +206,12 @@ class colorPlaylistGenerated{
                           i = k[3]
                           p = i*100
                           o = Math.round10(p,0)
-                          z =`${v}${percent2hex(o)}`
+                          z =`${v}${this.percent2hex(o)}`
                               if( z.length == 11 ){
                                 t = `${z[9]}${z[10]}`,
                                 s = `${z[7]}${z[8]}`,
-                                a = hex2percent(t),
-                                c = hex2percent(a),
+                                a = this.hex2percent(t),
+                                c = this.hex2percent(a),
                                 c = el[0] ,
                                 d = i,
                                 f =( 100 - a ) + ( 100 - c ),
@@ -220,8 +220,8 @@ class colorPlaylistGenerated{
                                       console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
                                   return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
                                 } else {
-                                      console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`,'----color')
-                                  return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`
+                                      console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${this.percent2hex(g)}`,'----color')
+                                  return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${this.percent2hex(g)}`
                                 }
                               }
                             console.log(z,' ----color 11 --hsl ---')
@@ -234,8 +234,8 @@ class colorPlaylistGenerated{
                   }else if( x.length == 11 ){
                               t = `${z[9]}${z[10]}`,
                               s = `${z[7]}${z[8]}`,
-                              a = hex2percent(t),
-                              c = hex2percent(a),
+                              a = this.hex2percent(t),
+                              c = this.hex2percent(a),
                               c = el[0] ,
                               d = i,
                               f =( 100 - a ) + ( 100 - c ),
@@ -244,8 +244,8 @@ class colorPlaylistGenerated{
                                       console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`,' ----color 2')
                                 return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}1a`
                               } else {
-                                        console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`,'----color')
-                                return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${percent2hex(g)}`
+                                        console.log(`#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${this.percent2hex(g)}`,'----color')
+                                return `#${z[1]}${z[2]}${z[3]}${z[4]}${z[5]}${z[6]}${this.percent2hex(g)}`
                               }
                             }
                 } 
