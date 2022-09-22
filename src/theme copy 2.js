@@ -265,7 +265,7 @@ class colorPlaylistGenerated {
   }
   _gT = ( { theme, name } ) => {
     const themes = ( options ) => { options[ theme ] },
-      _c = _gC( themes ),
+      _c = _gC( theme ),
       _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ],
       _bc_ = themes( {
         l: this._cO( `${ this.hex( _c.canvas.subtle ) }` ),
@@ -311,10 +311,9 @@ class colorPlaylistGenerated {
         dc: this._cO( `${ this.hex( _c.fg.muted ) }` ),
         dt: this._cO( `${ this.hex( _c.fg.muted ) }`, )
       } )
-      console.log(_c,"color")
     return {
       name: name,
-      color: {
+      _cs: {
         "activityBar.activeBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "activityBar.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "activityBar.activeFocusBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
