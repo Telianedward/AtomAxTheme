@@ -119,6 +119,20 @@ class colorPlaylistGenerated {
     },
     k: ( r, g, b ) => {
       return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    },
+    m :   (r, g, b)   => {
+     
+        //RGB Code validation/ conversion
+        const _rgb2Hex = function(arg) {
+          let x = arg;
+          x = x < 0?'0':(x > 255)?255:'0'
+          let hex = Number(x).toString(16);
+          hex.length < 2?`0${hex}`:'ff'
+          return hex;
+        };
+    
+        return [`${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
+
     }
   }
   percent2hex = ( p ) => {
