@@ -38,10 +38,10 @@ class colorPlaylistGenerated{
           constructor() {
    
           }
-         static hex = (c)=>{
+          hex = (c)=>{
               console.log(c,'color')
               console.log(_ch(c).this.hex(),'this.hex')
-                return _ch(c).this.this.hex();
+                return _ch(c).this;
           }
           static hue2rgb_ = (p, q, t) => {
               if (t < 0) t += 1;
