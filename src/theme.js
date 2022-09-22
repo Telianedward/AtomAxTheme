@@ -262,7 +262,7 @@ class colorPlaylistGenerated {
   }
   _gT = ( { theme, name } ) => {
     const themes = ( options ) => { options[ theme ] }
-    const _c = _gC( themes )
+    const _c = _gC( theme )
     const  _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ]
      
       console.log(_c,"colors")
