@@ -34,14 +34,11 @@ const decimalAdjust = ( t, v, exp ) => {
   v = v.toString().split( 'e' );
   return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
 }
-class colorPlaylistGenerated {
-  constructor() {
 
-  }
-  hex = ( c ) => {
+const  hex = ( c ) => {
     return _ch( c ).hex;
   }
-  hue2rgb_ = ( p, q, t ) => {
+  const  hue2rgb_ = ( p, q, t ) => {
     if ( t < 0 ) t += 1;
     if ( t > 1 ) t -= 1;
     if ( t < 1 / 6 ) return p + ( q - p ) * 6 * t;
@@ -49,7 +46,7 @@ class colorPlaylistGenerated {
     if ( t < 2 / 3 ) return p + ( q - p ) * ( 2 / 3 - t ) * 6;
     return p;
   }
-  hslToRgb_ = ( h, s, l ) => {
+  const hslToRgb_ = ( h, s, l ) => {
     let r,
       g,
       b,
@@ -63,17 +60,17 @@ class colorPlaylistGenerated {
     ) : (
       q = l < 0.5 ? ( l * ( 1 + s ) ) : ( l + s - l * s ),
       p = 2 * l - q,
-      r = this.hue2rgb_( p, q, h + 1 / 3 ),
-      g = this.hue2rgb_( p, q, h ),
-      b = this.hue2rgb_( p, q, h - 1 / 3 )
+      r = hue2rgb_( p, q, h + 1 / 3 ),
+      g = hue2rgb_( p, q, h ),
+      b = hue2rgb_( p, q, h - 1 / 3 )
     )
     return [ Math.round10( ( r * 255 ), 0 ), Math.round10( ( g * 255 ), 0 ), Math.round10( ( b * 255 ), 0 ) ]
   }
-  hsl_ = ( h, s, l ) => {
-    let k = this.hslToRgb_( h, s, l )
-    return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
+  const hsl_ = ( h, s, l ) => {
+    let k = hslToRgb_( h, s, l )
+    return _cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
   }
-  _cl = {
+  const _cl = {
     c: ( c ) => {
       let h = c.toString( 16 );
       return h.length == 1 ? "0" + h : h;
@@ -104,7 +101,7 @@ class colorPlaylistGenerated {
       return hex.length == 1 ? "0" + hex : hex;
     },
     g: ( r, g, b ) => {
-      return "#" + this._cl.h( r ) + this._cl.h( g ) + this._cl.h( b );
+      return "#" + _cl.h( r ) + _cl.h( g ) + _cl.h( b );
     },
     k: ( r, g, b ) => {
       return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
@@ -142,15 +139,15 @@ class colorPlaylistGenerated {
           return `#${_rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`;
     }
   }
-  percent2hex = ( p ) => {
+  const percent2hex = ( p ) => {
     // для ввода % ( процентов  от  0 - 100) в таблице прозрачности 
     return ( Math.round( p / 100 * 255 ) + 0x10000 ).toString( 16 ).substr( -2 )
   }
-  hex2percent = ( p ) => {
+  const hex2percent = ( p ) => {
     // для ввода окончания прозрачности (узнать на сколько  процентов цвет становиться прозрачным)
     return Math.round( parseInt( `0x${ p }` / 255 * 100 ) )
   }
-  _cO = ( x ) => {
+  const _cO = ( x ) => {
     let a,
       b,
       c,
@@ -177,32 +174,32 @@ class colorPlaylistGenerated {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
-        return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
+        return _cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
       } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
         while ( ( m = j.exec( x ) ) !== null ) {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
-        v = this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
+        v = _cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
         if ( k[ 3 ].length == 0 ) {
           return v
         }
         i = k[ 3 ]
         p = i * 100
         o = Math.round10( p, 0 )
-        z = `${ v }${ this.percent2hex( o ) }`
+        z = `${ v }${ percent2hex( o ) }`
         if ( z.length == 11 ) {
             t = `${ z[ 9 ] }${ z[ 10 ] }`,
             s = `${ z[ 7 ] }${ z[ 8 ] }`,
-            a = this.hex2percent( t ),
-            c = this.hex2percent( a ),
+            a = hex2percent( t ),
+            c = hex2percent( a ),
             d = i,
             f = ( 100 - a ) + ( 100 - c ),
             g = ( 100 - f );
           if ( g <= 0 ) {
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
           } else {
-            return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
+            return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ percent2hex( g ) }`
           }
         }
         return z
@@ -213,25 +210,25 @@ class colorPlaylistGenerated {
               h.push( m[ 1 ] );
             }
             k = h[ 0 ].split( ',' )
-            return this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
+            return hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
           } else if ( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
             while ( ( m = j.exec( x ) ) !== null ) {
               h.push( m[ 1 ] );
             }
             k = h[ 0 ].split( ',' )
-            v = this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
+            v = hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
             if ( k[ 3 ].length == 0 ) {
           return v
         }
         i = k[ 3 ]
         p = i * 100
         o = Math.round10( p, 0 )
-        z = `${ v }${ this.percent2hex( o ) }`
+        z = `${ v }${ percent2hex( o ) }`
         if ( z.length == 11 ) {
           t = `${ z[ 9 ] }${ z[ 10 ] }`,
             s = `${ z[ 7 ] }${ z[ 8 ] }`,
-            a = this.hex2percent( t ),
-            c = this.hex2percent( a ),
+            a = hex2percent( t ),
+            c = hex2percent( a ),
 
             d = i,
             f = ( 100 - a ) + ( 100 - c ),
@@ -239,7 +236,7 @@ class colorPlaylistGenerated {
           if ( g <= 0 ) {
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
           } else {
-            return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
+            return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ percent2hex( g ) }`
           }
         }
         return z
@@ -250,796 +247,796 @@ class colorPlaylistGenerated {
       } else if ( x.length == 11 ) {
         t = `${ z[ 9 ] }${ z[ 10 ] }`,
           s = `${ z[ 7 ] }${ z[ 8 ] }`,
-          a = this.hex2percent( t ),
-          c = this.hex2percent( a ),
+          a = hex2percent( t ),
+          c = hex2percent( a ),
           d = i,
           f = ( 100 - a ) + ( 100 - c ),
           g = ( 100 - f );
         if ( g <= 0 ) {
           return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
         } else {
-          return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
+          return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ percent2hex( g ) }`
         }
       }
     }
   }
-  _gT = ( { theme, name } ) => {
+  const _gT = ( { theme, name } ) => {
     const themes = ( options ) => { options[ theme ] },
       _c = _gC( theme ),
       _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ],
       _bc_ = themes( {
-        l: this._cO( `${ this.hex( _c.canvas.subtle ) }` ),
-        lHC: this._cO( `${ this.hex( _c.canvas.subtle ) }` ),
-        lC: this._cO( `${ this.hex( _c.canvas.subtle ) }` ),
-        lT: this._cO( `${ this.hex( _c.canvas.subtle ) }` ),
-        d: this._cO( `${ this.hex( _c.canvas.inset ) }` ),
-        dd: this._cO( `${ this.hex( _c.canvas.inset ) }` ),
-        dhc: this._cO( `${ this.hex( _c.canvas.inset ) }` ),
-        dc: this._cO( `${ this.hex( _c.canvas.inset ) }` ),
-        dt: this._cO( `${ this.hex( _c.canvas.inset ) }`, )
+        l: _cO( `${ hex( _c.canvas.subtle ) }` ),
+        lHC: _cO( `${ hex( _c.canvas.subtle ) }` ),
+        lC: _cO( `${ hex( _c.canvas.subtle ) }` ),
+        lT: _cO( `${ hex( _c.canvas.subtle ) }` ),
+        d: _cO( `${ hex( _c.canvas.inset ) }` ),
+        dd: _cO( `${ hex( _c.canvas.inset ) }` ),
+        dhc: _cO( `${ hex( _c.canvas.inset ) }` ),
+        dc: _cO( `${ hex( _c.canvas.inset ) }` ),
+        dt: _cO( `${ hex( _c.canvas.inset ) }`, )
       } ),
       _boc_ = themes( {
-        l: this._cO( `${ this.hex( _c.neutral.muted ) }` ),
-        lHC: this._cO( `${ this.hex( _c.neutral.muted ) }` ),
-        lC: this._cO( `${ this.hex( _c.neutral.muted ) }` ),
-        lT: this._cO( `${ this.hex( _c.neutral.muted ) }` ),
-        d: this._cO( `${ this.hex( _c.border.muted ) }` ),
-        dd: this._cO( `${ this.hex( _c.border.muted ) }` ),
-        dhc: this._cO( `${ this.hex( _c.border.muted ) }` ),
-        dc: this._cO( `${ this.hex( _c.border.muted ) }` ),
-        dt: this._cO( `${ this.hex( _c.border.muted ) }`, )
+        l: _cO( `${ hex( _c.neutral.muted ) }` ),
+        lHC: _cO( `${ hex( _c.neutral.muted ) }` ),
+        lC: _cO( `${ hex( _c.neutral.muted ) }` ),
+        lT: _cO( `${ hex( _c.neutral.muted ) }` ),
+        d: _cO( `${ hex( _c.border.muted ) }` ),
+        dd: _cO( `${ hex( _c.border.muted ) }` ),
+        dhc: _cO( `${ hex( _c.border.muted ) }` ),
+        dc: _cO( `${ hex( _c.border.muted ) }` ),
+        dt: _cO( `${ hex( _c.border.muted ) }`, )
       } ),
       _fc_ = themes( {
-        l: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        lHC: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        lC: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        lT: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        d: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        dd: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        dhc: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        dc: this._cO( `${ this.hex( _c.fg.default ) }` ),
-        dt: this._cO( `${ this.hex( _c.fg.default ) }`, )
+        l: _cO( `${ hex( _c.fg.default ) }` ),
+        lHC: _cO( `${ hex( _c.fg.default ) }` ),
+        lC: _cO( `${ hex( _c.fg.default ) }` ),
+        lT: _cO( `${ hex( _c.fg.default ) }` ),
+        d: _cO( `${ hex( _c.fg.default ) }` ),
+        dd: _cO( `${ hex( _c.fg.default ) }` ),
+        dhc: _cO( `${ hex( _c.fg.default ) }` ),
+        dc: _cO( `${ hex( _c.fg.default ) }` ),
+        dt: _cO( `${ hex( _c.fg.default ) }`, )
       } ),
       _fuc_ = themes( {
-        l: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        lHC: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        lC: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        lT: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        d: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        dd: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        dhc: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        dc: this._cO( `${ this.hex( _c.fg.muted ) }` ),
-        dt: this._cO( `${ this.hex( _c.fg.muted ) }`, )
+        l: _cO( `${ hex( _c.fg.muted ) }` ),
+        lHC: _cO( `${ hex( _c.fg.muted ) }` ),
+        lC: _cO( `${ hex( _c.fg.muted ) }` ),
+        lT: _cO( `${ hex( _c.fg.muted ) }` ),
+        d: _cO( `${ hex( _c.fg.muted ) }` ),
+        dd: _cO( `${ hex( _c.fg.muted ) }` ),
+        dhc: _cO( `${ hex( _c.fg.muted ) }` ),
+        dc: _cO( `${ hex( _c.fg.muted ) }` ),
+        dt: _cO( `${ hex( _c.fg.muted ) }`, )
       } )
     return {
       name: name,
       _cs: {
-        "activityBar.activeBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "activityBar.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "activityBar.activeFocusBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "activityBar.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "activityBar.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "activityBar.dropBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "activityBar.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
-        "activityBar.inactiveForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "activityBarBadge.background": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "activityBarBadge.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "badge.background": this._cO( `${ _c.accent.muted }${ _x_[ 7 ] }` ),
-        "badge.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "banner.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "banner.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "banner.iconForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-
-        "breadcrumb.activeSelectionforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "breadcrumb.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "breadcrumb.focusforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "breadcrumb.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "breadcrumbPicker.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-
-        "button.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "button.border": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "button.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "button.hoverBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "button.secondaryBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "button.secondaryforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "button.secondaryHoverBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "button.separator": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-
-        "charts.blue": this._cO( `${ _c.accent.muted }${ _x_[ 10 ] }` ),
-        "charts.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "charts.green": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "charts.lines": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-        "charts.orange": this._cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
-        "charts.purple": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "charts.red": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "charts.yellow": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-
-
-        "checkbox.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "checkbox.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "checkbox.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "commandCenter.activeBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "commandCenter.activeforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "commandCenter.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "commandCenter.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "commandCenter.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "contrastActiveborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "contrastBorder": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-
-        "debugExceptionWidget.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "debugExceptionWidget.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "debugTokenExpression.boolean": this._cO( `${ _c.attention.fg }${ _x_[ 5 ] }` ),
-        "debugTokenExpression.error": this._cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
-        "debugTokenExpression.name": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "debugTokenExpression.number": this._cO( `${ _c.severe.fg }${ _x_[ 5 ] }` ),
-        "debugTokenExpression.string": this._cO( `${ _c.fg.muted }${ _x_[ 5 ] }` ),
-        "debugTokenExpression.value": this._cO( `${ _c.sponsors.fg }${ _x_[ 5 ] }` ),
-
-        "debugToolBar.background": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "debugToolBar.border": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-
-        "debugView.exceptionLabelBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "debugView.exceptionLabelforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "debugView.stateLabelBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "debugView.stateLabelforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "debugView.valueChangedHighlight": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-
-        "descriptionForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "diffEditor.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "diffEditor.diagonalFill": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "diffEditor.insertedLineBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "diffEditor.insertedTextBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "diffEditor.insertedTextBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "diffEditor.removedLineBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
-        "diffEditor.removedTextBackground": this._cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
-        "diffEditor.removedTextBorder": this._cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
-        "diffEditorGutter.insertedLineBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "diffEditorGutter.removedLineBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
-        "diffEditorOverview.insertedForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "diffEditorOverview.removedForeground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
-
-        "disabledForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-
-        "dropdown.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "dropdown.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "dropdown.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "dropdown.listBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "editor.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editor.findMatchBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "editor.findMatchBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "editor.findMatchHighlightBackground": this._cO( `${ _c.attention.emphasis }${ _x_[ 2 ] }` ),
-        "editor.findMatchHighlightBorder": this._cO( `${ _c.attention.emphasis }${ _x_[ 2 ] }` ),
-        "editor.findRangeHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
-        "editor.findRangeHighlightBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
-        "editor.focusedStackFrameHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editor.foldBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editor.hoverHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "editor.inactiveSelectionBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.inlineValuesBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editor.inlineValuesforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editor.lineHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
-        "editor.lineHighlightBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
-        "editor.linkedEditingBackground": this._cO( `${ _c.attention.fg }${ _x_[ 8 ] }` ),
-        "editor.rangeHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
-        "editor.rangeHighlightBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editor.selectionBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.selectionForeground": this._cO( `${ _c.accent.muted }}${ _x_[ 5 ] }` ),
-        "editor.selectionHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
-        "editor.selectionHighlightborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.snippetFinalTabstopHighlightBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editor.snippetFinalTabstopHighlightborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.snippetTabstopHighlightBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.snippetTabstopHighlightborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.stackFrameHighlightbackground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editor.symbolHighlightBackground": this._cO( `${ _c.done.emphasis }${ _x_[ 5 ] }` ),
-        "editor.symbolHighlightBorder": this._cO( `${ _c.done.emphasis }${ _x_[ 4 ] }` ),
-        "editor.wordHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editor.wordHighlightBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editor.wordHighlightStrongBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editor.wordHighlightStrongBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.foreground1": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.foreground2": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.foreground3": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.foreground4": this._cO( `${ _c.closed.fg }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.foreground5": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.foreground6": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
-        "editorBracketHighlight.unexpectedBracket.foreground": this._cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
-        "editorBracketMatch.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorBracketMatch.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorBracketPairGuide.activeBackground1": this._cO( `${ _c.sponsors.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.activeBackground2": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorBracketPairGuide.activeBackground3": this._cO( `${ _c.done.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.activeBackground4": this._cO( `${ _c.closed.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.activeBackground5": this._cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.activeBackground6": this._cO( `${ _c.severe.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.background1": this._cO( `${ _c.sponsors.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.background2": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorBracketPairGuide.background3": this._cO( `${ _c.done.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.background4": this._cO( `${ _c.closed.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.background5": this._cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
-        "editorBracketPairGuide.background6": this._cO( `${ _c.severe.fg }${ _x_[ 7 ] }` ),
-        "editorCodeLens.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorCommentsWidget.rangeActiveBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorCommentsWidget.rangeActiveborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorCommentsWidget.rangeBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorCommentsWidget.rangeborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorCommentsWidget.resolvedBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorCommentsWidget.unresolvedBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorCursor.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorCursor.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorError.background": this._cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
-        "editorError.border": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "editorError.foreground": this._cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
-        "editorGhostText.background": this._cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
-        "editorGhostText.border": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorGhostText.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorGroup.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorGroup.dropBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "editorGroup.dropIntoPromptBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorGroup.dropIntoPromptborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorGroup.dropIntoPromptforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorGroup.emptyBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorGroup.focusedEmptyBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorGroupHeader.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorGroupHeader.noTabsBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorGroupHeader.tabsBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorGutter.addedBackground": this._cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
-        "editorGutter.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorGutter.commentRangeforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorGutter.deletedBackground": this._cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
-        "editorGutter.foldingControlforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorGutter.modifiedBackground": this._cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
-        "editorHint.border": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorHint.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "editorHoverWidget.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorHoverWidget.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorHoverWidget.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorHoverWidget.highlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorHoverWidget.statusBarBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
-        "editorIndentGuide.activeBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
-        "editorIndentGuide.background": this._cO( `${ _c.fg.default }${ _x_[ 0 ] }` ),
-        "editorInfo.background": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorInfo.border": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "editorInfo.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorInlayHint.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorInlayHint.foreground": this._cO( `${ _c.fg.default }${ _x_[ 4 ] }` ),
-        "editorInlayHint.parameterBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorInlayHint.parameterForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorInlayHint.typeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorInlayHint.typeForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorLightBulb.foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "editorLightBulbAutoFix.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorLineNumber.activeForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorLineNumber.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorLink.activeForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorMarkerNavigation.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorMarkerNavigationError.background": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "editorMarkerNavigationError.headerBackground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "editorMarkerNavigationInfo.background": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorMarkerNavigationInfo.headerBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorMarkerNavigationWarning.background": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-        "editorMarkerNavigationWarning.headerBackground": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.addedForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorOverviewRuler.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorOverviewRuler.border": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorOverviewRuler.bracketMatchForeground": this._cO( `${ _c.done.muted }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.commonContentforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorOverviewRuler.currentContentForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.deletedForeground": this._cO( `${ _c.attention.fg }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.findMatchForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "editorOverviewRuler.incomingContentforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorOverviewRuler.infoForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.modifiedForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.rangeHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
-        "editorOverviewRuler.selectionHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.warningForeground": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.wordHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorOverviewRuler.wordHighlightStrongForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorPane.background": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorRuler.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorStickyScroll.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorStickyScrollHover.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.focusHighlightforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.highlightforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.selectedBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.selectedforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorSuggestWidget.selectedIconforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorSuggestWidgetStatus.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "editorUnicodeHighlight.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorUnicodeHighlight.border": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "editorUnnecessaryCode.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorUnnecessaryCode._x_": this._cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
-        "editorWarning.background": this._cO( `${ _c.severe.muted }${ _x_[ 0 ] }` ),
-
-        "editorWarning.border": this._cO( `${ _c.severe.muted }${ _x_[ 8 ] }` ),
-        "editorWarning.foreground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "editorWhitespace.foreground": this._cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
-        "editorWidget.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorWidget.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "editorWidget.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorWidget.resizeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-
-
-        "errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-
-        "extensionBadge.remoteBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "extensionBadge.remoteforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "extensionButton.prominentBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "extensionButton.prominentforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "extensionButton.prominentHoverBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 6 ] }` ),
-
-        "extensionIcon.preReleaseForeground": this._cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
-        "extensionIcon.sponsorForeground": this._cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
-        "extensionIcon.starForeground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "extensionIcon.verifiedForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-
-        "focusBorder": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "gitDecoration.addedResourceForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "gitDecoration.conflictingResourceForeground": this._cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
-        "gitDecoration.deletedResourceForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "gitDecoration.ignoredResourceForeground": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-        "gitDecoration.modifiedResourceForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "gitDecoration.renamedResourceforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "gitDecoration.stageDeletedResourceForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "gitDecoration.stageModifiedResourceForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "gitDecoration.submoduleResourceForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-        "gitDecoration.untrackedResourceforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "icon.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "input.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "input.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "input.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "input.placeholderForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "inputOption.activeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "inputOption.activeBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "inputOption.activeForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "inputOption.hoverBackground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "inputValidation.errorBackground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "inputValidation.errorBorder": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "inputValidation.errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "inputValidation.infoBackground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "inputValidation.infoBorder": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "inputValidation.infoForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "inputValidation.warningBackground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "inputValidation.warningBorder": this._cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
-        "inputValidation.warningForeground": this._cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
-
-        "keybindingLabel.border": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "keybindingLabel.bottomBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "keybindingLabel.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "keybindingLabel.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "keybindingTable.headerBackground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "keybindingTable.rowsBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "list.activeSelectionBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "list.activeSelectionforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "list.activeSelectionIconForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "list.deemphasizedForeground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "list.dropBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "list.errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "list.filterMatchBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "list.filterMatchBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 6 ] }` ),
-        "list.focusAndSelectionOutline": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "list.focusBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "list.focusforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "list.focusHighlightForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "list.focusOutline": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "list.highlightforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "list.hoverBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
-        "list.hoverforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "list.inactiveFocusBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 9 ] }` ),
-        "list.inactiveFocusOutline": this._cO( `${ _c.success.emphasis }${ _x_[ 9 ] }` ),
-        "list.inactiveSelectionBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "list.inactiveSelectionforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "list.inactiveSelectionIconForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "list.invalidItemForeground": this._cO( `${ _c.danger.muted }${ _x_[ 4 ] }` ),
-        "list.warningForeground": this._cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
-        "listFilterWidget.background": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "listFilterWidget.noMatchesOutline": this._cO( `${ _c.neutral.emphasis }${ _x_[ 5 ] }` ),
-        "listFilterWidget.outline": this._cO( `${ _c.accent.fg }${ _x_[ 4 ] }` ),
-        "listFilterWidget.shadow": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "menu.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "menu.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "menu.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "menu.selectionBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "menu.selectionBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "menu.selectionforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "menu.separatorBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "menubar.selectionBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "menubar.selectionBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "menubar.selectionForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "merge.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "merge.commonContentBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "merge.commonHeaderBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "merge.currentContentBackground": this._cO( `${ _c.danger.muted }${ _x_[ 6 ] }` ),
-        "merge.currentHeaderBackground": this._cO( `${ _c.danger.muted }${ _x_[ 8 ] }` ),
-        "merge.incomingContentBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "merge.incomingHeaderBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "mergeEditor.change.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "mergeEditor.change.word.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "mergeEditor.conflict.handled.minimapOverViewRuler": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "mergeEditor.conflict.handledFocused.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "mergeEditor.conflict.handledUnfocused.border": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "mergeEditor.conflict.unhandled.minimapOverViewRuler": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "mergeEditor.conflict.unhandledFocused.border": this._cO( `${ _c.attention.fg }${ _x_[ 5 ] }` ),
-        "mergeEditor.conflict.unhandledUnfocused.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "mergeEditor.conflictingLines.background": this._cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
-
-        "minimap.background": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "minimap.errorHighlight": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "minimap.findMatchHighlight": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "minimap.foregroundOpacity": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "minimap.selectionHighlight": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "minimap.selectionOccurrenceHighlight": this._cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
-        "minimap.warningHighlight": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "minimapGutter.addedBackground": this._cO( `${ _c.accent.fg }${ _x_[ 7 ] }` ),
-        "minimapGutter.deletedBackground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "minimapGutter.modifiedBackground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "minimapSlider.activeBackground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "minimapSlider.background": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "minimapSlider.hoverBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-
-        "notificationCenter.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notificationCenterHeader.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "notificationCenterHeader.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "notificationLink.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-
-        "notificationToast.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "notifications.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "notifications.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notifications.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "notificationsErrorIcon.foreground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "notificationsInfoIcon.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "notificationsWarningIcon.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-
-        "panel.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "panel.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "panel.dropBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "panelInput.border": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "panelSection.border": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "panelSection.dropBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "panelSectionHeader.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "panelSectionHeader.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "panelSectionHeader.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "panelTitle.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "panelTitle.activeforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "panelTitle.inactiveforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "peekView.border": this._cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
-        "peekViewEditor.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "peekViewEditor.matchHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "peekViewEditor.matchHighlightBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "peekViewEditorGutter.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "peekViewResult.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "peekViewResult.fileforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "peekViewResult.lineforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "peekViewResult.matchHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "peekViewResult.selectionBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-        "peekViewResult.selectionForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "peekViewTitle.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "peekViewTitleDescription.foreground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "peekViewTitleLabel.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-
-        "pickerGroup.border": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "pickerGroup.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "ports.iconRunningProcessForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-
-        "problemsErrorIcon.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
-
-        "problemsInfoIcon.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-
-        "problemsWarningIcon.foreground": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-
-        "progressBar.background": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-
-        "quickInput.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "quickInput.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "quickInputList.focusBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "quickInputList.focusforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "quickInputList.focusIconForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "quickInputTitle.background": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "sash.hoverBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-
-        "scm.providerborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "scrollbar.shadow": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "scrollbarSlider.activeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "scrollbarSlider.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "scrollbarSlider.hoverbackground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "searchEditor.findMatchBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "searchEditor.findMatchBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "searchEditor.textInputborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "selection.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-
-        "sideBar.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "sideBar.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "sideBar.dropBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "sideBar.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "sideBarSectionHeader.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "sideBarSectionHeader.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "sideBarSectionHeader.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "sideBarTitle.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "sideBySideEditor.horizontalBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "sideBySideEditor.verticalBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-
-        "statusBar.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "statusBar.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "statusBar.debuggingBackground": this._cO( `${ _c.danger.muted }${ _x_[ 6 ] }` ),
-        "statusBar.debuggingBorder": this._cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
-        "statusBar.debuggingforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "statusBar.focusborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "statusBar.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "statusBar.noFolderBackground": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-        "statusBar.noFolderBorder": this._cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
-        "statusBar.noFolderforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "statusBarItem.activeBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "statusBarItem.compactHoverBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "statusBarItem.errorBackground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "statusBarItem.errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "statusBarItem.focusborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "statusBarItem.hoverBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "statusBarItem.prominentBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "statusBarItem.prominentForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "statusBarItem.remoteBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "statusBarItem.remoteforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "statusBarItem.settingsProfilesBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "statusBarItem.settingsProfilesforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "statusBarItem.warningBackground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "statusBarItem.warningForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-
-        "symbolIcon.arrayForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.booleanForeground": this._cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.classForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.colorForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.constantForeground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.constructorForeground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.enumeratorForeground": this._cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.enumeratorMemberForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.eventForeground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.fieldForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.fileForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.folderForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "symbolIcon.functionForeground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.interfaceForeground": this._cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.keyForeground": this._cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.keywordForeground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.methodForeground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.moduleForeground": this._cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
-        "symbolIcon.namespaceForeground": this._cO( `${ _c.attention.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.nullForeground": this._cO( `${ _c.neutral.emphasisPlus }${ _x_[ 10 ] }` ),
-        "symbolIcon.numberForeground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.objectForeground": this._cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.operatorForeground": this._cO( `${ _c.done.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.packageForeground": this._cO( `${ _c.attention.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.propertyforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "symbolIcon.referenceForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.snippetForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.stringForeground": this._cO( `${ _c.neutral.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.structForeground": this._cO( `${ _c.accent.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.textForeground": this._cO( `${ _c.success.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.typeParameterForeground": this._cO( `${ _c.danger.emphasis }${ _x_[ 10 ] }` ),
-        "symbolIcon.unitForeground": this._cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
-        "symbolIcon.variableForeground": this._cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
-
-        "tab.activeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tab.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.activeBorderTop": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.activeForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.activeModifiedBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tab.hoverBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tab.hoverBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.hoverforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "tab.inactiveBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "tab.inactiveForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-        "tab.inactiveModifiedBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.lastPinnedborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tab.unfocusedActiveBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tab.unfocusedActiveBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.unfocusedActiveBorderTop": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.unfocusedActiveForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.unfocusedActiveModifiedBorder": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "tab.unfocusedHoverBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tab.unfocusedHoverBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tab.unfocusedHoverforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "tab.unfocusedInactiveBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "tab.unfocusedInactiveForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-        "tab.unfocusedInactiveModifiedBorder": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-
-        "terminal.foreground": this._cO( `${ _c.fg.muted }${ _x_[ 7 ] }` ),
-        'terminal.ansiBlack': this._cO( `${ _c.ansi.black }${ _x_[ 10 ] }` ),
-        'terminal.ansiRed': this._cO( `${ _c.ansi.red }${ _x_[ 10 ] }` ),
-        'terminal.ansiGreen': this._cO( `${ _c.ansi.green }${ _x_[ 10 ] }` ),
-        'terminal.ansiYellow': this._cO( `${ _c.ansi.yellow }${ _x_[ 10 ] }` ),
-        'terminal.ansiBlue': this._cO( `${ _c.ansi.blue }${ _x_[ 10 ] }` ),
-        'terminal.ansiMagenta': this._cO( `${ _c.ansi.magenta }${ _x_[ 10 ] }` ),
-        'terminal.ansiCyan': this._cO( `${ _c.ansi.cyan }${ _x_[ 10 ] }` ),
-        'terminal.ansiWhite': this._cO( `${ _c.ansi.white }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightBlack': this._cO( `${ _c.ansi.blackBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightRed': this._cO( `${ _c.ansi.redBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightGreen': this._cO( `${ _c.ansi.greenBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightYellow': this._cO( `${ _c.ansi.yellowBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightBlue': this._cO( `${ _c.ansi.blueBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightMagenta': this._cO( `${ _c.ansi.magentaBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightCyan': this._cO( `${ _c.ansi.cyanBright }${ _x_[ 10 ] }` ),
-        'terminal.ansiBrightWhite': this._cO( `${ _c.ansi.whiteBright }${ _x_[ 10 ] }` ),
-
-
-        "terminal.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "terminal.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "terminal.dropBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "terminal.findMatchBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "terminal.findMatchBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "terminal.findMatchHighlightBackground": this._cO( `${ _c.accent.fg }${ _x_[ 2 ] }` ),
-        "terminal.findMatchHighlightBorder": this._cO( `${ _c.attention.fg }${ _x_[ 2 ] }` ),
-        "terminal.inactiveSelectionBackground": this._cO( `${ _c.attention.fg }${ _x_[ 3 ] }` ),
-        "terminal.selectionBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "terminal.selectionForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "terminal.tab.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "terminalCommandDecoration.defaultBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "terminalCommandDecoration.errorBackground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "terminalCommandDecoration.successBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "terminalCursor.background": this._cO( `${ _c.success.fg }${ _x_[ 2 ] }` ),
-        "terminalCursor.foreground": this._cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
-        "terminalOverviewRuler.cursorForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "terminalOverviewRuler.findMatchForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-
-        "testing.iconErrored": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "testing.iconFailed": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "testing.iconPassed": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "testing.iconQueued": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "testing.iconSkipped": this._cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
-        "testing.iconUnset": this._cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
-        "testing.message.error.decorationForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "testing.message.error.lineBackground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
-        "testing.message.info.decorationForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "testing.message.info.lineBackground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "testing.peekBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "testing.peekHeaderBackground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "testing.runAction": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-
-        "textBlockQuote.background": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "textBlockQuote.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "textCodeBlock.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-
-        "textLink.activeForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "textLink.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-
-        "textPreformat.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "textSeparator.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "titleBar.activeBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "titleBar.activeForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "titleBar.border": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "titleBar.inactiveBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "titleBar.inactiveForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-
-        "toolbar.activeBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "toolbar.hoverBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "toolbar.hoverOutline": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-
-        "tree.indentGuidesStroke": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "tree.tableColumnsborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "tree.tableOddRowsBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "walkThrough.embeddedEditorBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-
-        "welcomePage.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "welcomePage.progress.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "welcomePage.progress.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "welcomePage.tileBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "welcomePage.tileHoverBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "welcomePage.tileShadow": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-
-        "widget.shadow": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "window.activeBorder": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "window.inactiveBorder": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "debugConsole.errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "debugConsole.infoForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "debugConsole.sourceForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "debugConsole.warningForeground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
-        "debugConsoleInputIcon.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "debugIcon.breakpointCurrentStackframeForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "debugIcon.breakpointDisabledForeground": this._cO( `${ _c.fg.subtle }${ _x_[ 10 ] }` ),
-        "debugIcon.breakpointForeground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
-        "debugIcon.breakpointStackframeForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "debugIcon.breakpointUnverifiedForeground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
-        "debugIcon.continueForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "debugIcon.disconnectForeground": this._cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
-        "debugIcon.pauseForeground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "debugIcon.restartForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "debugIcon.startForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "debugIcon.stepBackForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "debugIcon.stepIntoForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "debugIcon.stepOutForeground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
-        "debugIcon.stopForeground": this._cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
-
-
-
-        "interactive.activeCodeBorder": this._cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
-        "interactive.inactiveCodeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "issues.closed": this._cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
-        "issues.newIssueDecoration": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "issues.open": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-
-
-
-
-        "notebook.cellBorderColor": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notebook.cellEditorBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "notebook.cellInsertionIndicator": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "notebook.cellToolbarSeparator": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notebook.editorBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "notebook.focusedCellBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "notebook.focusedEditorborder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notebook.inactiveFocusedCellBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "notebook.selectedCellBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "notebook.selectedCellBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "notebook.symbolHighlightBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
-        "notebookScrollbarSlider.activeBackground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "notebookScrollbarSlider.background": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
-        "notebookScrollbarSlider.hoverBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notebookStatusErrorIcon.foreground": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "notebookStatusRunningIcon.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "notebookStatusSuccessIcon.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
-        "pullRequests.notification": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
-        "settings.checkboxBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.checkboxBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.checkboxForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "settings.dropdownBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.dropdownBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.dropdownForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "settings.dropdownListBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.focusedRowBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 9 ] }` ),
-        "settings.focusedRowBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 6 ] }` ),
-        "settings.headerBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.headerForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "settings.modifiedItemIndicator": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
-        "settings.numberInputBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "settings.numberInputBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.numberInputForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "settings.rowHoverBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.sashBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.textInputBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "settings.textInputBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.textInputForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "statusBarItem.prominentHoverBackground": this._cO( `${ _c.border.muted }${ _x_[ 3 ] }` ),
-        "notebook.cellHoverBackground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
-        "notebook.focusedCellBackground": this._cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
-        "notebook.inactiveSelectedCellBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "notebook.outputContainerBackgroundColor": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "notebook.outputContainerBorderColor": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "quickInput.list.focusBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }`, )
+        "activityBar.activeBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "activityBar.activeBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "activityBar.activeFocusBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "activityBar.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "activityBar.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "activityBar.dropBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "activityBar.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
+        "activityBar.inactiveForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "activityBarBadge.background": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "activityBarBadge.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "badge.background": _cO( `${ _c.accent.muted }${ _x_[ 7 ] }` ),
+        "badge.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "banner.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "banner.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "banner.iconForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+
+        "breadcrumb.activeSelectionforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "breadcrumb.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "breadcrumb.focusforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "breadcrumb.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "breadcrumbPicker.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+
+        "button.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "button.border": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "button.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "button.hoverBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "button.secondaryBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "button.secondaryforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "button.secondaryHoverBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "button.separator": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+
+        "charts.blue": _cO( `${ _c.accent.muted }${ _x_[ 10 ] }` ),
+        "charts.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "charts.green": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "charts.lines": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+        "charts.orange": _cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
+        "charts.purple": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "charts.red": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "charts.yellow": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+
+
+        "checkbox.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "checkbox.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "checkbox.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "commandCenter.activeBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "commandCenter.activeforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "commandCenter.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "commandCenter.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "commandCenter.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "contrastActiveborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "contrastBorder": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+
+        "debugExceptionWidget.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "debugExceptionWidget.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "debugTokenExpression.boolean": _cO( `${ _c.attention.fg }${ _x_[ 5 ] }` ),
+        "debugTokenExpression.error": _cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
+        "debugTokenExpression.name": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "debugTokenExpression.number": _cO( `${ _c.severe.fg }${ _x_[ 5 ] }` ),
+        "debugTokenExpression.string": _cO( `${ _c.fg.muted }${ _x_[ 5 ] }` ),
+        "debugTokenExpression.value": _cO( `${ _c.sponsors.fg }${ _x_[ 5 ] }` ),
+
+        "debugToolBar.background": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "debugToolBar.border": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+
+        "debugView.exceptionLabelBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "debugView.exceptionLabelforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "debugView.stateLabelBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "debugView.stateLabelforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "debugView.valueChangedHighlight": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+
+        "descriptionForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "diffEditor.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "diffEditor.diagonalFill": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "diffEditor.insertedLineBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "diffEditor.insertedTextBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "diffEditor.insertedTextBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "diffEditor.removedLineBackground": _cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
+        "diffEditor.removedTextBackground": _cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
+        "diffEditor.removedTextBorder": _cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
+        "diffEditorGutter.insertedLineBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "diffEditorGutter.removedLineBackground": _cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
+        "diffEditorOverview.insertedForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "diffEditorOverview.removedForeground": _cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
+
+        "disabledForeground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+
+        "dropdown.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "dropdown.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "dropdown.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "dropdown.listBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "editor.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editor.findMatchBackground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "editor.findMatchBorder": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "editor.findMatchHighlightBackground": _cO( `${ _c.attention.emphasis }${ _x_[ 2 ] }` ),
+        "editor.findMatchHighlightBorder": _cO( `${ _c.attention.emphasis }${ _x_[ 2 ] }` ),
+        "editor.findRangeHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editor.findRangeHighlightBorder": _cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editor.focusedStackFrameHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editor.foldBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editor.hoverHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "editor.inactiveSelectionBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.inlineValuesBackground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editor.inlineValuesforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editor.lineHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
+        "editor.lineHighlightBorder": _cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
+        "editor.linkedEditingBackground": _cO( `${ _c.attention.fg }${ _x_[ 8 ] }` ),
+        "editor.rangeHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editor.rangeHighlightBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editor.selectionBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.selectionForeground": _cO( `${ _c.accent.muted }}${ _x_[ 5 ] }` ),
+        "editor.selectionHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editor.selectionHighlightborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.snippetFinalTabstopHighlightBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editor.snippetFinalTabstopHighlightborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.snippetTabstopHighlightBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.snippetTabstopHighlightborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.stackFrameHighlightbackground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editor.symbolHighlightBackground": _cO( `${ _c.done.emphasis }${ _x_[ 5 ] }` ),
+        "editor.symbolHighlightBorder": _cO( `${ _c.done.emphasis }${ _x_[ 4 ] }` ),
+        "editor.wordHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editor.wordHighlightBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editor.wordHighlightStrongBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editor.wordHighlightStrongBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.foreground1": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.foreground2": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.foreground3": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.foreground4": _cO( `${ _c.closed.fg }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.foreground5": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.foreground6": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+        "editorBracketHighlight.unexpectedBracket.foreground": _cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
+        "editorBracketMatch.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorBracketMatch.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorBracketPairGuide.activeBackground1": _cO( `${ _c.sponsors.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.activeBackground2": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorBracketPairGuide.activeBackground3": _cO( `${ _c.done.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.activeBackground4": _cO( `${ _c.closed.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.activeBackground5": _cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.activeBackground6": _cO( `${ _c.severe.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.background1": _cO( `${ _c.sponsors.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.background2": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorBracketPairGuide.background3": _cO( `${ _c.done.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.background4": _cO( `${ _c.closed.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.background5": _cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
+        "editorBracketPairGuide.background6": _cO( `${ _c.severe.fg }${ _x_[ 7 ] }` ),
+        "editorCodeLens.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorCommentsWidget.rangeActiveBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorCommentsWidget.rangeActiveborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorCommentsWidget.rangeBackground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorCommentsWidget.rangeborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorCommentsWidget.resolvedBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorCommentsWidget.unresolvedBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorCursor.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorCursor.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorError.background": _cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
+        "editorError.border": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "editorError.foreground": _cO( `${ _c.danger.muted }${ _x_[ 7 ] }` ),
+        "editorGhostText.background": _cO( `${ _c.success.emphasis }${ _x_[ 7 ] }` ),
+        "editorGhostText.border": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorGhostText.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorGroup.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorGroup.dropBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "editorGroup.dropIntoPromptBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorGroup.dropIntoPromptborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorGroup.dropIntoPromptforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorGroup.emptyBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorGroup.focusedEmptyBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorGroupHeader.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorGroupHeader.noTabsBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorGroupHeader.tabsBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorGutter.addedBackground": _cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
+        "editorGutter.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorGutter.commentRangeforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorGutter.deletedBackground": _cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
+        "editorGutter.foldingControlforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorGutter.modifiedBackground": _cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
+        "editorHint.border": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorHint.foreground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "editorHoverWidget.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorHoverWidget.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorHoverWidget.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorHoverWidget.highlightForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorHoverWidget.statusBarBackground": _cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
+        "editorIndentGuide.activeBackground": _cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
+        "editorIndentGuide.background": _cO( `${ _c.fg.default }${ _x_[ 0 ] }` ),
+        "editorInfo.background": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorInfo.border": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "editorInfo.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorInlayHint.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorInlayHint.foreground": _cO( `${ _c.fg.default }${ _x_[ 4 ] }` ),
+        "editorInlayHint.parameterBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorInlayHint.parameterForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorInlayHint.typeBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorInlayHint.typeForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorLightBulb.foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "editorLightBulbAutoFix.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorLineNumber.activeForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorLineNumber.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorLink.activeForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorMarkerNavigation.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorMarkerNavigationError.background": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "editorMarkerNavigationError.headerBackground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "editorMarkerNavigationInfo.background": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorMarkerNavigationInfo.headerBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorMarkerNavigationWarning.background": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+        "editorMarkerNavigationWarning.headerBackground": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.addedForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorOverviewRuler.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorOverviewRuler.border": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorOverviewRuler.bracketMatchForeground": _cO( `${ _c.done.muted }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.commonContentforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorOverviewRuler.currentContentForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.deletedForeground": _cO( `${ _c.attention.fg }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.errorForeground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.findMatchForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "editorOverviewRuler.incomingContentforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorOverviewRuler.infoForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.modifiedForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.rangeHighlightForeground": _cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
+        "editorOverviewRuler.selectionHighlightForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.warningForeground": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.wordHighlightForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorOverviewRuler.wordHighlightStrongForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorPane.background": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorRuler.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorStickyScroll.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorStickyScrollHover.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.focusHighlightforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.highlightforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.selectedBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.selectedforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorSuggestWidget.selectedIconforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorSuggestWidgetStatus.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "editorUnicodeHighlight.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorUnicodeHighlight.border": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "editorUnnecessaryCode.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorUnnecessaryCode._x_": _cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
+        "editorWarning.background": _cO( `${ _c.severe.muted }${ _x_[ 0 ] }` ),
+
+        "editorWarning.border": _cO( `${ _c.severe.muted }${ _x_[ 8 ] }` ),
+        "editorWarning.foreground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "editorWhitespace.foreground": _cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
+        "editorWidget.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "editorWidget.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorWidget.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "editorWidget.resizeBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+
+
+        "errorForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+
+        "extensionBadge.remoteBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "extensionBadge.remoteforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "extensionButton.prominentBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "extensionButton.prominentforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "extensionButton.prominentHoverBackground": _cO( `${ _c.success.emphasis }${ _x_[ 6 ] }` ),
+
+        "extensionIcon.preReleaseForeground": _cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
+        "extensionIcon.sponsorForeground": _cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
+        "extensionIcon.starForeground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "extensionIcon.verifiedForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+
+        "focusBorder": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "gitDecoration.addedResourceForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "gitDecoration.conflictingResourceForeground": _cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
+        "gitDecoration.deletedResourceForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "gitDecoration.ignoredResourceForeground": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+        "gitDecoration.modifiedResourceForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "gitDecoration.renamedResourceforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "gitDecoration.stageDeletedResourceForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "gitDecoration.stageModifiedResourceForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "gitDecoration.submoduleResourceForeground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+        "gitDecoration.untrackedResourceforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "icon.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "input.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "input.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "input.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "input.placeholderForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "inputOption.activeBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "inputOption.activeBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "inputOption.activeForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "inputOption.hoverBackground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "inputValidation.errorBackground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "inputValidation.errorBorder": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "inputValidation.errorForeground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "inputValidation.infoBackground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "inputValidation.infoBorder": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "inputValidation.infoForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "inputValidation.warningBackground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "inputValidation.warningBorder": _cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
+        "inputValidation.warningForeground": _cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
+
+        "keybindingLabel.border": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "keybindingLabel.bottomBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "keybindingLabel.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "keybindingLabel.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "keybindingTable.headerBackground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "keybindingTable.rowsBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "list.activeSelectionBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "list.activeSelectionforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "list.activeSelectionIconForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "list.deemphasizedForeground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "list.dropBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "list.errorForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "list.filterMatchBackground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "list.filterMatchBorder": _cO( `${ _c.success.emphasis }${ _x_[ 6 ] }` ),
+        "list.focusAndSelectionOutline": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "list.focusBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "list.focusforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "list.focusHighlightForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "list.focusOutline": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "list.highlightforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "list.hoverBackground": _cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
+        "list.hoverforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "list.inactiveFocusBackground": _cO( `${ _c.success.emphasis }${ _x_[ 9 ] }` ),
+        "list.inactiveFocusOutline": _cO( `${ _c.success.emphasis }${ _x_[ 9 ] }` ),
+        "list.inactiveSelectionBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "list.inactiveSelectionforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "list.inactiveSelectionIconForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "list.invalidItemForeground": _cO( `${ _c.danger.muted }${ _x_[ 4 ] }` ),
+        "list.warningForeground": _cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
+        "listFilterWidget.background": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "listFilterWidget.noMatchesOutline": _cO( `${ _c.neutral.emphasis }${ _x_[ 5 ] }` ),
+        "listFilterWidget.outline": _cO( `${ _c.accent.fg }${ _x_[ 4 ] }` ),
+        "listFilterWidget.shadow": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "menu.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "menu.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "menu.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "menu.selectionBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "menu.selectionBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "menu.selectionforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "menu.separatorBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "menubar.selectionBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "menubar.selectionBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "menubar.selectionForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "merge.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "merge.commonContentBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "merge.commonHeaderBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "merge.currentContentBackground": _cO( `${ _c.danger.muted }${ _x_[ 6 ] }` ),
+        "merge.currentHeaderBackground": _cO( `${ _c.danger.muted }${ _x_[ 8 ] }` ),
+        "merge.incomingContentBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "merge.incomingHeaderBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "mergeEditor.change.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "mergeEditor.change.word.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "mergeEditor.conflict.handled.minimapOverViewRuler": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "mergeEditor.conflict.handledFocused.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "mergeEditor.conflict.handledUnfocused.border": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "mergeEditor.conflict.unhandled.minimapOverViewRuler": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "mergeEditor.conflict.unhandledFocused.border": _cO( `${ _c.attention.fg }${ _x_[ 5 ] }` ),
+        "mergeEditor.conflict.unhandledUnfocused.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "mergeEditor.conflictingLines.background": _cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
+
+        "minimap.background": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "minimap.errorHighlight": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "minimap.findMatchHighlight": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "minimap.foregroundOpacity": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "minimap.selectionHighlight": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "minimap.selectionOccurrenceHighlight": _cO( `${ _c.success.emphasis }${ _x_[ 8 ] }` ),
+        "minimap.warningHighlight": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "minimapGutter.addedBackground": _cO( `${ _c.accent.fg }${ _x_[ 7 ] }` ),
+        "minimapGutter.deletedBackground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "minimapGutter.modifiedBackground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "minimapSlider.activeBackground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "minimapSlider.background": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "minimapSlider.hoverBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+
+        "notificationCenter.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notificationCenterHeader.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "notificationCenterHeader.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "notificationLink.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+
+        "notificationToast.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "notifications.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "notifications.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notifications.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "notificationsErrorIcon.foreground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "notificationsInfoIcon.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "notificationsWarningIcon.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+
+        "panel.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "panel.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "panel.dropBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "panelInput.border": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "panelSection.border": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "panelSection.dropBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "panelSectionHeader.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "panelSectionHeader.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "panelSectionHeader.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "panelTitle.activeBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "panelTitle.activeforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "panelTitle.inactiveforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "peekView.border": _cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
+        "peekViewEditor.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "peekViewEditor.matchHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "peekViewEditor.matchHighlightBorder": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "peekViewEditorGutter.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "peekViewResult.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "peekViewResult.fileforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "peekViewResult.lineforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "peekViewResult.matchHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "peekViewResult.selectionBackground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+        "peekViewResult.selectionForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "peekViewTitle.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "peekViewTitleDescription.foreground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "peekViewTitleLabel.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+
+        "pickerGroup.border": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "pickerGroup.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "ports.iconRunningProcessForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+
+        "problemsErrorIcon.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
+
+        "problemsInfoIcon.foreground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+
+        "problemsWarningIcon.foreground": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+
+        "progressBar.background": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+
+        "quickInput.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "quickInput.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "quickInputList.focusBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "quickInputList.focusforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "quickInputList.focusIconForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "quickInputTitle.background": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "sash.hoverBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+
+        "scm.providerborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "scrollbar.shadow": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "scrollbarSlider.activeBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "scrollbarSlider.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "scrollbarSlider.hoverbackground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "searchEditor.findMatchBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "searchEditor.findMatchBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "searchEditor.textInputborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "selection.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+
+        "sideBar.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "sideBar.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "sideBar.dropBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "sideBar.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "sideBarSectionHeader.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "sideBarSectionHeader.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "sideBarSectionHeader.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "sideBarTitle.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "sideBySideEditor.horizontalBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "sideBySideEditor.verticalBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+
+        "statusBar.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "statusBar.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "statusBar.debuggingBackground": _cO( `${ _c.danger.muted }${ _x_[ 6 ] }` ),
+        "statusBar.debuggingBorder": _cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
+        "statusBar.debuggingforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "statusBar.focusborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "statusBar.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "statusBar.noFolderBackground": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+        "statusBar.noFolderBorder": _cO( `${ _c.severe.muted }${ _x_[ 5 ] }` ),
+        "statusBar.noFolderforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "statusBarItem.activeBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "statusBarItem.compactHoverBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "statusBarItem.errorBackground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "statusBarItem.errorForeground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "statusBarItem.focusborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "statusBarItem.hoverBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "statusBarItem.prominentBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "statusBarItem.prominentForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "statusBarItem.remoteBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "statusBarItem.remoteforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "statusBarItem.settingsProfilesBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "statusBarItem.settingsProfilesforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "statusBarItem.warningBackground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "statusBarItem.warningForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+
+        "symbolIcon.arrayForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.booleanForeground": _cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.classForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.colorForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.constantForeground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.constructorForeground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.enumeratorForeground": _cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.enumeratorMemberForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.eventForeground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.fieldForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.fileForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.folderForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "symbolIcon.functionForeground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.interfaceForeground": _cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.keyForeground": _cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.keywordForeground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.methodForeground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.moduleForeground": _cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
+        "symbolIcon.namespaceForeground": _cO( `${ _c.attention.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.nullForeground": _cO( `${ _c.neutral.emphasisPlus }${ _x_[ 10 ] }` ),
+        "symbolIcon.numberForeground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.objectForeground": _cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.operatorForeground": _cO( `${ _c.done.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.packageForeground": _cO( `${ _c.attention.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.propertyforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "symbolIcon.referenceForeground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.snippetForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.stringForeground": _cO( `${ _c.neutral.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.structForeground": _cO( `${ _c.accent.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.textForeground": _cO( `${ _c.success.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.typeParameterForeground": _cO( `${ _c.danger.emphasis }${ _x_[ 10 ] }` ),
+        "symbolIcon.unitForeground": _cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
+        "symbolIcon.variableForeground": _cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
+
+        "tab.activeBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.activeBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.activeBorderTop": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.activeForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.activeModifiedBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.hoverBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.hoverBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.hoverforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "tab.inactiveBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "tab.inactiveForeground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+        "tab.inactiveModifiedBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.lastPinnedborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.unfocusedActiveBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.unfocusedActiveBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.unfocusedActiveBorderTop": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.unfocusedActiveForeground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.unfocusedActiveModifiedBorder": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "tab.unfocusedHoverBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tab.unfocusedHoverBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tab.unfocusedHoverforeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "tab.unfocusedInactiveBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "tab.unfocusedInactiveForeground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+        "tab.unfocusedInactiveModifiedBorder": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+
+        "terminal.foreground": _cO( `${ _c.fg.muted }${ _x_[ 7 ] }` ),
+        'terminal.ansiBlack': _cO( `${ _c.ansi.black }${ _x_[ 10 ] }` ),
+        'terminal.ansiRed': _cO( `${ _c.ansi.red }${ _x_[ 10 ] }` ),
+        'terminal.ansiGreen': _cO( `${ _c.ansi.green }${ _x_[ 10 ] }` ),
+        'terminal.ansiYellow': _cO( `${ _c.ansi.yellow }${ _x_[ 10 ] }` ),
+        'terminal.ansiBlue': _cO( `${ _c.ansi.blue }${ _x_[ 10 ] }` ),
+        'terminal.ansiMagenta': _cO( `${ _c.ansi.magenta }${ _x_[ 10 ] }` ),
+        'terminal.ansiCyan': _cO( `${ _c.ansi.cyan }${ _x_[ 10 ] }` ),
+        'terminal.ansiWhite': _cO( `${ _c.ansi.white }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightBlack': _cO( `${ _c.ansi.blackBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightRed': _cO( `${ _c.ansi.redBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightGreen': _cO( `${ _c.ansi.greenBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightYellow': _cO( `${ _c.ansi.yellowBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightBlue': _cO( `${ _c.ansi.blueBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightMagenta': _cO( `${ _c.ansi.magentaBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightCyan': _cO( `${ _c.ansi.cyanBright }${ _x_[ 10 ] }` ),
+        'terminal.ansiBrightWhite': _cO( `${ _c.ansi.whiteBright }${ _x_[ 10 ] }` ),
+
+
+        "terminal.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "terminal.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "terminal.dropBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "terminal.findMatchBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "terminal.findMatchBorder": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "terminal.findMatchHighlightBackground": _cO( `${ _c.accent.fg }${ _x_[ 2 ] }` ),
+        "terminal.findMatchHighlightBorder": _cO( `${ _c.attention.fg }${ _x_[ 2 ] }` ),
+        "terminal.inactiveSelectionBackground": _cO( `${ _c.attention.fg }${ _x_[ 3 ] }` ),
+        "terminal.selectionBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "terminal.selectionForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "terminal.tab.activeBorder": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "terminalCommandDecoration.defaultBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "terminalCommandDecoration.errorBackground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "terminalCommandDecoration.successBackground": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "terminalCursor.background": _cO( `${ _c.success.fg }${ _x_[ 2 ] }` ),
+        "terminalCursor.foreground": _cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
+        "terminalOverviewRuler.cursorForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "terminalOverviewRuler.findMatchForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+
+        "testing.iconErrored": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "testing.iconFailed": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "testing.iconPassed": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "testing.iconQueued": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "testing.iconSkipped": _cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
+        "testing.iconUnset": _cO( `${ _c.severe.muted }${ _x_[ 10 ] }` ),
+        "testing.message.error.decorationForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "testing.message.error.lineBackground": _cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
+        "testing.message.info.decorationForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "testing.message.info.lineBackground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "testing.peekBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "testing.peekHeaderBackground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "testing.runAction": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+
+        "textBlockQuote.background": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "textBlockQuote.border": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "textCodeBlock.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+
+        "textLink.activeForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "textLink.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+
+        "textPreformat.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "textSeparator.foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "titleBar.activeBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "titleBar.activeForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "titleBar.border": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "titleBar.inactiveBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "titleBar.inactiveForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+
+        "toolbar.activeBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "toolbar.hoverBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "toolbar.hoverOutline": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+
+        "tree.indentGuidesStroke": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "tree.tableColumnsborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "tree.tableOddRowsBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "walkThrough.embeddedEditorBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+
+        "welcomePage.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "welcomePage.progress.background": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "welcomePage.progress.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "welcomePage.tileBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "welcomePage.tileHoverBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "welcomePage.tileShadow": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+
+        "widget.shadow": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "window.activeBorder": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "window.inactiveBorder": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "debugConsole.errorForeground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "debugConsole.infoForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "debugConsole.sourceForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "debugConsole.warningForeground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+        "debugConsoleInputIcon.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "debugIcon.breakpointCurrentStackframeForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "debugIcon.breakpointDisabledForeground": _cO( `${ _c.fg.subtle }${ _x_[ 10 ] }` ),
+        "debugIcon.breakpointForeground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+        "debugIcon.breakpointStackframeForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "debugIcon.breakpointUnverifiedForeground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+        "debugIcon.continueForeground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "debugIcon.disconnectForeground": _cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
+        "debugIcon.pauseForeground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "debugIcon.restartForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "debugIcon.startForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "debugIcon.stepBackForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "debugIcon.stepIntoForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "debugIcon.stepOutForeground": _cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "debugIcon.stopForeground": _cO( `${ _c.danger.fg }${ _x_[ 10 ] }` ),
+
+
+
+        "interactive.activeCodeBorder": _cO( `${ _c.attention.fg }${ _x_[ 7 ] }` ),
+        "interactive.inactiveCodeBorder": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "issues.closed": _cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
+        "issues.newIssueDecoration": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "issues.open": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+
+
+
+
+        "notebook.cellBorderColor": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notebook.cellEditorBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "notebook.cellInsertionIndicator": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "notebook.cellToolbarSeparator": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notebook.editorBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "notebook.focusedCellBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "notebook.focusedEditorborder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notebook.inactiveFocusedCellBorder": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "notebook.selectedCellBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "notebook.selectedCellBorder": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "notebook.symbolHighlightBackground": _cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
+        "notebookScrollbarSlider.activeBackground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "notebookScrollbarSlider.background": _cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "notebookScrollbarSlider.hoverBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notebookStatusErrorIcon.foreground": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "notebookStatusRunningIcon.foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "notebookStatusSuccessIcon.foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+        "pullRequests.notification": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+        "settings.checkboxBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.checkboxBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.checkboxForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "settings.dropdownBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.dropdownBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.dropdownForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "settings.dropdownListBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.focusedRowBackground": _cO( `${ _c.success.emphasis }${ _x_[ 9 ] }` ),
+        "settings.focusedRowBorder": _cO( `${ _c.success.emphasis }${ _x_[ 6 ] }` ),
+        "settings.headerBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.headerForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "settings.modifiedItemIndicator": _cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
+        "settings.numberInputBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "settings.numberInputBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.numberInputForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "settings.rowHoverBackground": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.sashBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.textInputBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "settings.textInputBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "settings.textInputForeground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "statusBarItem.prominentHoverBackground": _cO( `${ _c.border.muted }${ _x_[ 3 ] }` ),
+        "notebook.cellHoverBackground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+        "notebook.focusedCellBackground": _cO( `${ _c.danger.muted }${ _x_[ 3 ] }` ),
+        "notebook.inactiveSelectedCellBorder": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "notebook.outputContainerBackgroundColor": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
+        "notebook.outputContainerBorderColor": _cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "quickInput.list.focusBackground": _cO( `${ _c.canvas.inset }${ _x_[ 10 ] }`, )
 
 
       },
@@ -1052,7 +1049,7 @@ class colorPlaylistGenerated {
             "string.comment"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1065,7 +1062,7 @@ class colorPlaylistGenerated {
             "entity"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1075,7 +1072,7 @@ class colorPlaylistGenerated {
             "meta.definition.variable"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1089,13 +1086,13 @@ class colorPlaylistGenerated {
             "meta.embedded.expression"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "entity.name.function",
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1104,13 +1101,13 @@ class colorPlaylistGenerated {
             "support.class.component"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "keyword",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1119,7 +1116,7 @@ class colorPlaylistGenerated {
             "storage.type"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1129,7 +1126,7 @@ class colorPlaylistGenerated {
             "storage.type.java"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1138,79 +1135,79 @@ class colorPlaylistGenerated {
             "string punctuation.section.embedded source"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "support",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "meta.property-name",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "variable",
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "variable.other",
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "invalid.broken",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "italic"
           }
         },
         {
           "scope": "invalid.deprecated",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "italic"
           }
         },
         {
           "scope": "invalid.illegal",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "italic"
           }
         },
         {
           "scope": "invalid.unimplemented",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "italic"
           }
         },
         {
           "scope": "carriage-return",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.fg }${ _x_[ 10 ] }` ),
-            "background": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.fg }${ _x_[ 10 ] }` ),
+            "background": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "italic underline"
           }
         },
         {
           "scope": "message.error",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "string variable",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1219,7 +1216,7 @@ class colorPlaylistGenerated {
             "string.regexp"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1230,44 +1227,44 @@ class colorPlaylistGenerated {
             "string.regexp string.regexp.arbitrary-repitition"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "string.regexp constant.character.escape",
           "settings": {
-            "foreground": this._cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "bold"
           }
         },
         {
           "scope": "support.constant",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "support.variable",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "support.type.property-name.json",
           "settings": {
-            "foreground": this._cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "meta.module-reference",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "punctuation.definition.list.begin.markdown",
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1276,27 +1273,27 @@ class colorPlaylistGenerated {
             "markup.heading entity.name"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "bold"
           }
         },
         {
           "scope": "markup.quote",
           "settings": {
-            "foreground": this._cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "markup.italic",
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "italic"
           }
         },
         {
           "scope": "markup.bold",
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "bold"
           }
         },
@@ -1319,7 +1316,7 @@ class colorPlaylistGenerated {
         {
           "scope": "markup.inline.raw",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1329,8 +1326,8 @@ class colorPlaylistGenerated {
             "punctuation.definition.deleted"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
-            "background": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "background": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1338,7 +1335,7 @@ class colorPlaylistGenerated {
             "punctuation.section.embedded"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1348,8 +1345,8 @@ class colorPlaylistGenerated {
             "punctuation.definition.inserted"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
-            "background": this._cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.open.emphasis }${ _x_[ 10 ] }` ),
+            "background": _cO( `${ _c.open.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1358,8 +1355,8 @@ class colorPlaylistGenerated {
             "punctuation.definition.changed"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
-            "background": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
+            "background": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1368,34 +1365,34 @@ class colorPlaylistGenerated {
             "markup.untracked"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.neutral.emphasis }${ _x_[ 10 ] }` ),
-            "background": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.neutral.emphasis }${ _x_[ 10 ] }` ),
+            "background": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "meta.diff.range",
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
             "fontStyle": "bold"
           }
         },
         {
           "scope": "meta.diff.header",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "meta.separator",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": "bold"
           }
         },
         {
           "scope": "meta.output",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1408,13 +1405,13 @@ class colorPlaylistGenerated {
             "brackethighlighter.quote"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.neutral.emphasisPlus }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.neutral.emphasisPlus }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "brackethighlighter.unmatched",
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1423,7 +1420,7 @@ class colorPlaylistGenerated {
             "string.other.link"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
             "fontStyle": "underline"
           }
         },
@@ -1433,7 +1430,7 @@ class colorPlaylistGenerated {
             "constant.numeric"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.closed.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1442,7 +1439,7 @@ class colorPlaylistGenerated {
             "support.type.property-name"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1451,7 +1448,7 @@ class colorPlaylistGenerated {
             "string"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1461,7 +1458,7 @@ class colorPlaylistGenerated {
             "constant.character.escape"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1469,7 +1466,7 @@ class colorPlaylistGenerated {
             "string"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1477,7 +1474,7 @@ class colorPlaylistGenerated {
             "keyword"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1485,7 +1482,7 @@ class colorPlaylistGenerated {
             "support.type.property-name"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1494,7 +1491,7 @@ class colorPlaylistGenerated {
             "entity.name.function"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1505,7 +1502,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.parameters.end"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1514,7 +1511,7 @@ class colorPlaylistGenerated {
             "entity.name.type"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1523,7 +1520,7 @@ class colorPlaylistGenerated {
             "meta.embedded"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1531,7 +1528,7 @@ class colorPlaylistGenerated {
             "support.function"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1539,7 +1536,7 @@ class colorPlaylistGenerated {
             "storage.type"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1547,7 +1544,7 @@ class colorPlaylistGenerated {
             "storage.modifier"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1555,7 +1552,7 @@ class colorPlaylistGenerated {
             "variable"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1563,7 +1560,7 @@ class colorPlaylistGenerated {
             "variable.other.readwrite.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1572,7 +1569,7 @@ class colorPlaylistGenerated {
             "keyword.control"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1580,7 +1577,7 @@ class colorPlaylistGenerated {
             "variable.language"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1588,7 +1585,7 @@ class colorPlaylistGenerated {
             "variable"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1596,7 +1593,7 @@ class colorPlaylistGenerated {
             "keyword.operator"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1605,7 +1602,7 @@ class colorPlaylistGenerated {
             "keyword.operator"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1613,7 +1610,7 @@ class colorPlaylistGenerated {
             "support.class"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1622,7 +1619,7 @@ class colorPlaylistGenerated {
             "keyword"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1631,7 +1628,7 @@ class colorPlaylistGenerated {
             "comment"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.neutral.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.neutral.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1640,7 +1637,7 @@ class colorPlaylistGenerated {
             "punctuation.separator.key-value.html"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1649,7 +1646,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.tag"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1661,7 +1658,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.string.begin.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1671,7 +1668,7 @@ class colorPlaylistGenerated {
             "punctuation.support.type.property-name.end.json.comments"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1681,7 +1678,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.string.end.html"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1690,7 +1687,7 @@ class colorPlaylistGenerated {
             "source.sql.embedded.php"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1701,7 +1698,7 @@ class colorPlaylistGenerated {
             "punctuation.separator.dictionary.key-value.json.comments"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1713,7 +1710,7 @@ class colorPlaylistGenerated {
             "string.quoted.single.php"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1722,7 +1719,7 @@ class colorPlaylistGenerated {
             "string.quoted.other.backtick.sql"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1732,7 +1729,7 @@ class colorPlaylistGenerated {
             "entity.name.function.member"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1742,7 +1739,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.string.template.end.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1754,7 +1751,7 @@ class colorPlaylistGenerated {
             "string.template.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1763,7 +1760,7 @@ class colorPlaylistGenerated {
             "text.html.php"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1774,7 +1771,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.template-expression.begin.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1784,7 +1781,7 @@ class colorPlaylistGenerated {
             "punctuation.separator.dictionary.pair.json.comments"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1794,7 +1791,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.string.end.php"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1803,7 +1800,7 @@ class colorPlaylistGenerated {
             "punctuation.accessor.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1811,7 +1808,7 @@ class colorPlaylistGenerated {
             "punctuation.accessor.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1819,7 +1816,7 @@ class colorPlaylistGenerated {
             "support.type.property-name.json"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1827,7 +1824,7 @@ class colorPlaylistGenerated {
             "variable.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1835,7 +1832,7 @@ class colorPlaylistGenerated {
             "variable.argument.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1844,7 +1841,7 @@ class colorPlaylistGenerated {
             "support.constant.property-value"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1857,7 +1854,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.entity.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1866,7 +1863,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.string.end.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1874,7 +1871,7 @@ class colorPlaylistGenerated {
             "string.quoted.single.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1891,7 +1888,7 @@ class colorPlaylistGenerated {
             "keyword.other.unit.s.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1899,7 +1896,7 @@ class colorPlaylistGenerated {
             "constant.numeric.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.severe.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1908,7 +1905,7 @@ class colorPlaylistGenerated {
             "entity.other.attribute-name.class.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1916,7 +1913,7 @@ class colorPlaylistGenerated {
             "entity.name.tag.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1925,7 +1922,7 @@ class colorPlaylistGenerated {
             "entity.other.keyframe-offset.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1935,7 +1932,7 @@ class colorPlaylistGenerated {
             "entity.other.attribute-name.class.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1943,7 +1940,7 @@ class colorPlaylistGenerated {
             "entity.other.attribute-name.pseudo-element.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1952,7 +1949,7 @@ class colorPlaylistGenerated {
             "support.constant.media.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1962,7 +1959,7 @@ class colorPlaylistGenerated {
             "string.quoted.double.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1970,7 +1967,7 @@ class colorPlaylistGenerated {
             "entity.other.attribute-name.id.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1978,7 +1975,7 @@ class colorPlaylistGenerated {
             "support.function.transform.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
@@ -1986,36 +1983,36 @@ class colorPlaylistGenerated {
             "entity.other.keyframe-offset.percentage.css"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "token.info-token",
           "settings": {
-            "foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "token.warn-token",
           "settings": {
-            "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "token.error-token",
           "settings": {
-            "foreground": this._cO( `${ _c.danger.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.danger.emphasis }${ _x_[ 10 ] }` ),
           }
         },
         {
           "scope": "token.debug-token",
           "settings": {
-            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
+            "foreground": _cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         }
       ]
     }
   }
-}
 
-export default new colorPlaylistGenerated()._gT;
+
+export default _gT;

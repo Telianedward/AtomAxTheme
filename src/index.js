@@ -1,14 +1,14 @@
 import { promises as fs } from "fs"
 import _gT from "./theme.js"
-const l = _gT( { theme: "l", name: "Default Light+" } )
-const lHC = _gT( { theme: "lhc", name: "Default High Contrast Light" } )
-const lC = _gT( { theme: "lc", name: "Default Colorblind Light" } )
-const lT = _gT( { theme: "lt", name: "Default Light+ Tritanopia" } )
-const d = _gT( { theme: "d", name: "Default Dark+" } )
-const dD = _gT( { theme: "dd", name: "Default Dark+ Dimmed" } )
-const dHC = _gT( { theme: "dhc", name: "Default High Contrast" } )
-const dC = _gT( { theme: "dc", name: "Default Dark+ Colorblind" } )
-const dT = _gT( { theme: "dt", name: "Default Dark+ Tritanopia" } )
+const l = _gT( { theme: "l", name: "AtomAx Light+" } )
+const lHC = _gT( { theme: "lhc", name: "AtomAx High Contrast Light" } )
+const lC = _gT( { theme: "lc", name: "AtomAx Colorblind Light" } )
+const lT = _gT( { theme: "lt", name: "AtomAx Light+ Tritanopia" } )
+const d = _gT( { theme: "d", name: "AtomAx Dark+" } )
+const dD = _gT( { theme: "dd", name: "AtomAx Dark+ Dimmed" } )
+const dHC = _gT( { theme: "dhc", name: "AtomAx High Contrast" } )
+const dC = _gT( { theme: "dc", name: "AtomAx Dark+ Colorblind" } )
+const dT = _gT( { theme: "dt", name: "AtomAx Dark+ Tritanopia" } )
   fs.mkdir("./themes", { recursive: true })
     .then(() => Promise.all([
       fs.writeFile("./themes/my-light.json", JSON.stringify(l, null, 2)),
