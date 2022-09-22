@@ -136,7 +136,7 @@ class colorPlaylistGenerated {
     },
     u: (r, g, b) =>{
   //RGB Code validation/ conversion
-          const rgbToHex = function(arg) {
+          const rgb2Hex = function(arg) {
             let x = arg;
             //validate rgb values
             if (x < 0) {
@@ -155,12 +155,7 @@ class colorPlaylistGenerated {
             return hex;
           };
           
-          let red = rgbToHex(r);
-          let green = rgbToHex(g);
-          let blue = rgbToHex(b);
-
-          let hexColor = red + green + blue;
-          console.log(hexColor.toUpperCase())
+          return [`#${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
           return hexColor.toUpperCase();
     }
   }

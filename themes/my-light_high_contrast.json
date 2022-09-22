@@ -470,7 +470,7 @@
     "symbolIcon.propertyforeground": "#0e1116",
     "symbolIcon.referenceForeground": "#0e1116",
     "symbolIcon.snippetForeground": "#ee5a5d",
-    "symbolIcon.stringForeground": "#00033",
+    "symbolIcon.stringForeground": "ACB6C033",
     "symbolIcon.structForeground": "#368cf9",
     "symbolIcon.textForeground": "#26a148",
     "symbolIcon.typeParameterForeground": "#a0111f",
