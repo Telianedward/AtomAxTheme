@@ -39,8 +39,8 @@ class colorPlaylistGenerated {
 
   }
   hex = ( c ) => {
-    console.log( c, 'color' )
-    console.log( _ch( c ).hex(), 'this.hex' )
+    // console.log( c, 'color' )
+    // console.log( _ch( c ).hex(), 'this.hex' )
     return _ch( c ).hex;
   }
   hue2rgb_ = ( p, q, t ) => {
