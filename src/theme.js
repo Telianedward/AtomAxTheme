@@ -262,9 +262,9 @@ const  hex = ( c ) => {
  }
   const _gT = ( { theme, name} ) => {
       const themes = ( options ) => { options[theme]}
-      const color = _gC( themes )
+      color = _gC( themes )
       const _x_ = ["00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", ""]
-     
+
     return {
       name: name,
       color: {
