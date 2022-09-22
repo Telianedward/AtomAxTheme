@@ -168,7 +168,7 @@ class colorPlaylistGenerated{
                                       s = `${z[7]}${z[8]}`,
                                       a = this.hex2percent(t),
                                       c = this.hex2percent(a),
-                                      c = el[0] ,
+                                      
                                       d = i,
                                       f =( 100 - a ) + ( 100 - c ),
                                       g = (100  - f);
@@ -212,7 +212,7 @@ class colorPlaylistGenerated{
                                 s = `${z[7]}${z[8]}`,
                                 a = this.hex2percent(t),
                                 c = this.hex2percent(a),
-                                c = el[0] ,
+                                
                                 d = i,
                                 f =( 100 - a ) + ( 100 - c ),
                                 g = (100  - f);
@@ -236,7 +236,7 @@ class colorPlaylistGenerated{
                               s = `${z[7]}${z[8]}`,
                               a = this.hex2percent(t),
                               c = this.hex2percent(a),
-                              c = el[0] ,
+                              
                               d = i,
                               f =( 100 - a ) + ( 100 - c ),
                               g = (100  - f);
