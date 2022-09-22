@@ -136,7 +136,7 @@ class colorPlaylistGenerated {
     },
     u: (r, g, b) =>{
   //RGB Code validation/ conversion
-          const rgb2Hex = function(arg) {
+          const _rgb2Hex = function(arg) {
             let x = arg;
             //validate rgb values
             if (x < 0) {
@@ -153,10 +153,8 @@ class colorPlaylistGenerated {
             //return hexcode
             console.log(hex);
             return hex;
-          };
-          
-          return [`#${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
-          return hexColor.toUpperCase();
+          }
+          return `#${_rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`;
     }
   }
   percent2hex = ( p ) => {
