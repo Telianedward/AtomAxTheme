@@ -823,7 +823,7 @@
       }
     },
     {
-      "scope": "punctuation.definition.list.begin.markdown",
+      "scope": "punctuation.definition.list.end.markdown",
       "settings": {
         "foreground": "#b35900"
       }
@@ -1213,10 +1213,10 @@
     },
     {
       "scope": [
-        "punctuation.definition.string.end.json.comments",
         "punctuation.definition.string.begin.json.comments",
-        "punctuation.definition.string.end.js",
-        "punctuation.definition.string.begin.js"
+        "punctuation.definition.string.end.json.comments",
+        "punctuation.definition.string.begin.js",
+        "punctuation.definition.string.end.js"
       ],
       "settings": {
         "foreground": "#bf3989",
@@ -1241,7 +1241,7 @@
         "punctuation.definition.string.template.end.js"
       ],
       "settings": {
-        "foreground": "#218bff",
+        "foreground": "#8250df",
         "fontStyle": ""
       }
     },
@@ -1331,7 +1331,8 @@
       "scope": [
         "variable.other.constant",
         "variable.other.constant.object.js",
-        "punctuation.definition.template-expression.begin.js"
+        "punctuation.definition.template-expression.begin.js",
+        "punctuation.definition.template-expression.end.js"
       ],
       "settings": {
         "foreground": "#9a6700",

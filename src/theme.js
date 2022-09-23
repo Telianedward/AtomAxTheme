@@ -1218,6 +1218,7 @@ class colorPlaylistGenerated {
         },
         {
           "scope": "punctuation.definition.list.begin.markdown",
+          "scope": "punctuation.definition.list.end.markdown",
           "settings": {
             "foreground": this._cO( `${ _c.severe.emphasis }${ _x_[ 10 ] }` ),
           }
@@ -1607,10 +1608,10 @@ class colorPlaylistGenerated {
         },
         {
           "scope": [
-            "punctuation.definition.string.end.json.comments",
             "punctuation.definition.string.begin.json.comments",
-            "punctuation.definition.string.end.js",
-            "punctuation.definition.string.begin.js"
+            "punctuation.definition.string.end.json.comments",
+            "punctuation.definition.string.begin.js",
+            "punctuation.definition.string.end.js"
           ],
           "settings": {
             "foreground": this._cO( `${ _c.sponsors.fg }${ _x_[ 10 ] }` ),
@@ -1635,7 +1636,7 @@ class colorPlaylistGenerated {
             "punctuation.definition.string.template.end.js"
           ],
           "settings": {
-            "foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
+            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
             "fontStyle": ""
           }
         },
@@ -1725,7 +1726,8 @@ class colorPlaylistGenerated {
           "scope": [
             "variable.other.constant",
             "variable.other.constant.object.js",
-            "punctuation.definition.template-expression.begin.js"
+            "punctuation.definition.template-expression.begin.js",
+            "punctuation.definition.template-expression.end.js"
           ],
           "settings": {
             "foreground": this._cO( `${ _c.attention.fg }${ _x_[ 10 ] }` ),
