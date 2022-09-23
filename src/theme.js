@@ -38,11 +38,7 @@ const decimalAdjust = ( t, v, exp ) =>
 }
 class colorPlaylistGenerated
 {
-  constructor()
-  {
 
-   
-  }
 
   hue2rgb_ = ( p, q, t ) =>
   {
@@ -518,7 +514,7 @@ class colorPlaylistGenerated
         "editorIndentGuide.activeBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
         "editorIndentGuide.background": this._cO( `${ _c.fg.default }${ _x_[ 0 ] }` ),
         "editorInfo.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
-        "editorInfo.border": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
+        "editorInfo.border": this._cO( `${ _c.accent.fg }${ _x_[ 3 ] }` ),
         "editorInfo.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
         "editorInlayHint.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editorInlayHint.foreground": this._cO( `${ _c.fg.default }${ _x_[ 4 ] }` ),
