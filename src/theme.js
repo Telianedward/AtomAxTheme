@@ -40,10 +40,7 @@ class colorPlaylistGenerated
 {
   constructor()
   {
-    a1 = () =>
-    {
 
-    }
    
   }
 
