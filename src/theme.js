@@ -4,7 +4,8 @@ import _toRgb from "../node_modules/hsl-to-rgb-for-reals/converter.js";
 Math.round10 = ( v, exp ) => { return decimalAdjust( 'round', v, exp ) }
 Math.floor10 = ( v, exp ) => { return decimalAdjust( 'floor', v, exp ) }
 Math.ceil10 = ( v, exp ) => { return decimalAdjust( 'ceil', v, exp ) }
-const decimalAdjust = ( t, v, exp ) => {
+const decimalAdjust = ( t, v, exp ) =>
+{
   /**
    * examples:
    *  Math.round10(5.25, 0);  // 5
@@ -20,12 +21,14 @@ const decimalAdjust = ( t, v, exp ) => {
 * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
 * @returns {Number} The adjusted value.
 */
-  if ( typeof exp === 'undefined' || +exp === 0 ) {
+  if ( typeof exp === 'undefined' || +exp === 0 )
+  {
     return Math[ t ]( v );
   }
   v = +v;
   exp = +exp;
-  if ( isNaN( v ) || !( typeof exp === 'number' && exp % 1 === 0 ) ) {
+  if ( isNaN( v ) || !( typeof exp === 'number' && exp % 1 === 0 ) )
+  {
     return NaN;
   }
   v = v.toString().split( 'e' );
@@ -33,12 +36,19 @@ const decimalAdjust = ( t, v, exp ) => {
   v = v.toString().split( 'e' );
   return +( v[ 0 ] + 'e' + ( v[ 1 ] ? ( +v[ 1 ] + exp ) : exp ) );
 }
-class colorPlaylistGenerated {
-  constructor() {
-  
+class colorPlaylistGenerated
+{
+  constructor()
+  {
+    a1 = () =>
+    {
+
+    }
+   
   }
 
-  hue2rgb_ = ( p, q, t ) => {
+  hue2rgb_ = ( p, q, t ) =>
+  {
     if ( t < 0 ) t += 1;
     if ( t > 1 ) t -= 1;
     if ( t < 1 / 6 ) return p + ( q - p ) * 6 * t;
@@ -46,7 +56,8 @@ class colorPlaylistGenerated {
     if ( t < 2 / 3 ) return p + ( q - p ) * ( 2 / 3 - t ) * 6;
     return p;
   }
-  hslToRgb_ = ( h, s, l ) => {
+  hslToRgb_ = ( h, s, l ) =>
+  {
     let r,
       g,
       b,
@@ -66,29 +77,36 @@ class colorPlaylistGenerated {
     )
     return [ Math.round10( ( r * 255 ), 0 ), Math.round10( ( g * 255 ), 0 ), Math.round10( ( b * 255 ), 0 ) ]
   }
-  hsl_ = ( h, s, l ) => {
+  hsl_ = ( h, s, l ) =>
+  {
     let k = this.hslToRgb_( h, s, l )
     return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
   }
   _cl = {
-    c: ( c ) => {
+    c: ( c ) =>
+    {
       let h = c.toString( 16 );
       return h.length == 1 ? "0" + h : h;
     },
-    r: ( r, g, b ) => {
+    r: ( r, g, b ) =>
+    {
       return "#" + ( ( 1 << 24 ) + ( r << 16 ) + ( g << 8 ) + b ).toString( 16 ).slice( 1 );
     },
-    h: ( h ) => {
+    h: ( h ) =>
+    {
       h.replace( /^#?([a-f\d])([a-f\d])([a-f\d])$/i
         , ( m, r, g, b ) => '#' + r + r + g + g + b + b )
         .substring( 1 ).match( /.{2}/g )
         .map( x => parseInt( x, 16 ) )
     },
-    j: ( h ) => {
+    j: ( h ) =>
+    {
       let c;
-      if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test( h ) ) {
+      if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test( h ) )
+      {
         c = h.substring( 1 ).split( '' );
-        if ( c.length == 3 ) {
+        if ( c.length == 3 )
+        {
           c = [ c[ 0 ], c[ 0 ], c[ 1 ], c[ 1 ], c[ 2 ], c[ 2 ] ];
         }
         c = '0x' + c.join( '' );
@@ -96,58 +114,71 @@ class colorPlaylistGenerated {
       }
       throw new Error( 'Bad Hex' );
     },
-    h: ( c ) => {
-      let hex = c.toString(16);
+    h: ( c ) =>
+    {
+      let hex = c.toString( 16 );
       return hex.length == 1 ? "0" + hex : hex;
     },
-    g: ( r, g, b ) => {
+    g: ( r, g, b ) =>
+    {
       return "#" + this._cl.h( r ) + this._cl.h( g ) + this._cl.h( b );
     },
-    k: ( r, g, b ) => {
-      return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    k: ( r, g, b ) =>
+    {
+      return "#" + ( ( 1 << 24 ) + ( r << 16 ) + ( g << 8 ) + b ).toString( 16 ).slice( 1 );
     },
-    m :   (r, g, b)   => {
-     
-        //RGB Code validation/ conversion
-        const _rgb2Hex = function(arg) {
-          let x = arg;
-          x = x < 0?'0':(x > 255)?255:'0'
-          let hex = Number(x).toString(16);
-          hex.length < 2?`0${hex}`:'ff'
-          return hex;
-        };
-    
-        return [`#${ _rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`];
+    m: ( r, g, b ) =>
+    {
+
+      //RGB Code validation/ conversion
+      const _rgb2Hex = function ( arg )
+      {
+        let x = arg;
+        x = x < 0 ? '0' : ( x > 255 ) ? 255 : '0'
+        let hex = Number( x ).toString( 16 );
+        hex.length < 2 ? `0${ hex }` : 'ff'
+        return hex;
+      };
+
+      return [ `#${ _rgb2Hex( r ) }${ _rgb2Hex( g ) }${ _rgb2Hex( b ) }` ];
 
     },
-    u: (r, g, b) =>{
-  //RGB Code validation/ conversion
-          const _rgb2Hex = function(arg) {
-            let x = arg;
+    u: ( r, g, b ) =>
+    {
+      //RGB Code validation/ conversion
+      const _rgb2Hex = function ( arg )
+      {
+        let x = arg;
 
-            if (x < 0) {
-              x = 0;
-            }else if(x > 255) {
-              x = 255;
-            }
-            let hex = Number(x).toString(16);
-            if (hex.length < 2) {
-              hex = "0" + hex;
-            }
-            return hex;
-          }
-          return `#${_rgb2Hex(r)}${_rgb2Hex(g)}${_rgb2Hex(b)}`;
+        if ( x < 0 )
+        {
+          x = 0;
+        } else if ( x > 255 )
+        {
+          x = 255;
+        }
+        let hex = Number( x ).toString( 16 );
+        if ( hex.length < 2 )
+        {
+          hex = "0" + hex;
+        }
+        return hex;
+      }
+      return `#${ _rgb2Hex( r ) }${ _rgb2Hex( g ) }${ _rgb2Hex( b ) }`;
     }
   }
-  percent2hex = ( p ) => {
+  percent2hex = ( p ) =>
+  {
     // для ввода % ( процентов  от  0 - 100) в таблице прозрачности 
     return ( Math.round( p / 100 * 255 ) + 0x10000 ).toString( 16 ).substr( -2 )
   }
-  hex2percent = ( p ) => {
+  hex2percent = ( p ) =>
+  {
     // для ввода окончания прозрачности (узнать на сколько  процентов цвет становиться прозрачным)
     return Math.round( parseInt( `0x${ p }` / 255 * 100 ) )
   }
-  _cO = ( x ) => {
+  _cO = ( x ) =>
+  {
     let a,
       b,
       c,
@@ -168,63 +199,79 @@ class colorPlaylistGenerated {
       s
     j = /\(([^)]+)\)/gm;
     h = [];
-    if ( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test( x ) ) {
-      if ( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
-        while ( ( m = j.exec( x ) ) !== null ) {
+    if ( /(rgb)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test( x ) )
+    {
+      if ( /^(rgb)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) )
+      {
+        while ( ( m = j.exec( x ) ) !== null )
+        {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
         return this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
-      } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
-        while ( ( m = j.exec( x ) ) !== null ) {
+      } else if ( /^(rgba)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) )
+      {
+        while ( ( m = j.exec( x ) ) !== null )
+        {
           h.push( m[ 1 ] );
         }
         k = h[ 0 ].split( ',' )
         v = this._cl.u( k[ 0 ], k[ 1 ], k[ 2 ] )
-        if ( k[ 3 ].length == 0 ) {
+        if ( k[ 3 ].length == 0 )
+        {
           return v
         }
         i = k[ 3 ]
         p = i * 100
         o = Math.round10( p, 0 )
         z = `${ v }${ this.percent2hex( o ) }`
-        if ( z.length == 11 ) {
-            t = `${ z[ 9 ] }${ z[ 10 ] }`,
+        if ( z.length == 11 )
+        {
+          t = `${ z[ 9 ] }${ z[ 10 ] }`,
             s = `${ z[ 7 ] }${ z[ 8 ] }`,
             a = this.hex2percent( t ),
             c = this.hex2percent( a ),
             d = i,
             f = ( 100 - a ) + ( 100 - c ),
             g = ( 100 - f );
-          if ( g <= 0 ) {
+          if ( g <= 0 )
+          {
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
-          } else {
+          } else
+          {
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
           }
         }
         return z
       }
-    } else if ( /(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test( x ) ) {
-          if ( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
-            while ( ( m = j.exec( x ) ) !== null ) {
-              h.push( m[ 1 ] );
-            }
-            k = h[ 0 ].split( ',' )
-            return this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
-          } else if ( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) ) {
-            while ( ( m = j.exec( x ) ) !== null ) {
-              h.push( m[ 1 ] );
-            }
-            k = h[ 0 ].split( ',' )
-            v = this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
-            if ( k[ 3 ].length == 0 ) {
+    } else if ( /(hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)/gm.test( x ) )
+    {
+      if ( /^(hsl)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) )
+      {
+        while ( ( m = j.exec( x ) ) !== null )
+        {
+          h.push( m[ 1 ] );
+        }
+        k = h[ 0 ].split( ',' )
+        return this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
+      } else if ( /^(hsla)\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/gm.test( x ) )
+      {
+        while ( ( m = j.exec( x ) ) !== null )
+        {
+          h.push( m[ 1 ] );
+        }
+        k = h[ 0 ].split( ',' )
+        v = this.hsl_( k[ 0 ], k[ 1 ], k[ 2 ] )
+        if ( k[ 3 ].length == 0 )
+        {
           return v
         }
         i = k[ 3 ]
         p = i * 100
         o = Math.round10( p, 0 )
         z = `${ v }${ this.percent2hex( o ) }`
-        if ( z.length == 11 ) {
+        if ( z.length == 11 )
+        {
           t = `${ z[ 9 ] }${ z[ 10 ] }`,
             s = `${ z[ 7 ] }${ z[ 8 ] }`,
             a = this.hex2percent( t ),
@@ -233,18 +280,23 @@ class colorPlaylistGenerated {
             d = i,
             f = ( 100 - a ) + ( 100 - c ),
             g = ( 100 - f );
-          if ( g <= 0 ) {
+          if ( g <= 0 )
+          {
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
-          } else {
+          } else
+          {
             return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
           }
         }
         return z
       }
-    } else {
-      if ( x.length <= 9 ) {
+    } else
+    {
+      if ( x.length <= 9 )
+      {
         return x
-      } else if ( x.length == 11 ) {
+      } else if ( x.length == 11 )
+      {
         t = `${ z[ 9 ] }${ z[ 10 ] }`,
           s = `${ z[ 7 ] }${ z[ 8 ] }`,
           a = this.hex2percent( t ),
@@ -252,20 +304,23 @@ class colorPlaylistGenerated {
           d = i,
           f = ( 100 - a ) + ( 100 - c ),
           g = ( 100 - f );
-        if ( g <= 0 ) {
+        if ( g <= 0 )
+        {
           return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }1a`
-        } else {
+        } else
+        {
           return `#${ z[ 1 ] }${ z[ 2 ] }${ z[ 3 ] }${ z[ 4 ] }${ z[ 5 ] }${ z[ 6 ] }${ this.percent2hex( g ) }`
         }
       }
     }
   }
-  _gT = ( { theme, name } ) => {
+  _gT = ( { theme, name } ) =>
+  {
     const themes = ( options ) => { options[ theme ] }
     const _c = _gC( theme )
-    const  _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ]
-     
-      console.log(_c,"colors")
+    const _x_ = [ "00", "a1", "33", "4d", "66", "80", "99", "b3", "cd", "e6", "" ]
+
+    console.log( _c, "colors" )
     return {
       name: name,
       colors: {
@@ -453,7 +508,7 @@ class colorPlaylistGenerated {
         "editorGutter.addedBackground": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
         "editorGutter.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editorGutter.commentRangeforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "editorGutter.deletedBackground": this._cO( `${ _c.danger.fg }${ _x_[5 ] }` ),
+        "editorGutter.deletedBackground": this._cO( `${ _c.danger.fg }${ _x_[ 5 ] }` ),
         "editorGutter.foldingControlforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
         "editorGutter.modifiedBackground": this._cO( `${ _c.success.fg }${ _x_[ 10 ] }` ),
         "editorHint.border": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
@@ -465,7 +520,7 @@ class colorPlaylistGenerated {
         "editorHoverWidget.statusBarBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
         "editorIndentGuide.activeBackground": this._cO( `${ _c.danger.muted }${ _x_[ 9 ] }` ),
         "editorIndentGuide.background": this._cO( `${ _c.fg.default }${ _x_[ 0 ] }` ),
-        "editorInfo.background": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
+        "editorInfo.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "editorInfo.border": this._cO( `${ _c.accent.fg }${ _x_[ 5 ] }` ),
         "editorInfo.foreground": this._cO( `${ _c.accent.fg }${ _x_[ 10 ] }` ),
         "editorInlayHint.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
@@ -565,7 +620,7 @@ class colorPlaylistGenerated {
         "inputOption.activeBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "inputOption.activeBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "inputOption.activeForeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
-        "inputOption.hoverBackground": this._cO( `${ _c.fg.default }${ _x_[ 3] }` ),
+        "inputOption.hoverBackground": this._cO( `${ _c.fg.default }${ _x_[ 3 ] }` ),
         "inputValidation.errorBackground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
         "inputValidation.errorBorder": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
         "inputValidation.errorForeground": this._cO( `${ _c.danger.muted }${ _x_[ 5 ] }` ),
@@ -581,8 +636,8 @@ class colorPlaylistGenerated {
         "keybindingLabel.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "keybindingLabel.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
 
-        "keybindingTable.headerBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2] }` ),
-        "keybindingTable.rowsBackground":  this._cO( `${ _c.border.muted }${ _x_[ 3 ] }` ),
+        "keybindingTable.headerBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
+        "keybindingTable.rowsBackground": this._cO( `${ _c.border.muted }${ _x_[ 3 ] }` ),
 
         "list.activeSelectionBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
         "list.activeSelectionforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
@@ -740,7 +795,7 @@ class colorPlaylistGenerated {
         "sideBar.foreground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
         "sideBarSectionHeader.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "sideBarSectionHeader.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "sideBarSectionHeader.foreground": this._cO( `${ _c.fg.default }${ _x_[ 7] }` ),
+        "sideBarSectionHeader.foreground": this._cO( `${ _c.fg.default }${ _x_[ 7 ] }` ),
         "sideBarTitle.foreground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
 
         "sideBySideEditor.horizontalBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
@@ -805,7 +860,7 @@ class colorPlaylistGenerated {
         "symbolIcon.unitForeground": this._cO( `${ _c.done.muted }${ _x_[ 10 ] }` ),
         "symbolIcon.variableForeground": this._cO( `${ _c.sponsors.muted }${ _x_[ 10 ] }` ),
 
-        "tab.activeBackground":  this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
+        "tab.activeBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "tab.activeBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "tab.activeBorderTop": this._cO( `${ _c.success.emphasis }${ _x_[ 10 ] }` ),
         "tab.activeForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
@@ -830,8 +885,8 @@ class colorPlaylistGenerated {
         "tab.unfocusedInactiveForeground": this._cO( `${ _c.fg.muted }${ _x_[ 5 ] }` ),
         "tab.unfocusedInactiveModifiedBorder": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
 
-        "terminal.foreground": this._cO( `${ _c.fg.muted }${ _x_[ 3 ] }` ),
-        'terminal.ansiBlack': this._cO( `${ _c.ansi.black }${ _x_[ 10 ] }` ),
+        "termnal.foreground": this._cO( `${ _c.fg.muted }${ _x_[ 3 ] }` ),
+        'terminal.ansiBlack': this._cO( `${ _c.ansi.black }${ _x_[ 9 ] }` ),
         'terminal.ansiRed': this._cO( `${ _c.ansi.red }${ _x_[ 10 ] }` ),
         'terminal.ansiGreen': this._cO( `${ _c.ansi.green }${ _x_[ 10 ] }` ),
         'terminal.ansiYellow': this._cO( `${ _c.ansi.yellow }${ _x_[ 10 ] }` ),
@@ -978,7 +1033,7 @@ class colorPlaylistGenerated {
         "settings.focusedRowBackground": this._cO( `${ _c.success.emphasis }${ _x_[ 2 ] }` ),
         "settings.focusedRowBorder": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
         "settings.headerBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "settings.headerForeground":  this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
+        "settings.headerForeground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "settings.modifiedItemIndicator": this._cO( `${ _c.danger.muted }${ _x_[ 10 ] }` ),
         "settings.numberInputBackground": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "settings.numberInputBorder": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),

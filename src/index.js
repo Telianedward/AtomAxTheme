@@ -14,7 +14,7 @@ const dT = _gT( { theme: "dt", name: "AtomAx Dark+ Tritanopia" } )
       fs.writeFile("./themes/my-light.json", JSON.stringify(l, null, 2)),
       fs.writeFile("./themes/my-light_high_contrast.json", JSON.stringify(lHC, null, 2)),
       fs.writeFile("./themes/my-light_colorblind.json", JSON.stringify(lC , null, 2)),
-      fs.writeFile("./themes/my-light_tritanopia.json", JSON.stringify(lT , null, 2)),
+      fs.writeFile("./themes/my-light_tritanopia.json", JSON.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stringify(lT , null, 2)),
       fs.writeFile("./themes/my-dark.json", JSON.stringify(d, null, 2)),
       fs.writeFile("./themes/my-dark_dimmed.json", JSON.stringify(dD, null, 2)),
       fs.writeFile("./themes/my-dark_high_contrast.json", JSON.stringify(dHC, null, 2)),
