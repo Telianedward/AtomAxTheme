@@ -419,7 +419,7 @@ class colorPlaylistGenerated
 
         "dropdown.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
         "dropdown.border": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
-        "dropdown.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "dropdown.foreground": this._cO( `${ _c.success.emphasis }${ _x_[ 5 ] }` ),
         "dropdown.listBackground": this._cO( `${ _c.border.muted }${ _x_[ 10 ] }` ),
 
         "editor.background": this._cO( `${ _c.canvas.inset }${ _x_[ 10 ] }` ),
@@ -608,7 +608,7 @@ class colorPlaylistGenerated
         "gitDecoration.submoduleResourceForeground": this._cO( `${ _c.fg.muted }${ _x_[ 10 ] }` ),
         "gitDecoration.untrackedResourceforeground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
 
-        "icon.foreground": this._cO( `${ _c.fg.default }${ _x_[ 10 ] }` ),
+        "icon.foreground": this._cO( `${ _c.fg.default }${ _x_[ 5 ] }` ),
 
         "input.background": this._cO( `${ _c.success.emphasis }${ _x_[ 3 ] }` ),
         "input.border": this._cO( `${ _c.success.emphasis }${ _x_[ 4 ] }` ),
