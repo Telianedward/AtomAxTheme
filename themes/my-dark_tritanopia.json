@@ -1572,6 +1572,12 @@
       }
     },
     {
+      "scope": "variable.other.global.php",
+      "settings": {
+        "foreground": "#a371f7"
+      }
+    },
+    {
       "scope": "token.debug-token",
       "settings": {
         "foreground": "#a371f7"

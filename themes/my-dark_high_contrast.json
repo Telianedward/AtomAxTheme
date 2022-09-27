@@ -1612,6 +1612,12 @@
       }
     },
     {
+      "scope": "variable.other.global.php",
+      "settings": {
+        "foreground": "#b780ff"
+      }
+    },
+    {
       "scope": "token.debug-token",
       "settings": {
         "foreground": "#b780ff"

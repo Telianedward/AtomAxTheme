@@ -122,8 +122,8 @@ class colorPlaylistGenerated
     },
     m: ( r, g, b ) =>
     {
-
-      //RGB Code validation/ conversion
+      
+        //RGB Code validation/ conversion
       const _rgb2Hex = function ( arg )
       {
         let x = arg;
@@ -2009,6 +2009,12 @@ class colorPlaylistGenerated
           "scope": "token.error-token",
           "settings": {
             "foreground": this._cO( `${ _c.danger.emphasis }${ _x_[ 10 ] }` ),
+          }
+        },
+        {
+          "scope": "variable.other.global.php",
+          "settings": {
+            "foreground": this._cO( `${ _c.done.fg }${ _x_[ 10 ] }` ),
           }
         },
         {
